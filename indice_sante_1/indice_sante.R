@@ -130,6 +130,10 @@ data_index <- data.frame(data)
 
 ##Now we create the health index by wave
 
+#For the percentage of explained variance
+
+Variance = data.frame(matrix(nrow = 0, ncol = 4))
+
 for (i in (1:14)){
   #Selection of the necessary part of the dataframe to create the index
   list_var <- c(c(VAR_indice[,paste("health_var_",as.character(i),sep="")]),"HHIDPN",paste("INW",as.character(i),sep=""))
@@ -159,7 +163,15 @@ for (i in (1:14)){
   #Adding the index column to the data frame
   data_temp_index <- select(data_temp,c("HHIDPN",paste("index_w",as.character(i),sep="")))
   data_index <- merge(x=data_index, y=data_temp_index, by="HHIDPN", all.x=TRUE)
+  #DataSet with the percentage of explained variance per wave
+  Variance <- rbind(Variance,c(i,c(FAMD$eig)))
 }
+
+#Print the dataset of explained variance
+names(Variance) <- c("wave","eigenvalue","variance.percent","cumulative.variance.percent")
+print(Variance)
+library("writexl")
+write_xlsx(Variance,"Explained_variance.xlsx")
 
 #Exportation to csv
 write.csv(data_index,"data_health_index.csv", row.names=FALSE)
