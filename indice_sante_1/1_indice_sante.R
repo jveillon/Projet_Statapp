@@ -45,10 +45,10 @@ data <- select(merged_all, setdiff(columns_names,columns_begin_s))
 
 #Selection of interesting variables for the index (same for every wave)
 
-var_temp_cat <- c("HOMCAR","HIBPQ","DIABQ","CANCRQ",
-                  "LUNGQ","HEARTQ","STROKQ","PSYCHQ","ARTHRQ","BACK","DRINK",
-                  "SMOKEV","SMOKEN","STATUS","PSTMEM","SLFMEM")
-var_temp_quant <- c("HSPTIM","HSPNIT","NRSTIM","NRSNIT","DOCTIM","BMI")
+var_temp_cat <- c("HOMCAR","HIBP","DIAB","CANCR",
+                  "LUNG","HEART","STROK","PSYCH","ARTHR","BACK","DRINK",
+                  "SMOKEN","STATUS","SLFMEM")
+var_temp_quant <- c("HSPTIM","NRSTIM","DOCTIM","BMI")
 
 #We create a column to know if the varaible is categorial or quatitative
 CAT_CONT <- c( rep(c("cat"),each = length(var_temp_cat)), rep(c("cont"),each = length(var_temp_quant)))
@@ -172,6 +172,7 @@ names(Variance) <- c("wave","eigenvalue","variance.percent","cumulative.variance
 print(Variance)
 library("writexl")
 write_xlsx(Variance,"Explained_variance.xlsx")
+
 
 #Exportation to csv
 write.csv(data_index,"data_health_index.csv", row.names=FALSE)
