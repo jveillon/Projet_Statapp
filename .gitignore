@@ -4,4 +4,4 @@
 .Ruserdata
 .RDataTmp
 .RDataTmp1
-.csv
+*.csv
