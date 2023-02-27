@@ -5,3 +5,4 @@
 .RDataTmp
 .RDataTmp1
 *.csv
+.ipynb_checkpoints
