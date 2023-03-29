@@ -30,7 +30,7 @@ for(i in (1:14)){
 #Deleting the duplicates#
 var_s <- var[!duplicated(var)]
 
-#We only have few spouses who are not in HHIDPN, so we delete them
+#We only have few spouses who are not in HHIDPN (1382), so we delete them
 
 columns_names <- c(names(merged_all))
 columns_begin_s <- tapply(columns_names,substr(columns_names,1,1),identity)$S
