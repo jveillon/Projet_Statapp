@@ -24,10 +24,10 @@ data <- subset(data, data$HHIDPN != 32570030)
 
 #Selection of interesting variables for the index (same for every wave)
 
-var_temp_cat <- c("HOMCAR","HIBP","DIAB","CANCR",
-                  "LUNG","HEART","STROK","PSYCH","ARTHR","BACK","DRINK",
+var_temp_cat <- c("HOMCAR","HIBP","DIAB",
+                  "HEART","STROK","PSYCH","DRINK",
                   "SMOKEN","STATUS","SLFMEM")
-var_temp_quant <- c("HSPTIM","NRSTIM","DOCTIM","BMI","AGEY_B")
+var_temp_quant <- c("HSPTIM","NRSTIM","BMI","AGEY_B")
 
 #We create a column to know if the varaible is categorial or quatitative
 CAT_CONT <- c( rep(c("cat"),each = length(var_temp_cat)), rep(c("cont"),each = length(var_temp_quant)))
@@ -54,11 +54,6 @@ for (i in (2:14)){
 }
 VAR_indice <- rbind(VAR_indice,var_temp_add)
 
-var_temp_add <- c("cat","R1EFFORX")
-for (i in (2:14)){
-  var_temp_add <- c(var_temp_add,paste("R",as.character(i),"EFFORT",sep=""))
-}
-VAR_indice <- rbind(VAR_indice,var_temp_add)
 
 var_temp_add <- c("cat","R1SLEEPX")
 for (i in (2:14)){
@@ -66,11 +61,6 @@ for (i in (2:14)){
 }
 VAR_indice <- rbind(VAR_indice,var_temp_add)
 
-var_temp_add <- c("cat","R1WHAPPX")
-for (i in (2:14)){
-  var_temp_add <- c(var_temp_add,paste("R",as.character(i),"WHAPPY",sep=""))
-}
-VAR_indice <- rbind(VAR_indice,var_temp_add)
 
 var_temp_add <- c("cat","R1FLONEX")
 for (i in (2:14)){
@@ -78,23 +68,8 @@ for (i in (2:14)){
 }
 VAR_indice <- rbind(VAR_indice,var_temp_add)
 
-var_temp_add <- c("cat","R1FSADX")
-for (i in (2:14)){
-  var_temp_add <- c(var_temp_add,paste("R",as.character(i),"FSAD",sep=""))
-}
-VAR_indice <- rbind(VAR_indice,var_temp_add)
 
-var_temp_add <- c("cat","R1GOINGX")
-for (i in (2:14)){
-  var_temp_add <- c(var_temp_add,paste("R",as.character(i),"GOING",sep=""))
-}
-VAR_indice <- rbind(VAR_indice,var_temp_add)
 
-var_temp_add <- c("cat","R1ENLIFX")
-for (i in (2:14)){
-  var_temp_add <- c(var_temp_add,paste("R",as.character(i),"ENLIFE",sep=""))
-}
-VAR_indice <- rbind(VAR_indice,var_temp_add)
 
 #We also add the variables about physical activity
 var_temp_add <- c("cat")
@@ -150,8 +125,8 @@ data_temp <- complete(missing,2)
 FAMD <- FAMD (data_temp, ncp = 1, sup.var = NULL, ind = NULL, graph = FALSE)
 raw_index <- FAMD$ind$coord
 
-#Standardization of the index 
-data_index["index"] <- (raw_index - mean(raw_index)) / sd(raw_index)
+#Standardization of the index, we also take the opposite since, here we have a index of bad-health
+data_index["index"] <- -(raw_index - mean(raw_index)) / sd(raw_index)
 
 #We create new columns for the health index
 data_inw <-  data.frame(data$HHIDPN)
@@ -167,4 +142,18 @@ for (j in data_inw$HHIDPN){
 
 final_data <- merge (x=data , y=data_inw , by="HHIDPN" , all=TRUE)
 
+age_ <- (18:109)
+data_age <- data.frame(age_)
+
+for (i in (1:length(data_age$age))){
+  data_age$index[i] <- mean(data_index$index[data_index$AGEY_B ==data_age$age[i]])
+}
+
+write.csv(data_inw,"data_only_health_index_2.csv", row.names=FALSE)
+write.csv(data_index,"data_only_index_2.csv", row.names=FALSE)
 write.csv(final_data,"data_health_index_2.csv", row.names=FALSE)
+
+coord <- data.frame(FAMD$var$coord)
+
+write.csv(coord,"coord.csv", row.names=FALSE)
+
