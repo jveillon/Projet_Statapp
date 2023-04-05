@@ -154,7 +154,7 @@ class HMLasso():
     min_eigenvalue = min(eigenvalues)
     if min_eigenvalue < 0:
       print(f"[Warning] Sigma_opt is not PSD, its minimum eigenvalue is {min_eigenvalue}. Error handled by adding {-min_eigenvalue} to each eigenvalue.")
-      self.Sigma_opt = self.Sigma_opt - min_eigenvalue* np.eye(self.p, self.p)
+      self.Sigma_opt = self.Sigma_opt - min_eigenvalue * np.eye(self.p, self.p)
     
     self.beta_opt = self.__solve_second_problem__()
 
@@ -281,3 +281,5 @@ if __name__ == "__main__":
   X_test, y_test = get_Xy(10000, 300, replace_rate=0.)
   print(f"error = {np.sqrt(mean_squared_error(y_test, lasso.predict(X_test)))}\n")
   print(lasso.beta_opt)
+
+lasso.beta_opt.round(2)
