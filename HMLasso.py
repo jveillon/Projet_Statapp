@@ -258,8 +258,6 @@ class HMLasso():
 
 """## Test"""
 
-help(HMLasso)
-
 def get_Xy(n, p, replace_rate=0.3):
   X = 100*np.random.rand(n,p) # Generate random X
   y = 7*X[:, 0] - 2 * X[:, 1] + 5 * X[:, 2] + 19 * X[:, 3] + 6*X[:, 4]
@@ -280,5 +278,3 @@ if __name__ == "__main__":
   X_test, y_test = get_Xy(10000, 300, replace_rate=0.)
   print(f"error = {np.sqrt(mean_squared_error(y_test, lasso.predict(X_test)))}\n")
   print(lasso.beta_opt)
-
-lasso.beta_opt.round(2)
