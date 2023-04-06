@@ -185,7 +185,6 @@ class HMLasso():
       print("[Imputing parameters] rho_pair calculated.")
 
     S_pair = np.divide(np.dot(Z.T, Z), R)
-    
     if self.verbose > 1:
       print("[Imputing parameters] S_pair calculated.")
 
