@@ -51,3 +51,11 @@ APCI <- apci(outcome = "HEALTH_INDEX",age ="AGE_CAT", period = "WAVE",
              cohort = NULL, weight = NULL, covariate = NULL,
              data =data_APC, family ="gaussian",
              dev.test = FALSE, print = TRUE)
+
+# deviance test
+
+deviance_globale <- data.frame(anova(glm(HEALTH_INDEX~AGE_CAT*WAVE, 
+                                         family="gaussian", data=data_APC), test ="F"))
+names(deviance_globale) <- c("DL", "Déviance","DL résid", "Déviance résid",
+                             "Stat F","p-valeur") 
+print(deviance_globale)

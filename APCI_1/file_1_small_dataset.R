@@ -4,7 +4,7 @@
 library(readr)
 library(dplyr)
 
-Data <- read_csv("data_health_index.csv")
+Data <- read_csv("data_health_index_2.csv")
 
 index <- c()
 INW <- c()
