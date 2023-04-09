@@ -1,0 +1,8 @@
+We tried here to perform an Age-Period-Cohort analysis to evaluate the importance of age, period and cohort effects in the time evolution of the health index.
+
+We used the method developed by Liying Luo and James S. Hodges.
+
+All the information we obtained is contained in the data frames "results_Deviance_test", "results_Age_effect", "results_Period_effect", "results_Cohort_effect".
+
+We didn't get any significant effect on the time evolution of the index. That might be due to the construction of the index.
+
