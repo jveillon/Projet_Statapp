@@ -165,6 +165,6 @@ names(Variance) <- c("eigenvalue","variance.percent","cumulative.variance.percen
 coord <- data.frame(FAMD$var$coord)
 
 library("writexl")
-write_xlsx(Variance,"Explained_variance.xlsx")
-write_xlsx(coord,"variables_coordinates.xlsx")
+write_xlsx(Variance,"results_Explained_variance.xlsx")
+write_xlsx(coord,"results_variables_coordinates.xlsx")
 
