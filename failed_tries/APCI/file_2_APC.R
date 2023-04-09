@@ -6,7 +6,7 @@ library(tidyr)
 library(APCI)
 library(tidyverse)
 
-data <- read_csv("small_data_APC.csv")
+data <- read_csv("data_small_data_APC.csv")
 
 
 #Delete the one individual who have NA values for the age variables
@@ -70,7 +70,7 @@ names(deviance_globale) <- c("DL", "Déviance","DL résid", "Déviance résid",
 print(deviance_globale)
 
 library("writexl")
-write_xlsx(deviance_globale,"data_Deviance_test.xlsx")
+write_xlsx(deviance_globale,"results_Deviance_test.xlsx")
 
 # Age effect
 
@@ -89,7 +89,7 @@ age_effect$Sig[age_effect$Sig =="***"] <- "<0.001"
 age_effect["Libelle"] <- c("-29", "30-39","40-49","50-59","60-69","70-79","80-89","90-")
 
 print(age_effect)
-write_xlsx(age_effect,"data_age_effect.xlsx")
+write_xlsx(age_effect,"results_age_effect.xlsx")
 
 # Period effect
 
@@ -106,7 +106,7 @@ period_effect$Sig[period_effect$Sig =="** "] <- "<0.01"
 period_effect$Sig[period_effect$Sig =="***"] <- "<0.001"
 
 print(period_effect)
-write_xlsx(period_effect,"data_period_effect.xlsx")
+write_xlsx(period_effect,"results_period_effect.xlsx")
 
 # Cohort effect
 
@@ -125,4 +125,4 @@ cohort_average$Sig[cohort_average$Sig =="** "] <- "<0.01"
 cohort_average$Sig[cohort_average$Sig =="***"] <- "<0.001"
 
 print(cohort_average)
-write_xlsx(cohort_average,"data_cohort_effect.xlsx")
+write_xlsx(cohort_average,"results_cohort_effect.xlsx")

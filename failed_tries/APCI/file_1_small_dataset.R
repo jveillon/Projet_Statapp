@@ -20,4 +20,4 @@ for (i in (1:14)){
 small_data <- select(Data, c("HHIDPN",INW,age,index))
 
 #Write the smallest dataset to csv
-write.csv(small_data,"small_data_APC.csv", row.names=FALSE)
+write.csv(small_data,"data_small_data_APC.csv", row.names=FALSE)
