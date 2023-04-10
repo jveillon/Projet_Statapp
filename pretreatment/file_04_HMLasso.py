@@ -24,6 +24,8 @@ from sklearn.metrics import mean_squared_error
 
 """## HMLasso"""
 
+ERRORS_HANDLING = "raise"
+
 class HMLasso():
   """
   Lasso regularization that performs well with high missing rate.
@@ -42,6 +44,20 @@ class HMLasso():
   See sklearn.metrics.mean_squared_error or like for useful metrics.
 
   ------------
+  Common error: During the fitting HMLasso.fit(X, y), errors such as
+  'ArpackNoConvergence: ARPACK error -1: No convergence' may occur. It comes 
+  from the fact that the underlying solver used did not successfully assess
+  the positive-semidefiniteness of the inner variable Sigma_opt. If you are 
+  sure that Sigma_opt is PSD (which is likely to be the case in normal uses of 
+  the estimator), you can add the two following lines:
+  "
+  from file_04_HMLasso import ERRORS_HANDLING
+  ERRORS_HANDLING = 'ignore'
+  "
+  If the problem persists, then maybe praying god is the only remaining thing
+  you can do.
+
+  ------------
   Parameters:
       mu : float/int, default=1.0: the hyperparameter that control how
       parcimonious the model shall be. The larger mu is, the greater the
@@ -57,13 +73,12 @@ class HMLasso():
       performances. alpha must be positive.
       See source article for more.
 
-      verbose : float/int, default=1: control how much verbose
-      is displayed. Encoded values are 0, 1 and 2. If verbose > 2, there
-      will be no difference with verbose=2 display.
+      verbose : bool, default=False: control whether the verbose is dispayed.
+      Set verbose = True for it to be printed.
   
   ------------
   Methods:
-      fit(self, X, y):
+      fit(self, X, y, errors="ignore"):
         Fit the HMLasso on (X, y)
         X, the features, must be a mean-centered numpy array of shape (n, p)
         y, the labels, must be a vector of shape (n, 1) or (n,)
@@ -82,11 +97,13 @@ class HMLasso():
 
   """
 
-  def __init__(self, mu=1, alpha=1, verbose=1):
+  global ERRORS_HANDLING
 
-    assert type(mu) is int or type(mu) is float, "mu must be a number."
-    assert type(alpha) is int or type(alpha) is float, "alpha must be a number."
-    assert type(verbose) is int, "verbose must be an integer."
+  def __init__(self, mu=1, alpha=1, verbose=False):
+
+    assert isinstance(mu, (int, float)), "mu must be a number."
+    assert isinstance(alpha, (int, float)), "alpha must be a number."
+    assert isinstance(verbose, bool), "verbose must be a boolean."
     assert mu >= 0, "mu must be a positive number."
     assert alpha >= 0, "alpha must be a positive number."
 
@@ -156,11 +173,18 @@ class HMLasso():
       print(f"[Warning] Sigma_opt is not PSD, its minimum eigenvalue is {min_eigenvalue}. Error handled by adding {-min_eigenvalue} to each eigenvalue.")
       self.Sigma_opt = self.Sigma_opt - min_eigenvalue * np.eye(self.p, self.p)
     
+    # Sigma_opt may ill-typed data: some coefficients may appear comlex-valued
+    # while they are not. We fix this issue. Example: 5.23 + 0.0j becomes 5.23.
+    self.Sigma_opt = np.real(self.Sigma_opt)
+
+    if ERRORS_HANDLING == "ignore":
+      self.Sigma_opt = cp.psd_wrap(self.Sigma_opt)
+    
     self.beta_opt = self.__solve_second_problem__()
 
     self.isFitted = True
 
-    if self.verbose > 0:
+    if self.verbose:
       print("Model fitted.")
 
   def __verify_centering__(self, X, tolerance=1e-8):
@@ -171,21 +195,21 @@ class HMLasso():
   
   def __impute_params__(self, X, y):
 
-    if self.verbose > 0:
+    if self.verbose:
       print("[Imputing parameters] Starting...")
 
     Z = np.nan_to_num(X)
     Y = (Z != 0).astype(int)
     R = np.dot(Y.T, Y)
-    if self.verbose > 1:
+    if self.verbose:
       print("[Imputing parameters] R calculated.")
 
     rho_pair = np.divide(np.dot(Z.T, y), R.diagonal(), out=np.zeros((self.p,)), where=(R.diagonal()!=0))
-    if self.verbose > 1:
+    if self.verbose:
       print("[Imputing parameters] rho_pair calculated.")
 
     S_pair = np.divide(np.dot(Z.T, Z), R, out=np.zeros((self.p, self.p)), where=(R!=0))
-    if self.verbose > 1:
+    if self.verbose:
       print("[Imputing parameters] S_pair calculated.")
 
     R = R / self.n
@@ -194,7 +218,7 @@ class HMLasso():
       print("[Warning] The hyperparameter alpha={} is large (greater than 5), which might make convergence way slower.")
     R = np.power(R, self.alpha)
 
-    if self.verbose > 0:
+    if self.verbose:
       print("[Imputing parameters] Parameters imputed.")
 
     return S_pair, rho_pair, R
@@ -206,21 +230,21 @@ class HMLasso():
     assert self.rho_pair is not None, "Pairwise covariance vector of features and labels is not determined."
     assert self.R is not None, "Weights are not determined."
 
-    if self.verbose > 0:
+    if self.verbose:
       print("[First Problem] Starting...")
 
     Sigma = cp.Variable((self.p, self.p), PSD = True) # Variable to optimize
     obj = cp.Minimize(cp.sum_squares(cp.multiply(self.R, Sigma-self.S_pair))) # Objective to minimize
     constraints = [Sigma >> 0] # Constraints: We want Sigma to be positive semi-definite.
-    if self.verbose > 1:
+    if self.verbose:
       print("[First Problem] Objective and constraints well-defined.")
 
     # Solve the optimization problem
     prob = cp.Problem(obj, constraints)
-    prob.solve()
-    if self.verbose > 1:
+    prob.solve(solver=cp.SCS, verbose=self.verbose)
+    if self.verbose:
       print(f"[First Problem] Problem status: {prob.status}.")
-    if self.verbose > 0:
+    if self.verbose:
       print("[First Problem] Problem solved.")
 
     self.isFirstProblemSolved = True
@@ -235,21 +259,21 @@ class HMLasso():
     assert self.isFirstProblemSolved, " First optimization problem has not been solved."
     assert self.Sigma_opt is not None, "Sigma_opt is unknown. First optimization problem might have not been solved."
 
-    if self.verbose > 0:
+    if self.verbose:
       print("[Second Problem] Starting...")
 
     beta = cp.Variable(self.p) # Variable to optimize
     obj = cp.Minimize(0.5 * cp.quad_form(beta, self.Sigma_opt) - self.rho_pair.T @ beta + self.mu * cp.norm1(beta)) # Objective to minimize
     constraints = [] # Constraints
-    if self.verbose > 1:
+    if self.verbose:
       print("[Second Problem] Objective and constraints well-defined.")
 
     # Solve the optimization problem
     prob = cp.Problem(obj, constraints)
-    prob.solve()
-    if self.verbose > 1:
+    prob.solve(solver=cp.SCS, verbose=self.verbose)
+    if self.verbose:
       print(f"[Second Problem] Problem status: {prob.status}.")
-    if self.verbose > 0:
+    if self.verbose:
       print("[Second Problem] Problem solved.\n")
     
     self.isSecondProblemSolved = True
@@ -269,12 +293,18 @@ def get_Xy(n, p, replace_rate=0.3):
   return X, y
 
 if __name__ == "__main__":
-  X, y = get_Xy(10000, 20, 0.4)
+  count = 0
+  for i in range(100):
+    try:
+      X, y = get_Xy(10000, 20, 0.4)
 
-  scaler = StandardScaler(with_std=False)
-  X_scaled = scaler.fit_transform(X)
-  lasso = HMLasso(mu=100, alpha=1, verbose=2)
-  lasso.fit(X_scaled, y)
-  X_test, y_test = get_Xy(10000, 20, replace_rate=0.)
-  print(f"error = {np.sqrt(mean_squared_error(y_test, lasso.predict(X_test)))}\n")
-  print(lasso.beta_opt)
+      scaler = StandardScaler(with_std=False)
+      X_scaled = scaler.fit_transform(X)
+      lasso = HMLasso(mu=100, alpha=1, verbose=False)
+      lasso.fit(X_scaled, y)
+      X_test, y_test = get_Xy(10000, 20, replace_rate=0.)
+    except:
+      count += 1
+  print(count)
+
+isinstance("a", (int, float))
