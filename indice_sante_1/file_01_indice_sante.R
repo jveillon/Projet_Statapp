@@ -8,7 +8,7 @@ library("missMDA")
 library(mice)
 library(tidyr)
 
-merged_all <- read_csv("merged_all.csv")
+merged_all <- read_csv("data_merged_all.csv")
 
 #We check how many spouses are not considered as a whole observation
 #SiHHIDPN which are not in HHIDPN
@@ -30,7 +30,7 @@ for(i in (1:14)){
 #Deleting the duplicates#
 var_s <- var[!duplicated(var)]
 
-#We only have few spouses who are not in HHIDPN, so we delete them
+#We only have few spouses who are not in HHIDPN (1382), so we delete them
 
 columns_names <- c(names(merged_all))
 columns_begin_s <- tapply(columns_names,substr(columns_names,1,1),identity)$S
@@ -171,7 +171,7 @@ for (i in (1:14)){
 names(Variance) <- c("wave","eigenvalue","variance.percent","cumulative.variance.percent")
 print(Variance)
 library("writexl")
-write_xlsx(Variance,"Explained_variance.xlsx")
+write_xlsx(Variance,"results_Explained_variance.xlsx")
 
 
 #Exportation to csv
