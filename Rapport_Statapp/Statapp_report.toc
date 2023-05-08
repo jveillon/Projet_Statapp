@@ -1,20 +1,20 @@
 \contentsline {section}{\numberline {1}Introduction}{3}{}%
 \contentsline {section}{\numberline {2}Presentation and cleaning of the database}{3}{}%
 \contentsline {subsection}{\numberline {2.1}Presentation}{3}{}%
-\contentsline {subsection}{\numberline {2.2}Initial merges}{3}{}%
+\contentsline {subsection}{\numberline {2.2}Initial merges}{4}{}%
 \contentsline {subsection}{\numberline {2.3}Removal of unusable variables}{4}{}%
 \contentsline {subsubsection}{\numberline {2.3.1}Removal of Spouses' related variables}{4}{}%
 \contentsline {subsubsection}{\numberline {2.3.2}Removal of columns with a missing rate too high}{4}{}%
 \contentsline {subsubsection}{\numberline {2.3.3}Removal of health variables}{4}{}%
-\contentsline {section}{\numberline {3}Definition of the objective}{4}{}%
+\contentsline {section}{\numberline {3}Definition of the objective}{5}{}%
 \contentsline {subsection}{\numberline {3.1}t-SNE algorithm: presentation}{5}{}%
 \contentsline {subsection}{\numberline {3.2}Formal details}{5}{}%
-\contentsline {subsection}{\numberline {3.3}Performances}{5}{}%
+\contentsline {subsection}{\numberline {3.3}Performances}{6}{}%
 \contentsline {section}{\numberline {4}First machine learning procedures to format the database}{6}{}%
 \contentsline {subsection}{\numberline {4.1}Imputation of missing data}{6}{}%
-\contentsline {subsection}{\numberline {4.2}Convex conditioned Lasso}{6}{}%
-\contentsline {subsection}{\numberline {4.3}Lasso with High Missing Rate}{6}{}%
+\contentsline {subsection}{\numberline {4.2}Convex conditioned Lasso}{7}{}%
+\contentsline {subsection}{\numberline {4.3}Lasso with High Missing Rate}{7}{}%
 \contentsline {subsubsection}{\numberline {4.3.1}Why is CoCoLasso not fitted for high missing rate}{7}{}%
-\contentsline {subsubsection}{\numberline {4.3.2}Advantages of HMLasso over CoCoLasso}{7}{}%
+\contentsline {subsubsection}{\numberline {4.3.2}Advantages of HMLasso over CoCoLasso}{8}{}%
 \contentsline {subsubsection}{\numberline {4.3.3}Implementation in Python}{8}{}%
-\contentsline {section}{\numberline {A}Appendix}{9}{}%
+\contentsline {section}{\numberline {A}Appendix}{10}{}%
