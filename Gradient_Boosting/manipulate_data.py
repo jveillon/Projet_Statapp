@@ -105,6 +105,54 @@ def get_columns_types(data, columns_types):
 
   return data_columns_types.groupby(["Type"])["Name"].apply(list).to_dict()
 
+def transform_into_generic_variables(vars):
+  """
+  This function takes 'R12MPART' and returns 'RwMPART'.
+  It takes 'genetic_Section_A_or_E' and returns 'genetic_Section_A_or_E'
+  """
+  
+  variables = []
+  for var in vars:
+    if var[:3] == 'GHI':
+      variables.append('GHIw')
+    elif var == 'HHIDPN':
+      variables.append(var)
+    elif 'genetic_' in var:
+      variables.append(var)
+    else:
+      char = var[0] # R or H
+      if var[2] in "01234":
+        wave = var[1:3]
+        suffix = var[3:]
+      else:
+        wave = var[1]
+        suffix = var[2:]
+      variable = char + 'w' + suffix
+      variables.append(variable)
+  return variables
+
+def drop_time(data, keep_wave=False, keep_genetic=True, keep_GHI=True, keep_other_ID=False):
+  """
+  Returns the database where (HHIDPN, wave) are the individuals.
+  """
+  df = pd.DataFrame()
+  for wave in range(1, 15):
+    data_wave = get_sample(data, waves=[wave], keep_genetic=keep_genetic, keep_GHI=keep_GHI, keep_other_ID=keep_other_ID)
+    data_wave.columns = transform_into_generic_variables(data_wave.columns)
+    if keep_wave:
+      data_wave["wave"] = wave
+
+    if wave == 1: join = 'outer'
+    else: join = 'inner'
+    df = pd.concat([df, data_wave], join = join)
+  df = df.reset_index(drop=True)
+
+  return df
+
 if __name__ == "__main__":
   columns_types = pd.read_csv("/content/drive/MyDrive/Statapp/data_03_columns_types.csv")
   data = pd.read_csv("/content/drive/MyDrive/Statapp/data_03.csv")
+
+  df = drop_time(data)
+  df.info(memory_usage = "deep")
+  df.head()
