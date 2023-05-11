@@ -5,16 +5,18 @@
 \contentsline {subsection}{\numberline {2.3}Removal of unusable variables}{4}{}%
 \contentsline {subsubsection}{\numberline {2.3.1}Removal of Spouses' related variables}{4}{}%
 \contentsline {subsubsection}{\numberline {2.3.2}Removal of columns with a missing rate too high}{4}{}%
-\contentsline {subsubsection}{\numberline {2.3.3}Removal of health variables}{4}{}%
+\contentsline {subsubsection}{\numberline {2.3.3}Removal of health variables}{5}{}%
 \contentsline {section}{\numberline {3}Definition of the objective}{5}{}%
 \contentsline {subsection}{\numberline {3.1}t-SNE algorithm: presentation}{5}{}%
 \contentsline {subsection}{\numberline {3.2}Formal details}{5}{}%
 \contentsline {subsection}{\numberline {3.3}Performances}{6}{}%
 \contentsline {section}{\numberline {4}First machine learning procedures to format the database}{6}{}%
-\contentsline {subsection}{\numberline {4.1}Imputation of missing data}{6}{}%
+\contentsline {subsection}{\numberline {4.1}Imputation of missing data}{7}{}%
 \contentsline {subsection}{\numberline {4.2}Convex conditioned Lasso}{7}{}%
 \contentsline {subsection}{\numberline {4.3}Lasso with High Missing Rate}{7}{}%
 \contentsline {subsubsection}{\numberline {4.3.1}Why is CoCoLasso not fitted for high missing rate}{7}{}%
 \contentsline {subsubsection}{\numberline {4.3.2}Advantages of HMLasso over CoCoLasso}{8}{}%
-\contentsline {subsubsection}{\numberline {4.3.3}Implementation in Python}{8}{}%
+\contentsline {subsubsection}{\numberline {4.3.3}Implementation in Python}{9}{}%
+\contentsline {section}{\numberline {5}Second machine learning procedures: prediction}{9}{}%
+\contentsline {subsection}{\numberline {5.1}XGBoost for regression}{9}{}%
 \contentsline {section}{\numberline {A}Appendix}{10}{}%

@@ -7,6 +7,7 @@
 \usepackage{amsmath} % Pour les maths
 \usepackage[super]{nth} % Pour écrire 1st, 2nd, 3rd, 54th, etc.
 \usepackage{geometry} % Pour changer les marges
+\usepackage{url} % Pour les références
 
 % UTILISER LA LIGNE CI-DESSOUS POUR CHANGER LES MARGES
 \newgeometry{vmargin={20mm}, hmargin={30mm,30mm}}   % set the margins
@@ -49,23 +50,27 @@ The work presented in this document has been realized in the framework of the \t
 
 At the era of overly present information, machine learning reveals links and hidden relationships between variables that used to be hard to tackle. Data Science techniques spread among experts of all fields, and social sciences see major breakthroughs thanks to artificial intelligence. The question of the predictability of life course comes in this context as a challenging one: there is an obvious relationship between age, body-fat ratio and health for instance, but how could one exploit these links and other available information for prediction purpose? For instance, is it possible to forecast one's overall health for the upcoming year based on the socioeconomic and genetic data at our disposal? That is the problem we wish to address with this STATAPP project.\\
 
-Thanks to our supervisor M. Tropf, we have had access to the Heath and Retirement Study (HRS) led by the RAND Corporation, that consists in interviews of seniors in the United States followed over several years (28 years at most). $\towrite$
+Thanks to our supervisor M. Tropf, we have had access to the Heath and Retirement Study (HRS) led by the RAND Corporation \cite{hrs2014}, that consists in interviews of seniors in the United States followed over several years (28 years at most). $\towrite$
 
-Our main reference for this project is the Fragile Families Challenge. The format of the database is similar to the HRS one: it comprises 4,242 families, who were interrogated in six waves to collect a total of 12,942 variables over 15 years. The objective was to predict six life outcomes from wave 6 using the previous waves. Several groups of researchers participated in the task and reported both their methods and results. The method which obtained the best results, with an R² of 0.232, is described as follows: “Our approach consists of the following steps. First, we do early house-cleaning by dropping variables with more than 60 percent missing and dropping variables with standard deviation smaller than .01. Second, we mean-impute the data and perform LASSO regressions of the outcome variables on all remaining covariates. We then drop any covariate whose coefficient is zero. Third, for the remaining covariates, we identify their originals (i.e., before mean imputation), and apply multiple-imputation using Amelia (which employs EM algorithms). We apply LASSO again for variable-selection using the Amelia-imputed dataset. When applying Amelia, we set M = 5 and pick the third dataset.” 
-The second-best method, with an R² of 0.229, used an XGBoost algorithm.
+Our main reference for this project is the Fragile Families Challenge \cite{challenge2017}. The format of the database is similar to the HRS one: it comprises 4,242 families, who were interrogated in six waves to collect a total of 12,942 variables over 15 years. The objective was to predict six life outcomes from wave 6 using the previous waves. Several groups of researchers participated in the task and reported both their methods and results. The method which obtained the best results, with an $R^2$ of $0.232$, is described as follows: “Our approach consists of the following steps. First, we do early house-cleaning by dropping variables with more than 60 percent missing and dropping variables with standard deviation smaller than .01. Second, we mean-impute the data and perform LASSO regressions of the outcome variables on all remaining covariates. We then drop any covariate whose coefficient is zero. Third, for the remaining covariates, we identify their originals (i.e., before mean imputation), and apply multiple-imputation using Amelia (which employs EM algorithms). We apply LASSO again for variable-selection using the Amelia-imputed dataset. When applying Amelia, we set M = 5 and pick the third dataset.” 
+The second-best method, with an $R^2$ of $0.229$, used an XGBoost algorithm.
 We used these methods as an inspiration to find our own methods, regarding the structure of our dataset.
 
 \section{Presentation and cleaning of the database}
 \subsection{Presentation}
-Our project is based on multiple databases, which all have the same source: the Health and Retirement Study (HRS). The HRS is sponsored by the National Institute on Aging (grant number NIA \textit{U01AG009740}) and is conducted by the University of Michigan $\addref$ and focuses on Americans over $50$. More than $20,000$ are included in the survey. The original goals of the survey were to help facilitate research and to guide policymakers in their decisions. 
+Our project is based on multiple databases, which all have the same source: the Health and Retirement Study (HRS). The HRS is sponsored by the National Institute on Aging (grant number NIA \textit{U01AG009740}) and is conducted by the University of Michigan and focuses on Americans over $50$. More than $20,000$ are included in the survey. The original goals of the survey were to help facilitate research and to guide policymakers in their decisions.\\
 
-The first dataset is about participants’ lives data (its formal name is RAND HRS Longitudinal File 2018 (V2) $\addref$). It contains fourteen waves of survey for the moment. At each new wave, people from previous waves must respond again (as the data is longitudinal), and new people representative of the American society are also added. Are considered in the data the respondents themselves, their spouses, and their households. The data here revolves around the socio-economic situation of the respondents but also their health. It is outlined by more than $10,000$ variables. 
+The first dataset is about participants’ lives data (its formal name is RAND HRS Longitudinal File 2018 (V2) \cite{hrs2014}). It contains fourteen waves of survey for the moment. At each new wave, people from previous waves must respond again (as the data is longitudinal), and new people representative of the American society are also added. Are considered in the data the respondents themselves, their spouses, and their households. The data here revolves around the socio-economic situation of the respondents but also their health. It is outlined by more than $10,000$ variables.\\
 
-The two other datasets correspond to the genetic ones. They are similar and just differ as one contains people with European ancestry while the other people with African ancestry. The contained genetic data are polygenic scores (PGSs). Their goal is to encapsulate genetic facts that are linked to a phenotypic trait to try to find the latter. Here, the genetic facts in question are Single Nucleotide Polymorphisms (SNPs). They correspond to DNA sequences where only one particular gene is different from the others in a part of the population wider than $1$\%. To obtain a PGS, a weighted sum is made with the SNPs linked to the phenotype that one wishes to estimate. The weights are obtained with a meta-analysis done on genome-wide association studies (GWAS) which try to see the link between phenotypes and genes (but not with single genes like with the SNPs).
+The two other datasets correspond to the genetic ones $\addref$. They are similar and just differ as one contains people with European ancestry while the other people with African ancestry. The contained genetic data are polygenic scores (PGSs). Their goal is to encapsulate genetic facts that are linked to a phenotypic trait to try to find the latter. Here, the genetic facts in question are Single Nucleotide Polymorphisms (SNPs). They correspond to DNA sequences where only one particular gene is different from the others in a part of the population wider than $1$\%. To obtain a PGS, a weighted sum is made with the SNPs linked to the phenotype that one wishes to estimate. The weights are obtained with a meta-analysis done on genome-wide association studies (GWAS) which try to see the link between phenotypes and genes (but not with single genes like with the SNPs).\\
+
+A crucial to be pointed out is that our databases contain a lot of missing values. These missing values can be classified in two categories: either the individual has been interviewed during a given wave but he did not answer a question, either the individual has not been interviewed. These two cases lead to missing values of different kind: the first ones might be imputed whereas the second cannot. Indeed, if an individual has not been interrogated at a specific wave, imputing his answers is equivalent to creating them, which is nonsense.
+
 \subsection{Initial merges}
 To conduct our project, we first need to merge the databases. As the people who responded to the genetics survey are also included in the socio-economic one, we only need to add the first to the second by the individual identifier \pyth!HHIDPN!. However, this variable does not exist in the genetics databases, so we had to compute it by concatenating the Household Identifier \pyth!HHID! with the Person Number \pyth!PN!. Then we concatenated the two genetics bases and merged the resulting base with the socio-economic one. As the two genetic bases only differed by the individuals represented (ones with European ancestry and ones with African ancestry) but not by any of the $86$ variables of interest, we decided to create an \nth{87} variable \pyth!Section_A_or_E! that takes \pyth!A! and \pyth!E! as modalities and indicates the ancestry of individuals, in order not to lose any information.\\
 \textbf{Notebook de référence : file\_0\_merge\_Section\_A\_and\_E}
 \subsection{Removal of unusable variables}
+\label{removal_of_unusable_variables}
 At this point, our database gathers $n=42233$ individuals and $p=15104$ variables. With a size of about $1.15$ gigabytes and quadruple in RAM,our laptops could not handle the whole dataset and perform appropriate analysis. Plus, considering that the dataset presents a high missing values rate and that $p\approx n$, machine learning algorithms would not be able to converge in the current state of our data. We need to clean it.
 
 \subsubsection{Removal of Spouses' related variables}
@@ -110,6 +115,7 @@ The locations of points $y_i$ are determined by minimizing the Kullbach-Leibler 
 	KL(P\|Q) = \sum_{i\ne j}p_{ij} \ln\left(\frac{p_{ij}}{q_{ij}}\right)
 \end{equation}
 with respect to $y_1,y_2,\dots, y_n$, by a gradient descent.
+
 \subsection{Performances}
 The main objective of this algorithm is to reflect the similarities in the original data. We directly applied the \pyth!sklearn.manifold.TSNE! implementation on our health data and checked its consistency. The results are detailed below and in appendix.\\
 
@@ -119,9 +125,10 @@ In order to check for the robustness of our index, we conducted an analysis of s
 
 As we will have to estimate an index based on a testing sample of our data, the first question to be answered is the following: does the GHI of an individual change when we do not take into account the whole database in the process? For instance, if one's GHI were equal to $50$ when the index has been fitted on the whole database, would it still be equal to $50$ if the index were this time fitted on a sample of the data? The figure $\ref{RMSE_according_to_sample_size}$ in appendix demonstrates the robustness of t-SNE algorithm in generating an index not too much data-dependent: the root mean squared error observed for samples of $10,000$ individuals amounts to about $27$, for an index that varies between $-150$ and $150$.
 
-For the second test, we deleted values at random in the dataset. As in the previous analysis, we used Root Mean Squared Error to compare the index computed on this altered dataset and the real one. For instance, with 5\% of random missing values, we obtained a RMSE of $17$. Figure $\ref{RMSE_according_to_percetange_nan}$ shows the RMSE according to the percentage of random missing values. The robustness of the index to missing values is satisfying, as we can expect there would not be a too high share of missing values when we try to predict the outcome.\\
+For the second test, we deleted values at random in the dataset. As in the previous analysis, we used Root Mean Squared Error to compare the index computed on this altered dataset and the real one. For instance, with 5\% of random missing values, we obtained a RMSE of $17$. Figure $\ref{RMSE_according_to_percentage_nan}$ shows the RMSE according to the percentage of random missing values. The robustness of the index to missing values is satisfying, as we can expect there would not be a too high share of missing values when we try to predict the outcome.\\
 
 In addition, figures \ref{relationships_between_tSNE_GHI_and_multiple_factors} and \ref{tSNE_GHI_by_age} show that the GHI is consistent: highest values of the GHI refer to very fragile health, while lowest ones refer to healthiest individuals. Indeed, an older age will generally correspond to a more fragile health, and so will a high number of overnight hospital stays for instance.
+
 \section{First machine learning procedures to format the database}
 At this point, the dataset we are working on still presents a few thousands variables. Considering that it approaches the number of individuals (that is, $p \approx n$), machine learning algorithms will have struggle converging, or would converge to unsatisfying solutions. Hence, we shall reduce the number of such variables by other means than deletion (every possible removals having already been previously realized).\\
 According to the literature, among the many possible techniques to reduce dimensionality, the Lasso Regression is the suitable one. The idea is to train a Lasso Regression on $(X, y)$, where $X$ are the available data and $y$ is the global health index, to come up with an estimator. The Lasso estimator has the property to shutdown to zero its coordinates when the associated variable does not present a prediction power strong enough. This technique has the advantage of being quick to train and to apply. \textit{A priori}, the estimator we would get from this approach will not be really accurate at predicting, but it will not matter as we are only interested in its coefficients' nullity.\\
@@ -134,7 +141,8 @@ To still apply the lasso as discussed before, we could try imputing the missing 
 Instead of looking for an application in two steps of the Lasso (first imputing the data, then fitting the Lasso), another idea is to directly modify the Lasso optimization program so that it handles missing values by itself, without too heavy imputations. The state-of-art algorithm for that problem is the \textit{CoCoLasso} (which stands for \textit{Convex Conditioned Lasso}). This algorithm badly performs when missing rates are too high, which is our case. We then cannot use it in its first form. However, further researches helped us discover a very similar estimator, that we shall now present.
 
 \subsection{Lasso with High Missing Rate}
-The idea of directly applying the Lasso still being interesting, our final approach is also based on it. According to the paper REF, it is possible to edit the CoCoLasso to make it more appropriate for dataset with high missing rate. Let us dive into the mathematical details.\\
+The idea of directly applying the Lasso still being interesting, our final approach is also based on it. According to 
+\cite{hmlasso2019}, it is possible to edit the CoCoLasso to make it more appropriate for dataset with high missing rate. Let us dive into the mathematical details.\\
 
 \subsubsection{Why is CoCoLasso not fitted for high missing rate}
 Consider a linear regression model $y = X\beta + \varepsilon$, where $X\in \R^{n\times p}$ , $y\in \R^n$ are the data, $\varepsilon\in \mathbb{R}^n$ a noise and $\beta\in \R^p$ the estimator we wish to determine. We assume that $y$ and each column of $X$ are centered.\\
@@ -228,6 +236,10 @@ And the source code:
 		...
 \end{python}
 The implementation presented a lot of difficulties, one of them regarding the fact that the underlying solver was not able to assert the positive semidefinitiveness of \pyth!Sigma_opt! due to its large size, even though the matrix was indeed PSD. As this assertion was an integral part of the resolution process, getting around this check presented many challenges, not to mention that each correction attempt required 30 minutes of simulation. In the final version of the \pyth!HMLasso()!, the user is invited to handle such errors when they happen by manually setting \pyth!ERRORS_HANDLING =  "ignore"!, meaning \textit{'ignore PSD check'}.
+\section{Second machine learning procedures: prediction}
+\subsection{XGBoost for regression}
+Considering the database left after the removals of unusable variables (section \ref{removal_of_unusable_variables}), we still have more than $40$ thousands individuals and $p=4147$ variables to deal with. The major issue we failed to solve was coping with the fact that some individuals have not responded to every waves. Hence, o
+
 
 \cleardoublepage
 \appendix
@@ -289,14 +301,8 @@ Figure \ref{tSNE_GHI_by_age} highlights the expected fact that someone's health 
 
 
 
-
 \newpage
-\begin{thebibliography}{9}
-	\bibitem{texbook}
-	Donald E. Knuth (1986) \emph{The \TeX{} Book}, Addison-Wesley Professional.
-	\bibitem{lamport94}
-	Leslie Lamport (1994) \emph{\LaTeX: a document preparation system}, Addison
-	Wesley, Massachusetts, 2nd ed.
-\end{thebibliography}
+\bibliographystyle{alpha}
+\bibliography{refs}
 
 \end{document}
