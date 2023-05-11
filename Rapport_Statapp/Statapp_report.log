@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  11 MAY 2023 18:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  12 MAY 2023 00:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -449,106 +449,144 @@ Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
-[10] [11]
-<distribution_of_columns_wrt_missing_values_ratio.png, id=58, 451.6875pt x 339.
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--361
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 362--393
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
+94.
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 394.
+
+[11] [12]
+<distribution_of_columns_wrt_missing_values_ratio.png, id=61, 451.6875pt x 339.
 669pt>
 File: distribution_of_columns_wrt_missing_values_ratio.png Graphic file (type p
 ng)
 <use distribution_of_columns_wrt_missing_values_ratio.png>
 Package pdftex.def Info: distribution_of_columns_wrt_missing_values_ratio.png  
-used on input line 366.
+used on input line 404.
 (pdftex.def)             Requested size: 338.76479pt x 254.75111pt.
-<tSNE_GHI_RMSE_according_to_sample_size.png, id=60, 406.1574pt x 328.8285pt>
+<tSNE_GHI_RMSE_according_to_sample_size.png, id=63, 406.1574pt x 328.8285pt>
 File: tSNE_GHI_RMSE_according_to_sample_size.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_sample_size.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_sample_size.png  used on in
-put line 374.
+put line 412.
 (pdftex.def)             Requested size: 179.64682pt x 145.44263pt.
-<tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=61, 410.4936pt x 328.8285pt>
+<tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=64, 410.4936pt x 328.8285pt>
 
 File: tSNE_GHI_RMSE_according_to_percentage_NaN.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_percentage_NaN.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_percentage_NaN.png  used on
- input line 380.
+ input line 418.
 (pdftex.def)             Requested size: 179.64682pt x 143.90727pt.
-<relationships_between_tSNE_GHI_and_multiple_factors.png, id=62, 414.8298pt x 3
+<relationships_between_tSNE_GHI_and_multiple_factors.png, id=65, 414.8298pt x 3
 28.8285pt>
 File: relationships_between_tSNE_GHI_and_multiple_factors.png Graphic file (typ
 e png)
 <use relationships_between_tSNE_GHI_and_multiple_factors.png>
 Package pdftex.def Info: relationships_between_tSNE_GHI_and_multiple_factors.pn
-g  used on input line 387.
+g  used on input line 425.
 (pdftex.def)             Requested size: 311.12158pt x 246.62077pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tSNE_GHI_by_age.png, id=63, 414.8298pt x 328.8285pt>
+<tSNE_GHI_by_age.png, id=66, 414.8298pt x 328.8285pt>
 File: tSNE_GHI_by_age.png Graphic file (type png)
 <use tSNE_GHI_by_age.png>
-Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 393.
+Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 431.
 (pdftex.def)             Requested size: 311.12158pt x 246.62077pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<xgboost_accuracy_wrt_number_of_classes.png, id=67, 416.2752pt x 328.8285pt>
+File: xgboost_accuracy_wrt_number_of_classes.png Graphic file (type png)
+<use xgboost_accuracy_wrt_number_of_classes.png>
+Package pdftex.def Info: xgboost_accuracy_wrt_number_of_classes.png  used on in
+put line 437.
+(pdftex.def)             Requested size: 312.20563pt x 246.62077pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--398
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 441--443
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 399--400
+Underfull \hbox (badness 10000) in paragraph at lines 444--446
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
+Underfull \hbox (badness 10000) in paragraph at lines 447--449
 
  []
 
-[12
+[13
 
  <./distribution_of_columns_wrt_missing_values_ratio.png> <./tSNE_GHI_RMSE_acco
-rding_to_sample_size.png> <./tSNE_GHI_RMSE_according_to_percentage_NaN.png>] [1
-3 <./relationships_between_tSNE_GHI_and_multiple_factors.png> <./tSNE_GHI_by_ag
-e.png>] (Statapp_report.bbl) [14] (Statapp_report.aux) ) 
+rding_to_sample_size.png> <./tSNE_GHI_RMSE_according_to_percentage_NaN.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 450--452
+
+ []
+
+[14 <./relationships_between_tSNE_GHI_and_multiple_factors.png> <./tSNE_GHI_by_
+age.png>] [15 <./xgboost_accuracy_wrt_number_of_classes.png>]
+(Statapp_report.bbl) [16
+
+] (Statapp_report.aux) ) 
 Here is how much of TeX's memory you used:
- 5598 strings out of 476361
- 82789 string characters out of 5788244
+ 5631 strings out of 476361
+ 83558 string characters out of 5788244
  2033242 words of memory out of 5000000
- 25937 multiletter control sequences out of 15000+600000
+ 25966 multiletter control sequences out of 15000+600000
  522731 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,63p,1291b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\kerya\AppDat
-a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/kerya/A
-ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/User
-s/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mbx9.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmex10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/kerya/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/kerya/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/kerya/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/ke
-rya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/U
-sers/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pf
-b><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmsltt10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmsy5.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/kerya/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kerya/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/kerya/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/kery
-a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Us
-ers/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msb
-m10.pfb>
-Output written on Statapp_report.pdf (14 pages, 518436 bytes).
+ <C:\Users\kerya\AppData\Local\MiKTeX\fonts/pk/ljfour/j
+knappen/ec/dpi600\tcrm1000.pk><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/kerya/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/kerya/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/kerya/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/kery
+a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/U
+sers/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.p
+fb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmmi7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmr17.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kerya/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/kerya/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsltt10.pfb><C:/Users/kerya/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
+kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C
+:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
+7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmti10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmtt10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmtt12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/kerya/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Statapp_report.pdf (16 pages, 545712 bytes).
 PDF statistics:
- 169 PDF objects out of 1000 (max. 8388607)
+ 177 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

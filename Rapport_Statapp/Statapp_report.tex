@@ -250,7 +250,7 @@ And the source code:
 The implementation presented a lot of difficulties, one of them regarding the fact that the underlying solver was not able to assert the positive semidefinitiveness of \pyth!Sigma_opt! due to its large size, even though the matrix was indeed PSD. As this assertion was an integral part of the resolution process, getting around this check presented many challenges, not to mention that each correction attempt required 30 minutes of simulation. In the final version of the \pyth!HMLasso()!, the user is invited to handle such errors when they happen by manually setting \pyth!ERRORS_HANDLING =  "ignore"!, meaning \textit{'ignore PSD check'}.
 
 \section{Second machine learning procedures: prediction}
-\subsection{XGBoost for regression}
+\subsection{XGBoost for regression and classification}
 \subsubsection{Prior application of HMLasso}
 Considering the database left after the removals of unusable variables (section \ref{removal_of_unusable_variables}), we still have more than $40$ thousands individuals and $p=4147$ variables to deal with.\\
 To reduce the number of columns, we applied the HMLasso in a specific way. Uptill now, our individuals are identified by their \pyth!HHIDPN!, and the database looks like this:
@@ -322,7 +322,7 @@ In practice, $f_1,\dots,f_K$ are not scalars but functions hence we cannot use t
 By proceeding recursively, we obtain at last a suitable approximation $\tilde{\phi}$ of the solution of \eqref{xgboost_objective}.\\
 XGBoost is sparsity-aware, which means that missing values are not a problem for it, and distributed, which explains why it reveals itself extremely fast to train.
 
-\subsubsection{Blabla}
+\subsubsection{Performances}
 The major issue we failed to solve consistently was coping with the fact that some individuals have not responded to every waves. It is a problem because, as a result, some columns present missing values that shall not be imputed: every variables are present for every individuals, even though some individuals have not been interviewed for some variables. We decided to perform our machine learning algorithms on the reduced dataset comprising only individuals present in each wave. These indiviuals amount to $n = 3396$.\\
 
 \noindent
@@ -331,22 +331,21 @@ To separate the effect of socioeconomic data, genetic data and previous \pyth!GH
 \centering
 \begin{tabular}{|c|c|c|}
 	\hline
-	
 	\textbf{Data} & \textbf{$R^2$ coefficient} & \textbf{standard deviation}\\
 	\hline
 	all data & 0.3636 & 0.0276\\ 
 	\hline
-	only precedent ghi & 0.3302 & 0.0303\\
+	only previous ghi & 0.3302 & 0.0303\\
 	\hline 
 	only socioeconomic data & 0.2167 & 0.0216\\
 	\hline 
 	only socioeconomic and genetic data & 0.2172 & 0.0229\\
 	\hline 
-	only socioeconomic data and precedent ghi & 0.3651 & 0.0295\\
+	only socioeconomic data and previous ghi & 0.3651 & 0.0295\\
 	\hline 
 \end{tabular}
 \label{results_xgbregressor}
-\caption{XGBoost regressors - results over $100$ simulations}
+\caption{XGBoost regressor - results over $100$ simulations}
 \end{table}\\
 We obtained the results above by experimentally conducting cross-validation to select the best values of the following hyperparameters:
 \begin{itemize}
@@ -354,9 +353,48 @@ We obtained the results above by experimentally conducting cross-validation to s
 	\item \texttt{lambda}: the coefficient for $\ell^2$ regularization. We tested $\lambda \in \{1, 0.5, 2\}$
 	\item \pyth!alpha!: the coefficient for $\ell^1$ regularization. We tested $\alpha \in \{0, 0.5, 1\}$
 	\item \pyth!max_depth!: the maximum depth of each tree. We tested each value from $\{3, 4, 5, 6\}$.
-	\item \pyth!n_estimators!: the number of weak learners (alias $K$). We tested each value from $\{50, 100, 200\}$.
+	\item \pyth!n_estimators!: the number of weak learners (alias $K$). We tested $K\in \{50, 100, 200\}$.
 \end{itemize}
-We were able to calculate a standard deviation by reconducting each simulation $100$ times and randomly change the train/test split at each simulation. $R^2$ column gives the mean of the empirical values.
+We were able to calculate a standard deviation by reconducting each simulation $100$ times and randomly change the train/test split at each simulation. $R^2$ column gives the mean of the empirical values.\\
+
+In the Fragile Families Challenge \cite{challenge2017}, researchers managed to predict their own outputs (we shall note that these outputs are different from our own global health index) with a $R^2 = 0.232$ at most. This roughly corresponds to what we were able to predict without using health data. However, if we include global health index from waves $1$ to $13$ in the regressors (which still consists in known information at wave $13$ and which therefore makes sense to do), we are able to reach $R^2=0.351$.\\
+
+By representing one's health with a continuous index, we have made the choice to summarize data in a way that might make irrelevant distinctions between individuals. Namely, what is the difference between an individual of \pyth!GHI14 = 100! and another individual of \pyth!GHI14 = 99!? To override these problematics, it is interesting to look at a simplified version of the health index. For instance, if instead of assigning a numerical value to the health of an individual, we assign it a class (e.g. 'bad health', 'neutral health', 'great health'), would XGBoost give better results? We created such classes by uniformly splitting individuals according to their GHI.\\
+The array below (corresponding to data used in figure \ref{xgboost_accuracy})  answers this question.\\
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		
+		\textbf{Number of classes} & \textbf{XGBoost} & \textbf{Dummy classifier} & \textbf{ratio}\\
+		\hline
+		2 & 0.7507 & 0.5 & 1.50\\
+		\hline 
+		3 & 0.6809 & 0.3333 & 2.04\\
+		\hline 
+		4 & 0.5404 & 0.25 & 2.16\\
+		\hline 
+		5 & 0.5176 & 0.2 & 2.59\\
+		\hline 
+		6 & 0.4868 & 0.1667 & 2.92\\
+		\hline 
+		7 & 0.4904 & 0.1429 & 3.43\\
+		\hline 
+		8 & 0.4412 & 0.125 & 3.53\\
+		\hline 
+		9 & 0.4132 & 0.1111 & 3.72\\
+		\hline 
+		10 & 0.4110 & 0.1 & 4.11\\
+		\hline 
+	\end{tabular}
+	\label{results_xgbclassifier}
+	\caption{XGBoost classifier - results over $10$ simulations}
+\end{table}\\
+
+Training a binary classifier on a health indicator \{\textit{bad health}, \textit{good health}\}
+returned a classifier of accuracy $0.751$, which is $1.5$ times better than a dummy classifier (of accuracy $0.5$). Training a non-binary classifier on the health indicator \{\textit{ailing health}, \textit{bad health}, \textit{neutral health}, \textit{good health}, \textit{excellent health}\} returned a classifier of accuracy $0.518$, which is $2.6$ times better than the dummy classifier.\\
+Overall, we see that the XGBoost classifier becomes better and better than a dummy classifier when the number of classes increase, i.e when the problem becomes harder. Moreover, the binary model present a satisfying accuracy of $0.751$.
+
 
 \cleardoublepage
 \appendix
@@ -394,19 +432,28 @@ We were able to calculate a standard deviation by reconducting each simulation $
 \caption{Relationship between the global health index and age}
 \label{tSNE_GHI_by_age}
 \end{figure}
+\begin{figure}[!h]
+\centering
+\includegraphics[scale=0.75]{xgboost_accuracy_wrt_number_of_classes.png}
+\caption{Accuracy of XGBoost classifier with respect to the number of classes}
+\label{xgboost_accuracy}
+\end{figure}
+\noindent
 Figure \ref{distribution_of_columns_wrt_missing_values_ratio} is meant to be interpreted like this: among the variables collected from the interviews in wave 2, $40$\% of them present more than $45$\% missing values.\\
 
+\noindent
 Figure \ref{RMSE_according_to_sample_size} plots the root mean-squared-error observed between the actual index and the index determined on a sample of the data, size of which being informed on the $x$ axis. Figure \ref{RMSE_according_to_percentage_nan} gives the same information for each missing values rate.\\
 
+\noindent
 Figure \ref{relationships_between_tSNE_GHI_and_multiple_factors} describes how the GHI is changed when a certain factor is present. The category $0$ stands for \textit{no such factor}, category $1$ for \textit{there is this factor}, and other categories express a higher level of the current factor. For instance, \pyth!DIAB = 0! means that the individual does not present diabete. \pyth!CANCR, BACK, HEART, LUNG! stand for the presence of cancer, of pain or health problems in the back, the heart, or the lung. Overall, what we see was expected: when some one has arthrose problems (\pyth!ARTHR!), his general health is expected to be lower, hence his GHI to be higher. The unique variable that behave differently is \pyth!DRINK!, that describes how much one drinks alcohol. But the deviation is marginal.\\
 
-Figure \ref{tSNE_GHI_by_age} highlights the expected fact that someone's health is better when he is young.
+\noindent
+Figure \ref{tSNE_GHI_by_age} highlights the expected fact that someone's health is better when he is young.\\
 
+\noindent
+Figure \ref{xgboost_accuracy} gives, for a specific number of classes $c$, the accuracy of the XGBoost classifier, that is the number of correct guesses divided by the number of guesses.
 
-
-
-
-\newpage
+\cleardoublepage
 \bibliographystyle{alpha}
 \bibliography{refs}
 
