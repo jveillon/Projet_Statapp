@@ -1,5 +1,11 @@
 \begin{thebibliography}{SLKM17}
 
+\bibitem[CG16]{xgboost2016}
+Tianqi Chen and Carlos Guestrin.
+\newblock {XGBoost}.
+\newblock In {\em Proceedings of the 22nd {ACM} {SIGKDD} International
+  Conference on Knowledge Discovery and Data Mining}. {ACM}, aug 2016.
+
 \bibitem[RAN18]{hrs2014}
 Rand hrs longitudinal file 2018 (v2).
 \newblock \url{https://hrsdata.isr.umich.edu/data-products/rand}, 2018.
