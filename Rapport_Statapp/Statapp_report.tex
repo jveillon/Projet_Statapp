@@ -329,19 +329,19 @@ The major issue we failed to solve consistently was coping with the fact that so
 To separate the effect of socioeconomic data, genetic data and previous \pyth!GHI1, GHI2, ..., GHI13! on the final health index \pyth!GHI14!, we performed XGBoost Regression using different data. Here are the results:
 \begin{table}[!h]
 \centering
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|}
 	\hline
-	\textbf{Data} & \textbf{$R^2$ coefficient} & \textbf{standard deviation}\\
+	\textbf{Data} & \textbf{mean $R^2$} & \textbf{std $R^2$} & \textbf{mean RMSE} & \textbf{std RMSE}\\
 	\hline
-	all data & 0.3636 & 0.0276\\ 
+	all data & 0.3688 & 0.0285 & 41.87 & 0.97 \\ 
 	\hline
-	only previous ghi & 0.3302 & 0.0303\\
+	only previous ghi & 0.3387 & 0.0267 & 42.74 & 1.13\\
 	\hline 
-	only socioeconomic data & 0.2167 & 0.0216\\
+	only socioeconomic data & 0.2130 &0.0252 & 46.71 & 0.95\\
 	\hline 
-	only socioeconomic and genetic data & 0.2172 & 0.0229\\
+	only socioeconomic and genetic data & 0.2118 & 0.0250 & 46.85 & 1.09\\
 	\hline 
-	only socioeconomic data and previous ghi & 0.3651 & 0.0295\\
+	only socioeconomic data and previous ghi & 0.3672 &	0.0279 & 42.00 & 1.16\\
 	\hline 
 \end{tabular}
 \label{results_xgbregressor}
@@ -355,10 +355,12 @@ We obtained the results above by experimentally conducting cross-validation to s
 	\item \pyth!max_depth!: the maximum depth of each tree. We tested each value from $\{3, 4, 5, 6\}$.
 	\item \pyth!n_estimators!: the number of weak learners (alias $K$). We tested $K\in \{50, 100, 200\}$.
 \end{itemize}
-We were able to calculate a standard deviation by reconducting each simulation $100$ times and randomly change the train/test split at each simulation. $R^2$ column gives the mean of the empirical values.\\
+We were able to calculate a standard deviation by reconducting each simulation $100$ times and randomly change the train/test split at each simulation.\\
 
+\noindent
 In the Fragile Families Challenge \cite{challenge2017}, researchers managed to predict their own outputs (we shall note that these outputs are different from our own global health index) with a $R^2 = 0.232$ at most. This roughly corresponds to what we were able to predict without using health data. However, if we include global health index from waves $1$ to $13$ in the regressors (which still consists in known information at wave $13$ and which therefore makes sense to do), we are able to reach $R^2=0.351$.\\
 
+\noindent
 By representing one's health with a continuous index, we have made the choice to summarize data in a way that might make irrelevant distinctions between individuals. Namely, what is the difference between an individual of \pyth!GHI14 = 100! and another individual of \pyth!GHI14 = 99!? To override these problematics, it is interesting to look at a simplified version of the health index. For instance, if instead of assigning a numerical value to the health of an individual, we assign it a class (e.g. 'bad health', 'neutral health', 'great health'), would XGBoost give better results? We created such classes by uniformly splitting individuals according to their GHI.\\
 The array below (corresponding to data used in figure \ref{xgboost_accuracy})  answers this question.\\
 \begin{table}[!h]
@@ -368,32 +370,33 @@ The array below (corresponding to data used in figure \ref{xgboost_accuracy})  a
 		
 		\textbf{Number of classes} & \textbf{XGBoost} & \textbf{Dummy classifier} & \textbf{ratio}\\
 		\hline
-		2 & 0.7507 & 0.5 & 1.50\\
+		2 & 0.7531 & 0.5 & 1.51\\
 		\hline 
-		3 & 0.6809 & 0.3333 & 2.04\\
+		3 & 0.6807 & 0.3333 & 2.04\\
 		\hline 
-		4 & 0.5404 & 0.25 & 2.16\\
+		4 & 0.5334 & 0.25 & 2.13\\
 		\hline 
-		5 & 0.5176 & 0.2 & 2.59\\
+		5 & 0.5565 & 0.2 & 2.78\\
 		\hline 
-		6 & 0.4868 & 0.1667 & 2.92\\
+		6 & 0.4862 & 0.1667 & 2.92\\
 		\hline 
-		7 & 0.4904 & 0.1429 & 3.43\\
+		7 & 0.4726 & 0.1429 & 3.31\\
 		\hline 
-		8 & 0.4412 & 0.125 & 3.53\\
+		8 & 0.4546 & 0.125 & 3.64\\
 		\hline 
-		9 & 0.4132 & 0.1111 & 3.72\\
+		9 & 0.4257 & 0.1111 & 3.83\\
 		\hline 
-		10 & 0.4110 & 0.1 & 4.11\\
+		10 & 0.4121 & 0.1 & 4.12\\
 		\hline 
 	\end{tabular}
 	\label{results_xgbclassifier}
 	\caption{XGBoost classifier - results over $10$ simulations}
 \end{table}\\
 
+\noindent
 Training a binary classifier on a health indicator \{\textit{bad health}, \textit{good health}\}
 returned a classifier of accuracy $0.751$, which is $1.5$ times better than a dummy classifier (of accuracy $0.5$). Training a non-binary classifier on the health indicator \{\textit{ailing health}, \textit{bad health}, \textit{neutral health}, \textit{good health}, \textit{excellent health}\} returned a classifier of accuracy $0.518$, which is $2.6$ times better than the dummy classifier.\\
-Overall, we see that the XGBoost classifier becomes better and better than a dummy classifier when the number of classes increase, i.e when the problem becomes harder. Moreover, the binary model present a satisfying accuracy of $0.751$.
+Overall, we see that the XGBoost classifier becomes better and better compared to a dummy classifier when the number of classes increase, i.e when the problem becomes harder. Moreover, the binary model present a satisfying accuracy of $0.753$, a precision of $0.770$, a recall of $0.777$ and a F1-score of $0.773$.
 
 
 \cleardoublepage

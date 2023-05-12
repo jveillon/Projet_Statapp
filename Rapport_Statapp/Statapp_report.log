@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  12 MAY 2023 00:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  12 MAY 2023 13:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -455,22 +455,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 358--359
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 360--361
+Underfull \hbox (badness 10000) in paragraph at lines 360--362
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--393
+Underfull \hbox (badness 10000) in paragraph at lines 363--395
 
  []
 
 LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 3
-94.
+97.
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 394.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 397.
 
 [11] [12]
 <distribution_of_columns_wrt_missing_values_ratio.png, id=61, 451.6875pt x 339.
@@ -479,20 +479,20 @@ File: distribution_of_columns_wrt_missing_values_ratio.png Graphic file (type p
 ng)
 <use distribution_of_columns_wrt_missing_values_ratio.png>
 Package pdftex.def Info: distribution_of_columns_wrt_missing_values_ratio.png  
-used on input line 404.
+used on input line 407.
 (pdftex.def)             Requested size: 338.76479pt x 254.75111pt.
 <tSNE_GHI_RMSE_according_to_sample_size.png, id=63, 406.1574pt x 328.8285pt>
 File: tSNE_GHI_RMSE_according_to_sample_size.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_sample_size.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_sample_size.png  used on in
-put line 412.
+put line 415.
 (pdftex.def)             Requested size: 179.64682pt x 145.44263pt.
 <tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=64, 410.4936pt x 328.8285pt>
 
 File: tSNE_GHI_RMSE_according_to_percentage_NaN.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_percentage_NaN.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_percentage_NaN.png  used on
- input line 418.
+ input line 421.
 (pdftex.def)             Requested size: 179.64682pt x 143.90727pt.
 <relationships_between_tSNE_GHI_and_multiple_factors.png, id=65, 414.8298pt x 3
 28.8285pt>
@@ -500,7 +500,7 @@ File: relationships_between_tSNE_GHI_and_multiple_factors.png Graphic file (typ
 e png)
 <use relationships_between_tSNE_GHI_and_multiple_factors.png>
 Package pdftex.def Info: relationships_between_tSNE_GHI_and_multiple_factors.pn
-g  used on input line 425.
+g  used on input line 428.
 (pdftex.def)             Requested size: 311.12158pt x 246.62077pt.
 
 
@@ -509,7 +509,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <tSNE_GHI_by_age.png, id=66, 414.8298pt x 328.8285pt>
 File: tSNE_GHI_by_age.png Graphic file (type png)
 <use tSNE_GHI_by_age.png>
-Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 431.
+Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 434.
 (pdftex.def)             Requested size: 311.12158pt x 246.62077pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -518,15 +518,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: xgboost_accuracy_wrt_number_of_classes.png Graphic file (type png)
 <use xgboost_accuracy_wrt_number_of_classes.png>
 Package pdftex.def Info: xgboost_accuracy_wrt_number_of_classes.png  used on in
-put line 437.
+put line 440.
 (pdftex.def)             Requested size: 312.20563pt x 246.62077pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 441--443
-
- []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 444--446
@@ -538,11 +533,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 447--449
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 450--452
+
+ []
+
 [13
 
  <./distribution_of_columns_wrt_missing_values_ratio.png> <./tSNE_GHI_RMSE_acco
 rding_to_sample_size.png> <./tSNE_GHI_RMSE_according_to_percentage_NaN.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 450--452
+Underfull \hbox (badness 10000) in paragraph at lines 453--455
 
  []
 
@@ -584,7 +584,7 @@ kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C
 e1/public/amsfonts/cm/cmtt12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/kerya/AppData/Local/Programs
 /MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Statapp_report.pdf (16 pages, 545712 bytes).
+Output written on Statapp_report.pdf (16 pages, 546247 bytes).
 PDF statistics:
  177 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
