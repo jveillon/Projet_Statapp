@@ -1,0 +1,21 @@
+\begin{thebibliography}{SLKM17}
+
+\bibitem[CG16]{xgboost2016}
+Tianqi Chen and Carlos Guestrin.
+\newblock {XGBoost}.
+\newblock In {\em Proceedings of the 22nd {ACM} {SIGKDD} International
+  Conference on Knowledge Discovery and Data Mining}. {ACM}, aug 2016.
+
+\bibitem[RAN18]{hrs2014}
+Rand hrs longitudinal file 2018 (v2).
+\newblock \url{https://hrsdata.isr.umich.edu/data-products/rand}, 2018.
+
+\bibitem[SLKM17]{challenge2017}
+Matthew Salganik, Ian Lundberg, Alex Kindel, and Sara McLanahan.
+\newblock Fragile families challenge, 2017.
+
+\bibitem[TFN19]{hmlasso2019}
+Masaaki Takada, Hironori Fujisawa, and Takeichiro Nishikawa.
+\newblock Hmlasso: Lasso with high missing rate, 2019.
+
+\end{thebibliography}
