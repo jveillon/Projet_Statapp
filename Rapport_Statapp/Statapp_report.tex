@@ -106,6 +106,39 @@ The scientific literature points out the benefits of Principal Component Analysi
 \noindent
 Hence, we looked for another dimensional reduction algorithm. The t-distributed Stochastic Neighbor Embedding (t-SNE) algorithm has caught our attention, and we decided to apply it on our health data.
 
+\subsection{Descriptive statistics on the selected variables}
+First, we focus on univariate statistics. For a variable to be interesting in the creation of the index, it needs to allow us to differentiate individuals to a certain extent. Formally, the dispersion of the values must be sufficient. We look at the standard deviation of the variables. If it is too close to 0, it means than most individuals have the same value for the variable of interest, and it is not helpful to point out differences between individuals. Regarding the quantitative variables, the distributions show that the standard deviations are satisfying. For example, for the BMI in wave 1, the standard deviation is 5.18, with 75\% of values between 12.8 and 29.6. Figure $\ref{density_bmi}$ shows the density of the BMI variable for all waves. However, for the variables that measure an evolution since the last interview, the standard deviations in the first wave are ambiguous, because measuring an evolution since the last wave for wave 1 does not make much sense. When we exclude the first wave, we obtain more satisfying results.\\
+
+\noindent
+To study the dispersion of binary variables, we compute the standard deviation with the formula $\sqrt{p(1-p)}$ with $p$ the mean of the variable. The graphs showing the standard deviations of the binary variables across waves show a non-negligible dispersion. For the only quantitative variable that is not binary (RwSLFMEM, which is a self-rating of memory), we obtain satisfying standard deviations as well. As an example, figure $\ref{std_alcohol}$ shows the standard deviation across waves of the variable measuring alcohol consumption.\\
+
+\noindent
+Now let’s look at a few bivariate statistics. To study the dependency between qualitative variables, we use contingency tables and $\chi^2$ tests. Since there are a lot of tests to run, we focus on wave 1. A contingency table shows the relative distribution of two variables. A $\chi^2$ test compares the observed distribution to the one that would be observed if the two variables were independent. Denoting $M=(m_{ij})$ a contingency table of dimension $I\times J$, the T-statistic is computed as follows: 
+\begin{equation}
+    T = \sum_{ij}\frac{(m_{ij}-n_{ij})^2}{n_{ij}}
+\end{equation}
+With:
+\begin{itemize}
+	\item $N=\sum_{ij}m_{ij}$
+	\item $\forall i, m_{i\cdot}=\sum_j m_{ij}$
+	\item $\forall j, m_{\cdot j}=\sum_i m_{ij}$
+    \item $\forall i,j, n_{ij}=\frac{m_{i\cdot}m_{\cdot j}}{N}$
+\end{itemize}
+(source: Xavier Dupré)
+The random variable T follows asymptotically a $\chi^2$ with $(I-1)(J-1)$ degrees of liberty. The function \pyth!scipy.stats.chi2_contingency! computes the T-statistic and the p-value associated, in the test of $H_0$: “the variables are not correlated” against $H_1$: “the variables are correlated”.
+Out of the 399 tests we ran, 366 showed a dependency between the two variables with a 1\% threshold. The following table is the contingency table of the variable indicating the presence of heart issues and the one indicating the presence of hypertension.
+\begin{table}[!h]
+\centering
+\begin{tabular}{c|cc}
+     & \textbf{R1HEART = 0} & \textbf{R1HEART = 1} \\
+     \hline
+     \textbf{R1HIBP = 0} & 7094 & 690 \\
+     \textbf{R1HIBP = 1} & 3892 & 976 \\
+\end{tabular}
+\end{table}\\
+This table shows that the proportion of individuals with heart issues is higher among the group of individuals presenting hypertension. This correlation is confirmed by a p-value equal to $4.99.10^{-73}$, which is well below 0.01.
+
+
 \subsection{t-SNE algorithm: presentation}
 The PCA is designed to reduce a dataset of high dimension $d$ into a smaller space of dimension $d'<\!<d$ by finding the \textit{principal components}, that is the $d'$ maximum variance directions, and project the original data in the smaller space. Globally, this is an linear algebraic oriented approach.\\
 On the other hand, the t-distributed Stochastic Neighbor Embedding tries to find similarities in the data using a non-linear probabilistic approach. The overall idea consists in assigning to the original data a probability measure $P$ and another one $Q$ to the reduced data, then trying to alter the reduced data such that the Kullbach-Leibler divergence of the distribution $P$ and $Q$ is minimal.
@@ -134,7 +167,11 @@ The index (denoted \textit{GHI} for \textit{Global Health Index} in the followin
 
 \noindent
 In order to check for the robustness of our index, we conducted an analysis of sensitivity. Formally, an analysis of sensitivity consists in analyzing the robustness of an index to changes in the data or in the assumptions made.\\
+
+\noindent
 As we will have to estimate an index based on a testing sample of our data, the first question to be answered is the following: does the GHI of an individual change when we do not take into account the whole database in the process? For instance, if one's GHI were equal to $50$ when the index has been fitted on the whole database, would it still be equal to $50$ if the index were this time fitted on a sample of the data? The figure $\ref{RMSE_according_to_sample_size}$ in appendix demonstrates the robustness of t-SNE algorithm in generating an index not too much data-dependent: the root mean squared error observed for samples of $10,000$ individuals amounts to about $27$, for an index that varies between $-150$ and $150$.\\
+
+\noindent
 For the second test, we deleted values at random in the dataset. As in the previous analysis, we used Root Mean Squared Error to compare the index computed on this altered dataset and the real one. For instance, with 5\% of random missing values, we obtained a RMSE of $17$. Figure $\ref{RMSE_according_to_percentage_nan}$ shows the RMSE according to the percentage of random missing values. The robustness of the index to missing values is satisfying, as we can expect there would not be a too high share of missing values when we try to predict the outcome.\\
 
 \noindent
@@ -440,6 +477,18 @@ Overall, we see that the XGBoost classifier becomes better and better compared t
 \includegraphics[scale=0.75]{xgboost_accuracy_wrt_number_of_classes.png}
 \caption{Accuracy of XGBoost classifier with respect to the number of classes}
 \label{xgboost_accuracy}
+\end{figure}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale = 0.75]{density_bmi.png}
+	\caption{Density of the variable BMI for each wave}
+	\label{density_bmi}
+\end{figure}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale = 0.75]{std_alcohol.png}
+	\caption{Standard deviation of the variable measuring alcohol consumption across waves}
+	\label{std_alcohol}
 \end{figure}
 \noindent
 Figure \ref{distribution_of_columns_wrt_missing_values_ratio} is meant to be interpreted like this: among the variables collected from the interviews in wave 2, $40$\% of them present more than $45$\% missing values.\\
