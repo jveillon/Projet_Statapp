@@ -116,7 +116,7 @@ First, we focus on univariate statistics. For a variable to be interesting in th
 To study the dispersion of binary variables, we compute the standard deviation with the formula $\sqrt{p(1-p)}$ with $p$ the mean of the variable. The graphs showing the standard deviations of the binary variables across waves show a non-negligible dispersion. For the only quantitative variable that is not binary (RwSLFMEM, which is a self-rating of memory), we obtain satisfying standard deviations as well. As an example, figure $\ref{std_alcohol}$ shows the standard deviation across waves of the variable measuring alcohol consumption.\\
 
 \noindent
-Now let us look at a few bivariate statistics. To study the dependency between qualitative variables, we use contingency tables and $\chi^2$ tests. Since there are a lot of tests to run, we focus on wave 1. A contingency table shows the relative distribution of two variables. A $\chi^2$ test compares the observed distribution to the one that would be observed if the two variables were independent. Denoting $M=(m_{ij})$ a contingency table of dimension $I\times J$, the T-statistic is computed as follows: 
+Now let us look at a few bivariate statistics. To study the dependency between qualitative variables, we use contingency tables and $\chi^2$ tests. Since there are a lot of tests to run, we focus on wave 1. A contingency table shows the relative distribution of two variables. A $\chi^2$ test compares the observed distribution to the one that would be observed if the two variables were independent. Denoting $M=(m_{ij})$ a contingency table of dimension $I\times J$, the T-statistic is computed as follows \cite{chi2test}: 
 \begin{equation}
 	T = \sum_{ij}\frac{(m_{ij}-n_{ij})^2}{n_{ij}}
 \end{equation}
@@ -124,9 +124,8 @@ With:
 \begin{equation}
 	N=\sum_{ij}m_{ij}, \quad \text{and}\quad \forall i,j,\quad n_{ij} = \frac{1}{N} \left(\sum_{\ell}m_{i,\ell}\right) \left(\sum_{k}m_{k,j}\right) 
 \end{equation}
-\textbf{\{(source: Xavier Dupré) : JE SAIS PAS SI C'EST LA BON ENDROIT\}}
 The random variable T asymptotically follows a $\chi^2$ with $(I-1)(J-1)$ degrees of liberty. The function \pyth!scipy.stats.chi2_contingency! computes the T-statistic and the p-value associated, in the test of $H_0$: “the variables are not correlated” against $H_1$: “the variables are correlated”.
-Out of the $399$ tests we ran, $366$ showed a dependency between the two variables with a $1\%$ threshold. The following table is the contingency table of the variable indicating the presence of heart issues and the one indicating the presence of hypertension.
+Out of the $399$ tests we ran, $366$ showed a dependency between the two variables with a $1\%$ threshold. The following table \ref{contingency_table} is the contingency table of the variable indicating the presence of heart issues and the one indicating the presence of hypertension.
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|c|c|}
@@ -139,8 +138,12 @@ Out of the $399$ tests we ran, $366$ showed a dependency between the two variabl
 		\hline
 	\end{tabular}
 	\caption{Contingency table of heart issues against hypertension in wave $1$}
+	\label{contingency_table}
 \end{table}\\
-This table shows that the proportion of individuals with heart issues is higher among the group of individuals presenting hypertension. This correlation is confirmed by a p-value equal to $4.99.10^{-73}$, which is well below $0.01$. \textbf{AJOUTER CONCLUSION}
+This table shows that the proportion of individuals with heart issues is higher among the group of individuals presenting hypertension. This correlation is confirmed by a p-value equal to $4.99.10^{-73}$, which is well below $0.01$.\\
+
+\noindent
+These few descriptive statistics give us an insight of the useful information contained in the selected variables. The tests we ran are far from sufficient to understand the relationships between the variables, but they show that some relationships exist. They will be exploited to compute the Global Health Index.
 
 \subsection{t-SNE algorithm: presentation}
 The PCA is designed to reduce a dataset of high dimension $d$ into a smaller space of dimension $d'<\!<d$ by finding the \textit{principal components}, that is the $d'$ maximum variance directions, and project the original data in the smaller space. Globally, this is a linear algebraic oriented approach.\\
@@ -289,9 +292,7 @@ And the source code:
 The implementation presented a lot of difficulties, one of them regarding the fact that the underlying solver was not able to assert the positive semidefinitiveness of \pyth!Sigma_opt! due to its large size, even though the matrix was indeed PSD. As this assertion was an integral part of the resolution process, getting around this check presented many challenges, not to mention that each correction attempt required 30 minutes of simulation. In the final version of the \pyth!HMLasso()!, the user is invited to handle such errors when they happen by manually setting \pyth!ERRORS_HANDLING =  "ignore"!, meaning \textit{'ignore PSD check'}.
 
 \section{Second machine learning procedures: prediction}
-\subsection{XGBoost for regression and classification}
-In inspiration of the berst methods employed in the Fragile Family Challenges, we considered Gradient Boosting paradigm as a potentially suitable path to follow. This section is dedicated to the implementation of XGBoost and to the performances we managed to get.
-\subsubsection{Prior application of HMLasso}
+\subsection{Prior application of HMLasso}
 Considering the database left after the removals of unusable variables (section \ref{removal_of_unusable_variables}), we still have more than $40$ thousands individuals and $p=4147$ variables to deal with.\\
 To reduce the number of columns, we applied the HMLasso in a specific way. Until now, our individuals are identified by their \pyth!HHIDPN!, and the database looks like this:
 \begin{table}[!h]
@@ -337,6 +338,9 @@ To see which variables were useful in the prediction of the global health index 
 	\end{tabular}
 \end{table}\\
 By applying the HMLasso on $(X, y)$ where $X$ is the dataset above and $y$ is the GHI column, we are able to quickly drop hundreds of columns. After these procedures, our dataset comprises $p=1500$ columns for $n=42233$ individuals.
+
+\subsection{XGBoost for regression and classification}
+In inspiration of the best methods employed in the Fragile Family Challenges, we considered Gradient Boosting paradigm as a potentially suitable path to follow. This section is dedicated to the implementation of XGBoost, an instance of Gradient Boosting algorithm, and to the performances we managed to get.
 \subsubsection{Gradient Boosting in a nutshell}
 XGBoost \cite{xgboost2016} is a gradient boosting algorithm that is used widely by data scientists to achieve state-of-the-art results on many machine learning challenges.\\
 Gradient boosting is a paradigm of machine learning based on the idea of successive upgrades in the prediction function.\\
@@ -385,8 +389,8 @@ To separate the effect of socioeconomic data, genetic data and previous \pyth!GH
 	only socioeconomic data and previous ghi & 0.3672 &	0.0279 & 42.00 & 1.16\\
 	\hline 
 \end{tabular}
-\label{results_xgbregressor}
 \caption{XGBoost regressor - results over $100$ simulations}
+\label{results_xgbregressor}
 \end{table}\\
 We obtained the results above by experimentally conducting cross-validation to select the best values of the following hyperparameters:
 \begin{itemize}
@@ -403,7 +407,7 @@ In the Fragile Families Challenge \cite{challenge2017}, researchers managed to p
 
 \noindent
 By representing one's health with a continuous index, we have made the choice to summarize data in a way that might make irrelevant distinctions between individuals. Namely, what is the difference between an individual of \pyth!GHI14 = 100! and another individual of \pyth!GHI14 = 99!? To override these problematics, it is interesting to look at a simplified version of the health index. For instance, if instead of assigning a numerical value to the health of an individual, we assign it a class (e.g. 'bad health', 'neutral health', 'great health'), would XGBoost give better results? We created such classes by uniformly splitting individuals according to their GHI.\\
-The array below (corresponding to data used in figure \ref{xgboost_accuracy})  answers this question.\\
+The table \ref{results_xgbclassifier} below (corresponding to data used in figure \ref{xgboost_accuracy})  answers this question.
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
@@ -430,14 +434,14 @@ The array below (corresponding to data used in figure \ref{xgboost_accuracy})  a
 		10 & 0.4121 & 0.1 & 4.12\\
 		\hline 
 	\end{tabular}
-	\label{results_xgbclassifier}
 	\caption{XGBoost classifier - results over $10$ simulations}
+	\label{results_xgbclassifier}
 \end{table}\\
 
 \noindent
 Training a binary classifier on a health indicator \{\textit{bad health}, \textit{good health}\}
 returned a classifier of accuracy $0.751$, which is $1.5$ times better than a dummy classifier (of accuracy $0.5$). Training a non-binary classifier on the health indicator \{\textit{ailing health}, \textit{bad health}, \textit{neutral health}, \textit{good health}, \textit{excellent health}\} returned a classifier of accuracy $0.518$, which is $2.6$ times better than the dummy classifier.\\
-Overall, we see that the XGBoost classifier becomes better and better compared to a dummy classifier when the number of classes increase, i.e when the problem becomes harder. Moreover, the binary model present a satisfying accuracy of $0.753$, a precision of $0.770$, a recall of $0.777$ and a F1-score of $0.773$.
+Overall, we see that the XGBoost classifier becomes better and better compared to a dummy classifier when the number of classes increases, i.e when the problem becomes harder. Moreover, the binary model present a satisfying accuracy of $0.753$, a precision of $0.770$, a recall of $0.777$ and a F1-score of $0.773$.
 
 \subsection{RandomForest for regression and classification}
 In light of the encouraging results derived from XGBoost, we decided to explore the alias path of Gradient Boosting, which is Bagging and more specifically Random Forest \cite{randomForest2012} paradigm.
@@ -464,6 +468,11 @@ In practice, the fact that each $f_i$ is independent from $f_j$ ($j\ne i$) allow
 \label{randomForest_performances}
 On the same basis of argumentation discussed in section \ref{xgboost_performances}, we decided to perform our machine learning algorithms on the reduced dataset comprising only individuals present in each wave. These indiviuals amount to $n = 3396$.\\
 
+\noindent
+However, as the \pyth!RandomForestClassifier()! and \pyth!RandomForestRegressor()! implemented in \textbf{scikit-learn} do not support categorical variables, we had to one-hot-encode them, which means transforming each categorical variables into multiple dummy indicators: for instance, the variable \pyth!RwHLTC3! (which corresponds to \textit{self report of health change}) takes values in \textit{\{'better', 'about the same' and 'worse'\}}, so we one-hot-encoded \pyth!RwHLTC3! into three variables \pyth!RwHLTC3_better, RwHLTC3_about_the_same, RwHLTC3_worse!, that takes $0$ or $1$ as values, so that \pyth!RwHLTC3_worse =  1! if and only if \pyth!RwHLTC3 = 'worse'!.\\
+Furthermore, we had to impute the missing values, because the \textbf{scikit-learn} implementations do not support them. In view of the time it would have taken to the \pyth!Iterativeimputor()! to converge, we decided to impute them through \pyth!SimpleImputor(strategy="mean")!.\\
+
+\noindent
 Following the same methodology as explained in \ref{xgboost_performances}, here are the results:
 \begin{table}[!h]
 	\centering
@@ -471,20 +480,64 @@ Following the same methodology as explained in \ref{xgboost_performances}, here 
 		\hline
 		\textbf{Data} & \textbf{mean $R^2$} & \textbf{std $R^2$} & \textbf{mean RMSE} & \textbf{std RMSE}\\
 		\hline
-		all data & 0.3688 & 0.0285 & 41.87 & 0.97 \\ 
+		all data & 0.3970 & 0.0029 & 40.85 & 0.01 \\ 
 		\hline
-		only previous ghi & 0.3387 & 0.0267 & 42.74 & 1.13\\
+		only previous ghi & 0.3767 & 0.0209 & 41.86 & 0.38\\
 		\hline 
-		only socioeconomic data & 0.2130 &0.0252 & 46.71 & 0.95\\
+		only socioeconomic data & 0.1608 & 0.0325 & 47.68 & 1.46\\
 		\hline 
-		only socioeconomic and genetic data & 0.2118 & 0.0250 & 46.85 & 1.09\\
+		only socioeconomic and genetic data & 0.1660 & 0.0203 & 46.42 & 0.44\\
 		\hline 
-		only socioeconomic data and previous ghi & 0.3672 &	0.0279 & 42.00 & 1.16\\
+		only socioeconomic data and previous ghi & 0.3608 &	0.0245 & 41.87 & 0.10\\
+		\hline
+	\end{tabular}
+	\caption{Random Forest regressor - results over $2$ simulations}
+	\label{results_randomforestregressor}
+\end{table}\\
+Again, the results above were obtained by experimentally conducting cross-validation to select the best values of the following hyperparameters:
+\begin{itemize}
+	\item \pyth!n_estimators!: the number of weak learners (alias $K$). We tested $K\in \{100, 200\}$.
+	\item \pyth!max_depth!: the maximum depth of each tree. We tested each value from $\{3, 4, 5, 6\}$.
+	\item \pyth!max_samples!: the percentage of the original database used to train each tree. We tested each value from $\{80\%, 100\%\}$.
+\end{itemize}
+We were able to calculate a standard deviation by reconducting each simulation $2$ times and randomly change the train/test split at each simulation.\\
+
+\noindent
+An important point that need to be pointed out is that the \textbf{scikit-learn} implementation of Random Forest we used is not distributed, which means the simulations took much more times than XGBoost's. This explains why we were not able to optimize more parameters (such as \pyth!max_leaf_nodes, min_samples_leaf, etc.!).\\
+
+\noindent
+Following the same reasoning as in section \ref{xgboost_performances}, we also trained a \pyth!RandomForestClassifer()!. The table \ref{results_randomForestClassifier} below shows the results:
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		
+		\textbf{Number of classes} & \textbf{Random Forest} & \textbf{XGBoost} & \textbf{Dummy classifier} & \textbf{Forest/Dummy ratio}\\
+		\hline
+		2 & 0.7515 & 0.7531 & 0.5 & 1.46\\
+		\hline 
+		3 & 0.6044 & 0.6807 & 0.3333 & 1.71\\
+		\hline 
+		4 & 0.4926 & 0.5334 & 0.25 &  1.83\\
+		\hline 
+		5 & 0.4294 & 0.5565 & 0.2 &  2.03\\
+		\hline 
+		6 & 0.3897 & 0.4862 & 0.1667 & 2.11\\
+		\hline 
+		7 & 0.3618 & 0.4726 & 0.1429 & 2.38\\
+		\hline 
+		8 & 0.3559 & 0.4546 & 0.125 & 2.64\\
+		\hline 
+		9 & 0.3235 & 0.4257 & 0.1111 &  2.66\\
+		\hline 
+		10 & 0.3015 & 0.4121 & 0.1 &  2.67\\
 		\hline 
 	\end{tabular}
-	\label{results_randomforestregressor}
-	\caption{Random Forest regressor - results over $2$ simulations}
+	\caption{Random Forest classifier - results over $10$ simulations}
+	\label{results_randomForestClassifier}
 \end{table}\\
+Here, we remind the reader of the results obtained for XGBoost. Overall, we see that the Random Forest Classifier underperforms XGBoost Classifier for every single number of classes. Moreover, in the case of binary classification, the Random Forest Classifier shows an accuracy of $0.732<0.753$, a precision of $0.753<0.770$, a recall of $0.777=0.777$ and a F1-score of $0.765<0.773$, which further proves the superiority of XGBoost Classifier.
+
 \cleardoublepage
 \appendix
 \section{Appendix}

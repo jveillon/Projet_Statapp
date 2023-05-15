@@ -6,6 +6,12 @@ Tianqi Chen and Carlos Guestrin.
 \newblock In {\em Proceedings of the 22nd {ACM} {SIGKDD} International
   Conference on Knowledge Discovery and Data Mining}. {ACM}, aug 2016.
 
+\bibitem{chi2test}
+Xavier Dupré.
+\newblock Calculer un $\chi ^2$ sur un tableau de contingence.
+\newblock
+  \url{http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/tableau_contingence.html}.
+
 \bibitem{randomForest2012}
 Yanli Liu, Yourong Wang, and Jian Zhang.
 \newblock New machine learning algorithm: Random forest.
