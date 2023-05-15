@@ -23,8 +23,8 @@
 %opening
 \title{Applied Statistics Project - On the predictability of life course}
 \author{
-	VEILLON, Juliette\\
-	\texttt{first1.last1@xxxxx.com}
+	MASSIN, Keryann\\
+	\texttt{first2.last2@xxxxx.com}
 	\and
 	ANDRU, Kilian\\
 	\texttt{first2.last2@xxxxx.com}
@@ -32,21 +32,21 @@
 	LACOUR, Xavier\\
 	\texttt{first2.last2@xxxxx.com}
 	\and
-	MASSIN, Keryann\\
-	\texttt{first2.last2@xxxxx.com}
+	VEILLON, Juliette\\
+	\texttt{first1.last1@xxxxx.com}
 }
 
 \begin{document}
 \newcommand{\sklearn}{\textbf{scikit-learn}}
 \maketitle
 \begin{abstract}
-	Based on socioeconomic and genetic data, is it possible to predict one's health across time? The question has been discussed in many previous research without satisfying answer. This paper explains how we approached the problem. The data used for our purposes are the ones from the Health and Retirement Study led by the RAND Corporation. We first explain how me chose the global health index, using Stochastic Neighbors Embedding paradigm, before applying a specific kind of Lasso Regression and further machine learning algorithms.
+	Based on socioeconomic and genetic data, is it possible to predict one's health across time? The question has been discussed in many previous research without satisfying answer. This paper explains how we approached the problem. The data used for our purposes are the ones from the Health and Retirement Study led by the RAND Corporation. We first explain how we chose the global health index, using Stochastic Neighbors Embedding paradigm, before applying a specific kind of Lasso Regression and further machine learning algorithms to predict the said health index.
 \end{abstract}
 \newpage
 \tableofcontents
 \newpage
 \section{Introduction}
-The work presented in this document has been realized in the framework of the \textbf{Applied Statistics Project} (projet Statapp) by the joint participation of Juliette Veillon, Kilian Andru, Xavier Lacour and Keryann Massin. It is dedicated to the question of the \textbf{predictability of life course}, a sociological question approached from a data science perspective.\\
+The work presented in this document has been realized in the framework of the \textbf{Applied Statistics Project} (projet Statapp) by the joint participation of Keryann Massin, Kilian Andru, Xavier Lacour and Juliette Veillon. It is dedicated to the question of the \textbf{predictability of life course}, a sociological question approached from a data science perspective.\\
 
 \noindent
 At the era of overly present information, machine learning reveals links and hidden relationships between variables that used to be hard to tackle. Data Science techniques spread among experts of all fields, and social sciences see major breakthroughs thanks to artificial intelligence. The question of the predictability of life course comes in this context as a challenging one: there is an obvious relationship between age, body-fat ratio and health for instance, but how could one exploit these links and other available information for prediction purpose? For instance, is it possible to forecast one's overall health for the upcoming year based on the socioeconomic and genetic data at our disposal? That is the problem we wish to address with this STATAPP project.\\
@@ -56,35 +56,38 @@ Thanks to our supervisor M. Tropf, we have had access to the Heath and Retiremen
 
 \noindent
 Our main reference for this project is the Fragile Families Challenge \cite{challenge2017}. The format of the database is similar to the HRS one: it comprises 4,242 families, who were interrogated in six waves to collect a total of 12,942 variables over 15 years. The objective was to predict six life outcomes from wave 6 using the previous waves. Several groups of researchers participated in the task and reported both their methods and results. The method which obtained the best results, with an $R^2$ of $0.232$, is described as follows: “Our approach consists of the following steps. First, we do early house-cleaning by dropping variables with more than 60 percent missing and dropping variables with standard deviation smaller than .01. Second, we mean-impute the data and perform LASSO regressions of the outcome variables on all remaining covariates. We then drop any covariate whose coefficient is zero. Third, for the remaining covariates, we identify their originals (i.e., before mean imputation), and apply multiple-imputation using Amelia (which employs EM algorithms). We apply LASSO again for variable-selection using the Amelia-imputed dataset. When applying Amelia, we set M = 5 and pick the third dataset.” 
-The second-best method, with an $R^2$ of $0.229$, used an XGBoost algorithm.
-We used these methods as an inspiration to find our own methods, regarding the structure of our dataset.
+The second-best method, with an $R^2$ of $0.229$, used an XGBoost algorithm \cite{xgboost2016}. We used these methods as an inspiration to find our own.
+\textbf{AJOUTER REFERENCES POUR LASSO, AMELIA, EM, etc.} \\
+
+\noindent
+In the upcoming pages, we first present the database and the cleaning steps we went through. In order to compute the predictability of life course, we then define a formal objective and apply machine learning procedures aiming to predict this objective. As this report is part of an educational project, we have chosen to present both the attempts that worked and the ones that failed.
 
 \section{Presentation and cleaning of the database}
 \subsection{Presentation}
-Our project is based on multiple databases, which all have the same source: the Health and Retirement Study (HRS). The HRS is sponsored by the National Institute on Aging (grant number NIA \textit{U01AG009740}) and is conducted by the University of Michigan and focuses on Americans over $50$. More than $20,000$ are included in the survey. The original goals of the survey were to help facilitate research and to guide policymakers in their decisions.\\
+Our project is based on three databases, which all have the same source: the Health and Retirement Study (HRS). The HRS is sponsored by the National Institute on Aging (grant number NIA \textit{U01AG009740}) and is conducted by the University of Michigan and focuses on Americans over $50$. More than $20,000$ are included in the survey. The original goals of the survey were to help facilitate research and to guide policymakers in their decisions.\\
 
 \noindent
-The first dataset is about participants’ lives data (its formal name is RAND HRS Longitudinal File 2018 (V2) \cite{hrs2014}). It contains fourteen waves of survey for the moment. At each new wave, people from previous waves must respond again (as the data is longitudinal), and new people representative of the American society are also added. Are considered in the data the respondents themselves, their spouses, and their households. The data here revolves around the socio-economic situation of the respondents but also their health. It is outlined by more than $10,000$ variables.\\
+The first dataset is about participants’ lives data (its formal name is RAND HRS Longitudinal File 2018 (V2) \cite{hrs2014}). It contains fourteen waves of survey for the moment. At each new wave, people from previous waves must respond again (as the data is longitudinal), and new people representative of the American society are also added. Are considered in the data the respondents themselves, their spouses, and their households. The data here revolve $10,000$ variables.\\
 
 \noindent
 The two other datasets correspond to the genetic ones $\addref$. They are similar and just differ as one contains people with European ancestry while the other people with African ancestry. The contained genetic data are polygenic scores (PGSs). Their goal is to encapsulate genetic facts that are linked to a phenotypic trait to try to find the latter. Here, the genetic facts in question are Single Nucleotide Polymorphisms (SNPs). They correspond to DNA sequences where only one particular gene is different from the others in a part of the population wider than $1$\%. To obtain a PGS, a weighted sum is made with the SNPs linked to the phenotype that one wishes to estimate. The weights are obtained with a meta-analysis done on genome-wide association studies (GWAS) which try to see the link between phenotypes and genes (but not with single genes like with the SNPs).\\
 
 \noindent
-A crucial information to be pointed out is that our databases contain a lot of missing values. These missing values can be classified in two categories: either the individual has been interviewed during a given wave but he did not answer a question, either the individual has not been interviewed. These two cases lead to missing values of different kind: the first ones might be imputed whereas the second cannot. Indeed, if an individual has not been interrogated at a specific wave, imputing his answers is equivalent to creating them, which is nonsense.
+A crucial information to be pointed out is that our databases contain a lot of missing values. These missing values can be classified in two categories: either the individual has been interviewed during a given wave but he did not answer a question, either the individual has not been interviewed. These two cases lead to missing values of different kind: the first ones might be imputed (that is, replacing missing values with likely values with respect to a certain methodology) whereas the second cannot. Indeed, if an individual has not been interrogated at a specific wave, imputing his answers is equivalent to creating them, which is nonsense.
 
 \subsection{Initial merges}
-To conduct our project, we first need to merge the databases. As the people who responded to the genetics survey are also included in the socio-economic one, we only need to add the first to the second by the individual identifier \pyth!HHIDPN!. However, this variable does not exist in the genetics databases, so we had to compute it by concatenating the Household Identifier \pyth!HHID! with the Person Number \pyth!PN!. Then we concatenated the two genetics bases and merged the resulting base with the socio-economic one. As the two genetic bases only differed by the individuals represented (ones with European ancestry and ones with African ancestry) but not by any of the $86$ variables of interest, we decided to create an \nth{87} variable \pyth!Section_A_or_E! that takes \pyth!A! and \pyth!E! as modalities and indicates the ancestry of individuals, in order not to lose any information.\\
-\textbf{Notebook de référence : file\_0\_merge\_Section\_A\_and\_E}
+To conduct our project, we first need to merge the databases. As the people who responded to the genetics survey are also included in the socio-economic one, we only need to add the first to the second by the individual identifier \pyth!HHIDPN!. However, this variable does not exist in the genetics databases, so we had to compute it by concatenating the Household Identifier \pyth!HHID! with the Person Number \pyth!PN!. Then we concatenated the two genetics bases and merged the resulting base with the socio-economic one. As the two genetic bases only differed by the individuals represented (ones with European ancestry and ones with African ancestry) but not by any of the $86$ variables of interest, we decided to create an \nth{87} variable \pyth!Section_A_or_E! that takes \pyth!A! and \pyth!E! as modalities and indicates the ancestry of individuals, in order not to lose any information.
+
 \subsection{Removal of unusable variables}
 \label{removal_of_unusable_variables}
-At this point, our database gathers $n=42233$ individuals and $p=15104$ variables. With a size of about $1.15$ gigabytes and quadruple in RAM,our laptops could not handle the whole dataset and perform appropriate analysis. Plus, considering that the dataset presents a high missing values rate and that $p\approx n$, machine learning algorithms would not be able to converge in the current state of our data. We need to clean it.
+At this point, our database gathers $n=42233$ individuals and $p=15104$ variables. With a size of about $1.15$ gigabytes on disk and four times more in RAM, our laptops could not handle the whole dataset and perform appropriate analysis. Plus, considering that the dataset presents a high missing values rate and that $p\approx n$, machine learning algorithms would not be able to converge in the current state of our data. We thus need to clean it. In this section \ref{removal_of_unusable_variables}, we present the first obvious deletions that we made, to obtain a database on which we could apply more complex algorithms.
 
 \subsubsection{Removal of Spouses' related variables}
-The subject of the variables always fall into one of the three categories 'Respondent, Spouse, Household'. Because Spouses' related variables amounted to around $7200$, we decided to drop them all, considering the fact that $95$\% of spouses were also interviewed as respondents.
-At the end of this operation, our database is of size $(n=42233, p=7939)$.
+The subject of the variables always fall into one of the three categories 'Respondent, Spouse, Household'. Because Spouses' related variables amounted to around $7200$, we decided to drop them all, considering the fact that $95$\% of spouses were also interviewed as respondents and that, as a result, we would only lose $5\%$ of the information doing so.
+At the end of this operation, our database is of size $(n=42233, p=7939)$. Compared to the initial size of the database, this size has been almost halved in exchange for a small loss of information.
 
 \subsubsection{Removal of columns with a missing rate too high}
-The quickest way to efficiently reduce the size of our database is to directly drop useless columns. Our data mainly corresponding to answers to interviews, some columns present a missing rate really high. We calculated for each wave the number of columns for a given missing rate, and got the graph $\ref{distribution_of_columns_wrt_missing_values_ratio}$ in appendix. The genetic data are available for around $35.97$\% of the respondents, so we decided to drop all variables that presented a missing rate higher than $65$\ref{LassoStandardFirstForm}%.\\
+The quickest way to efficiently reduce the size of our database is to directly drop useless columns. Our data mainly corresponding to answers to interviews, some columns present a missing rate really high. We calculated for each wave the number of columns for a given missing rate, and got the graph $\ref{distribution_of_columns_wrt_missing_values_ratio}$ in appendix. We wanted ro keep the genetic data, whose available rate is around $35.97$\% of the respondents, so we decided to drop all variables that presented a missing rate higher than $65\%$.\\
 A precision is needed: the vast majority of the columns in our dataset are in fact timed realizations of one global variable. Take \pyth!R1MSTAT! for example. It appears that \pyth!R1MSTAT, R2MSTAT, ..., R14MSTAT! are the responses of individuals to the same question, say \pyth!RwMSTAT!, asked at different waves. Hence, it makes sense for these 14 variables to not be treated separately: if we delete \pyth!R12MSTAT!, we shall delete \pyth!R1MSTAT, R2MSTAT,! etc. If we keep one column, we keep all of them.\\
 There are $156$ variables like \pyth!RwMSTAT! with an average missing rate of more than $65$\%. It corresponds to $1577$ columns in our original dataset, and we dropped them all at once. This single operation drastically reduced the size of the database from $(n = 42233, p = 7939)$ to $(n = 42233, p = 6131)$.\\
 
@@ -92,55 +95,55 @@ There are $156$ variables like \pyth!RwMSTAT! with an average missing rate of mo
 \textit{Remark.} During the process of cleaning the dataset, we came across a variable named \pyth!FILEVER! that were constant (\pyth!FILEVER = 'U'!) for all individuals. We decided to drop it.
 
 \subsubsection{Removal of health variables}
-The whole point of our project is to predict a global health index. As explained further on, we used the health variables to construct our index. To remove endogeneity issues, we decided to drop all health variables (even though we used only $27$ of the $1983$ available to create our index) in the main database, and save them in a separate database. At the end of this operation, our database is of size $(n = 42233, p = 4147)$. No obvious columns removal could be made for now.
+The whole point of our project is to predict a global health index. As explained further on, we used the health variables to construct our index. To avoid predicting health itself, we decided to drop all health-related variables in the main database, and save them in a separate database. At the end of this operation, our database is of size $(n = 42233, p = 4147)$. No obvious columns removal could be made for now.
 
 \section{Definition of the objective}
-As explained in the introduction, we want to see whether it is possible to forecast someone's health with the socioeconomic and genetic data we have about him at our disposal. We formally need a \textit{Global Health Index}, that could summarize the whole of health-related information into one real number. Our goal will then be to attempt to predict it. This section is dedicated to the creation of this index.\\
+As explained in the introduction, we want to see whether it is possible to forecast someone's health with the socioeconomic and genetic data we have about him at our disposal. We formally need a \textit{Global Health Index}, that could summarize the whole of health-related information into one real number. Once the index designed, our goal will then be to predict it. This section is dedicated to the creation of this index.\\
 
 \noindent
-We carefully selected a few quantitative health-variables, from his age and body mass index to the number of overnight stays at hospital or in nursing home he went through over a year. We also took into account qualitative variables indicating whether the respondent had had hypertension, cancer, diabete, heart disease, etc. The problem was to summarize $27$ health-variables into one Global Health Index.\\
+We carefully selected a few quantitative health-variables, from age and body mass index to the number of overnight stays at hospital or in nursing home the respondent went through over a year. We also took into account qualitative variables indicating whether the respondent had had hypertension, cancer, diabete, heart disease, etc. Out of the 1983 available heath variables, we thus selected $27$ of them. The problem was to summarize them into one Global Health Index.\\
 
 \noindent
-The scientific literature points out the benefits of Principal Component Analysis (PCA) in the search of such an index. Therefore our first attempts were to use PCA to summarize the $27$ variables into one. However, the index created this way did not present the expected consistency: one's index looked random across time, and the index was awkwardly positively correlated with each health-variable, independently of the actual effect of the variable on one's health.\\
+The scientific literature points out the benefits of Principal Component Analysis (PCA) $\addref$ in the search of such an index. Therefore we first used it to summarize the $27$ variables into one. However, the index created this way did not present the expected consistency: one's index looked random across time, and the index was awkwardly positively correlated with each health-variable, independently of the actual effect of the variable on one's health.\\
 
 \noindent
-Hence, we looked for another dimensional reduction algorithm. The t-distributed Stochastic Neighbor Embedding (t-SNE) algorithm has caught our attention, and we decided to apply it on our health data.
+Hence, we looked for another dimensional reduction algorithm. The t-distributed Stochastic Neighbor Embedding (t-SNE) algorithm $\addref$ had caught our attention, and we decided to apply it on our health data.
 
 \subsection{Descriptive statistics on the selected variables}
-First, we focus on univariate statistics. For a variable to be interesting in the creation of the index, it needs to allow us to differentiate individuals to a certain extent. Formally, the dispersion of the values must be sufficient. We look at the standard deviation of the variables. If it is too close to 0, it means than most individuals have the same value for the variable of interest, and it is not helpful to point out differences between individuals. Regarding the quantitative variables, the distributions show that the standard deviations are satisfying. For example, for the BMI in wave 1, the standard deviation is 5.18, with 75\% of values between 12.8 and 29.6. Figure $\ref{density_bmi}$ shows the density of the BMI variable for all waves. However, for the variables that measure an evolution since the last interview, the standard deviations in the first wave are ambiguous, because measuring an evolution since the last wave for wave 1 does not make much sense. When we exclude the first wave, we obtain more satisfying results.\\
+First, we focus on univariate statistics. For a variable to be interesting in the creation of the index, it needs to allow us to differentiate individuals to a certain extent. Formally, the dispersion of the values must be sufficient. We look at the standard deviation of the variables. If it is too close to $0$, it means than most individuals have the same value for the variable of interest, and it is not helpful to point out differences between individuals. Regarding the quantitative variables, the distributions show that the standard deviations are satisfying. For example, for the Body Mass Index (BMI) in wave $1$, the standard deviation is $5.18$, with $75\%$ of values between $12.8$ and $29.6$. Figure $\ref{density_bmi}$ shows the density of the BMI variable for all waves. However, for the variables that measure an evolution since the last interview, the standard deviations in the first wave are ambiguous, because measuring an evolution since the last wave for wave $1$ does not make much sense. When we exclude the first wave, we obtain more satisfying results.\\
 
 \noindent
 To study the dispersion of binary variables, we compute the standard deviation with the formula $\sqrt{p(1-p)}$ with $p$ the mean of the variable. The graphs showing the standard deviations of the binary variables across waves show a non-negligible dispersion. For the only quantitative variable that is not binary (RwSLFMEM, which is a self-rating of memory), we obtain satisfying standard deviations as well. As an example, figure $\ref{std_alcohol}$ shows the standard deviation across waves of the variable measuring alcohol consumption.\\
 
 \noindent
-Now let’s look at a few bivariate statistics. To study the dependency between qualitative variables, we use contingency tables and $\chi^2$ tests. Since there are a lot of tests to run, we focus on wave 1. A contingency table shows the relative distribution of two variables. A $\chi^2$ test compares the observed distribution to the one that would be observed if the two variables were independent. Denoting $M=(m_{ij})$ a contingency table of dimension $I\times J$, the T-statistic is computed as follows: 
+Now let us look at a few bivariate statistics. To study the dependency between qualitative variables, we use contingency tables and $\chi^2$ tests. Since there are a lot of tests to run, we focus on wave 1. A contingency table shows the relative distribution of two variables. A $\chi^2$ test compares the observed distribution to the one that would be observed if the two variables were independent. Denoting $M=(m_{ij})$ a contingency table of dimension $I\times J$, the T-statistic is computed as follows: 
 \begin{equation}
-    T = \sum_{ij}\frac{(m_{ij}-n_{ij})^2}{n_{ij}}
+	T = \sum_{ij}\frac{(m_{ij}-n_{ij})^2}{n_{ij}}
 \end{equation}
 With:
-\begin{itemize}
-	\item $N=\sum_{ij}m_{ij}$
-	\item $\forall i, m_{i\cdot}=\sum_j m_{ij}$
-	\item $\forall j, m_{\cdot j}=\sum_i m_{ij}$
-    \item $\forall i,j, n_{ij}=\frac{m_{i\cdot}m_{\cdot j}}{N}$
-\end{itemize}
-(source: Xavier Dupré)
-The random variable T follows asymptotically a $\chi^2$ with $(I-1)(J-1)$ degrees of liberty. The function \pyth!scipy.stats.chi2_contingency! computes the T-statistic and the p-value associated, in the test of $H_0$: “the variables are not correlated” against $H_1$: “the variables are correlated”.
-Out of the 399 tests we ran, 366 showed a dependency between the two variables with a 1\% threshold. The following table is the contingency table of the variable indicating the presence of heart issues and the one indicating the presence of hypertension.
+\begin{equation}
+	N=\sum_{ij}m_{ij}, \quad \text{and}\quad \forall i,j,\quad n_{ij} = \frac{1}{N} \left(\sum_{\ell}m_{i,\ell}\right) \left(\sum_{k}m_{k,j}\right) 
+\end{equation}
+\textbf{\{(source: Xavier Dupré) : JE SAIS PAS SI C'EST LA BON ENDROIT\}}
+The random variable T asymptotically follows a $\chi^2$ with $(I-1)(J-1)$ degrees of liberty. The function \pyth!scipy.stats.chi2_contingency! computes the T-statistic and the p-value associated, in the test of $H_0$: “the variables are not correlated” against $H_1$: “the variables are correlated”.
+Out of the $399$ tests we ran, $366$ showed a dependency between the two variables with a $1\%$ threshold. The following table is the contingency table of the variable indicating the presence of heart issues and the one indicating the presence of hypertension.
 \begin{table}[!h]
-\centering
-\begin{tabular}{c|cc}
-     & \textbf{R1HEART = 0} & \textbf{R1HEART = 1} \\
-     \hline
-     \textbf{R1HIBP = 0} & 7094 & 690 \\
-     \textbf{R1HIBP = 1} & 3892 & 976 \\
-\end{tabular}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		& \textbf{R1HEART = 0} & \textbf{R1HEART = 1} \\
+		\hline
+		\textbf{R1HIBP = 0} & 7094 & 690 \\
+		\hline
+		\textbf{R1HIBP = 1} & 3892 & 976 \\
+		\hline
+	\end{tabular}
+	\caption{Contingency table of heart issues against hypertension in wave $1$}
 \end{table}\\
-This table shows that the proportion of individuals with heart issues is higher among the group of individuals presenting hypertension. This correlation is confirmed by a p-value equal to $4.99.10^{-73}$, which is well below 0.01.
-
+This table shows that the proportion of individuals with heart issues is higher among the group of individuals presenting hypertension. This correlation is confirmed by a p-value equal to $4.99.10^{-73}$, which is well below $0.01$. \textbf{AJOUTER CONCLUSION}
 
 \subsection{t-SNE algorithm: presentation}
-The PCA is designed to reduce a dataset of high dimension $d$ into a smaller space of dimension $d'<\!<d$ by finding the \textit{principal components}, that is the $d'$ maximum variance directions, and project the original data in the smaller space. Globally, this is an linear algebraic oriented approach.\\
+The PCA is designed to reduce a dataset of high dimension $d$ into a smaller space of dimension $d'<\!<d$ by finding the \textit{principal components}, that is the $d'$ maximum variance directions, and project the original data in the smaller space. Globally, this is a linear algebraic oriented approach.\\
 On the other hand, the t-distributed Stochastic Neighbor Embedding tries to find similarities in the data using a non-linear probabilistic approach. The overall idea consists in assigning to the original data a probability measure $P$ and another one $Q$ to the reduced data, then trying to alter the reduced data such that the Kullbach-Leibler divergence of the distribution $P$ and $Q$ is minimal.
 \subsection{Formal details}
 Formally, considering $(x_1, x_2,\dots x_n) \in \R^{n\times d}$ the original high-dimensional dataset and the reduced dataset $(y_1,y_2,\dots, y_n)\in \R^{n\times d'}$, we compute the similarity of $x_j$ to $x_i$ by the conditional probability $p_{j\mid i}$ that $x_i$ would pick $x_j$ as its neighbor under a Gaussian distribution centered at $x_i$, where:
@@ -157,21 +160,20 @@ The locations of points $y_i$ are determined by minimizing the Kullbach-Leibler 
 \begin{equation}
 	KL(P\|Q) = \sum_{i\ne j}p_{ij} \ln\left(\frac{p_{ij}}{q_{ij}}\right)
 \end{equation}
-with respect to $y_1,y_2,\dots, y_n$, by a gradient descent.
+with respect to $y_1,y_2,\dots, y_n$, by a gradient descent.\\
+
+\noindent
+\textit{Remark.} The very shape of $q_{ij}$ echoes the name of the method: \textit{t-distributed} Stochastic Neighobr Embedding.
 
 \subsection{Performances}
 The main objective of this algorithm is to reflect the similarities in the original data. We directly applied the \pyth!sklearn.manifold.TSNE! implementation on our health data and checked its consistency. The results are detailed below and in appendix.\\
 
 \noindent
-The index (denoted \textit{GHI} for \textit{Global Health Index} in the following) we obtained was calculated separately on each wave, only using the health information available at the current wave. Without surprise, the GHI empirically follows a Student t-distribution, and globally takes its values in the interval $[-150, 150]$.\\
+The index (denoted \textit{GHI} for \textit{Global Health Index} in the following) we obtained was calculated separately on each wave, only using the health information available at the current wave. As expect, the GHI empirically follows a Student t-distribution, and globally takes its values in the interval $[-150, 150]$.\\
 
 \noindent
 In order to check for the robustness of our index, we conducted an analysis of sensitivity. Formally, an analysis of sensitivity consists in analyzing the robustness of an index to changes in the data or in the assumptions made.\\
-
-\noindent
 As we will have to estimate an index based on a testing sample of our data, the first question to be answered is the following: does the GHI of an individual change when we do not take into account the whole database in the process? For instance, if one's GHI were equal to $50$ when the index has been fitted on the whole database, would it still be equal to $50$ if the index were this time fitted on a sample of the data? The figure $\ref{RMSE_according_to_sample_size}$ in appendix demonstrates the robustness of t-SNE algorithm in generating an index not too much data-dependent: the root mean squared error observed for samples of $10,000$ individuals amounts to about $27$, for an index that varies between $-150$ and $150$.\\
-
-\noindent
 For the second test, we deleted values at random in the dataset. As in the previous analysis, we used Root Mean Squared Error to compare the index computed on this altered dataset and the real one. For instance, with 5\% of random missing values, we obtained a RMSE of $17$. Figure $\ref{RMSE_according_to_percentage_nan}$ shows the RMSE according to the percentage of random missing values. The robustness of the index to missing values is satisfying, as we can expect there would not be a too high share of missing values when we try to predict the outcome.\\
 
 \noindent
@@ -183,7 +185,7 @@ According to the literature, among the many possible techniques to reduce dimens
 The library \sklearn\, in Python would allow us to reach our goal through the \pyth!sklearn.linear_model.Lasso! class. However this is bound to fail in our specific case, because $X$ presents many missing values, as discussed in sections before. Hence, we have to adapt the method. For the record, we will present the three methods we thought of, the two first ones having failed.
 
 \subsection{Imputation of missing data}
-To still apply the lasso as discussed before, we could try imputing the missing data. Some imputers are already implemented in \sklearn, such as the \pyth!SimpleImputer(strategy="mean")! that naturally imputes missing values in one column with the empiric mean of this column. The problem with this approach is that it does not take into account the inter-variable relationships in imputation at all. To overcome this issue, we would rather use the \pyth!IterativeImputer()!, which relies on the correlations and relationships between columns to impute missing values. Its inner algorithm calculates at each iteration a new imputed database $\tilde{X}_t$ according to specific constraints, and tries to minimize the difference $\Delta_t = \tilde{X}_{t} - \tilde{X}_{t-1}$. When this difference is small enough, the algorithm stops and the solution $\tilde{X}_t$ is returned. This resulting database would present no missing values, and imputed data would be a lot more likely than what the \pyth!SimpleImputer()! would obtain. But despite all our attempts, the algorithm did not converge in any way. This is due to the fact that $X$ is too big and the computer had trouble processing. This idea failed.
+To still apply the lasso as discussed before, we could try imputing the missing data. Some imputers are already implemented in \sklearn, such as the \pyth!SimpleImputer(strategy="mean")! that naturally imputes missing values in one column with the empiric mean of this column. The problem with this approach is that it does not take into account the inter-variable relationships in imputation at all. To overcome this issue, we would rather use the \pyth!IterativeImputer()!, which relies on the correlations and relationships between columns to impute missing values. Its inner algorithm calculates at each iteration a new imputed database $\tilde{X}_t$ according to specific constraints, and tries to minimize the difference $\Delta_t = \tilde{X}_{t} - \tilde{X}_{t-1}$. When this difference is small enough, the algorithm stops and the solution $\tilde{X}_t$ is returned. This resulting database would present no missing values, and imputed data would be a lot more likely than what the \pyth!SimpleImputer()! would obtain. But despite all our attempts, the algorithm did not converge in any way. This is due to the fact that $X$ is too big and the computer had trouble processing the data. This idea failed.
 
 \subsection{Convex conditioned Lasso}
 Instead of looking for an application in two steps of the Lasso (first imputing the data, then fitting the Lasso), another idea is to directly modify the Lasso optimization program so that it handles missing values by itself, without too heavy imputations. The state-of-art algorithm for that problem is the \textit{CoCoLasso} (which stands for \textit{Convex Conditioned Lasso}). This algorithm badly performs when missing rates are too high, which is our case. We then cannot use it in its first form. However, further researches helped us discover a very similar estimator, that we shall now present.
@@ -207,7 +209,7 @@ The equation \eqref{LassoStandardFirstForm} can be equivalently rewritten as fol
 	\hat{\beta} = \argmin\limits_{\beta} \frac{1}{2}\beta^T S\beta - \rho^T\beta + \mu \|\beta\|_1
 \end{equation}
 where $S=\frac{1}{n}X^TX$ is the sample covariance matrix of $X$ and $\rho = \frac{1}{n}X^Ty$ is the sample covariance vector of $X$ and $y$.\\
-In presence of missing values, This means that we can just estimate $S$ and $\rho$ without having to impute the whole database, and this is in fact a much easier task to achieve. Indeed,  we can construct unbiased estimators of $S$ and $\rho$ using the pairwise covariance, that is, $S^{\text{pair}} = (S^{\text{pair}}_{jk})$ and $\rho^{\text{pair}} = (\rho^{\text{pair}}_{j})$ where:
+In presence of missing values, this means that we can just estimate $S$ and $\rho$ without having to impute the whole database, and this is in fact a much easier task to achieve. Indeed,  we can construct unbiased estimators of $S$ and $\rho$ using the pairwise covariance, that is, $S^{\text{pair}} = (S^{\text{pair}}_{jk})$ and $\rho^{\text{pair}} = (\rho^{\text{pair}}_{j})$ where:
 \begin{equation}
 	S^{\text{pair}}_{jk} = \frac{1}{n_{jk}} \sum_{i \in I_{jk}} X_{ij}X_{jk} \quad \text{and}\quad \rho^{\text{pair}}_{j} = \frac{1}{n_{jj}} \sum_{i \in I_{jj}} X_{ij}y_i
 \end{equation}
@@ -290,7 +292,7 @@ The implementation presented a lot of difficulties, one of them regarding the fa
 \subsection{XGBoost for regression and classification}
 \subsubsection{Prior application of HMLasso}
 Considering the database left after the removals of unusable variables (section \ref{removal_of_unusable_variables}), we still have more than $40$ thousands individuals and $p=4147$ variables to deal with.\\
-To reduce the number of columns, we applied the HMLasso in a specific way. Uptill now, our individuals are identified by their \pyth!HHIDPN!, and the database looks like this:
+To reduce the number of columns, we applied the HMLasso in a specific way. Until now, our individuals are identified by their \pyth!HHIDPN!, and the database looks like this:
 \begin{table}[!h]
 \centering
 \label{data_03}
@@ -435,6 +437,9 @@ Training a binary classifier on a health indicator \{\textit{bad health}, \texti
 returned a classifier of accuracy $0.751$, which is $1.5$ times better than a dummy classifier (of accuracy $0.5$). Training a non-binary classifier on the health indicator \{\textit{ailing health}, \textit{bad health}, \textit{neutral health}, \textit{good health}, \textit{excellent health}\} returned a classifier of accuracy $0.518$, which is $2.6$ times better than the dummy classifier.\\
 Overall, we see that the XGBoost classifier becomes better and better compared to a dummy classifier when the number of classes increase, i.e when the problem becomes harder. Moreover, the binary model present a satisfying accuracy of $0.753$, a precision of $0.770$, a recall of $0.777$ and a F1-score of $0.773$.
 
+\subsection{RandomForest for regression and classification}
+\subsubsection{Random Forest in a nutshell}
+\subsubsection{Performances}
 
 \cleardoublepage
 \appendix
@@ -506,7 +511,7 @@ Figure \ref{tSNE_GHI_by_age} highlights the expected fact that someone's health 
 Figure \ref{xgboost_accuracy} gives, for a specific number of classes $c$, the accuracy of the XGBoost classifier, that is the number of correct guesses divided by the number of guesses.
 
 \cleardoublepage
-\bibliographystyle{alpha}
+\bibliographystyle{plain}
 \bibliography{refs}
 
 \end{document}
