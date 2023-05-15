@@ -6,6 +6,12 @@ Tianqi Chen and Carlos Guestrin.
 \newblock In {\em Proceedings of the 22nd {ACM} {SIGKDD} International
   Conference on Knowledge Discovery and Data Mining}. {ACM}, aug 2016.
 
+\bibitem{randomForest2012}
+Yanli Liu, Yourong Wang, and Jian Zhang.
+\newblock New machine learning algorithm: Random forest.
+\newblock In {\em International Conference on Information Computing and
+  Applications}, 2012.
+
 \bibitem{hrs2014}
 Rand hrs longitudinal file 2018 (v2).
 \newblock \url{https://hrsdata.isr.umich.edu/data-products/rand}, 2018.

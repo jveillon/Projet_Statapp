@@ -26,4 +26,4 @@
 \contentsline {subsection}{\numberline {5.2}RandomForest for regression and classification}{13}{}%
 \contentsline {subsubsection}{\numberline {5.2.1}Random Forest in a nutshell}{13}{}%
 \contentsline {subsubsection}{\numberline {5.2.2}Performances}{13}{}%
-\contentsline {section}{\numberline {A}Appendix}{14}{}%
+\contentsline {section}{\numberline {A}Appendix}{15}{}%

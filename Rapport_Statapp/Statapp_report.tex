@@ -290,6 +290,7 @@ The implementation presented a lot of difficulties, one of them regarding the fa
 
 \section{Second machine learning procedures: prediction}
 \subsection{XGBoost for regression and classification}
+In inspiration of the berst methods employed in the Fragile Family Challenges, we considered Gradient Boosting paradigm as a potentially suitable path to follow. This section is dedicated to the implementation of XGBoost and to the performances we managed to get.
 \subsubsection{Prior application of HMLasso}
 Considering the database left after the removals of unusable variables (section \ref{removal_of_unusable_variables}), we still have more than $40$ thousands individuals and $p=4147$ variables to deal with.\\
 To reduce the number of columns, we applied the HMLasso in a specific way. Until now, our individuals are identified by their \pyth!HHIDPN!, and the database looks like this:
@@ -362,6 +363,7 @@ By proceeding recursively, we obtain at last a suitable approximation $\tilde{\p
 XGBoost is sparsity-aware, which means that missing values are not a problem for it, and distributed, which explains why it reveals itself extremely fast to train.
 
 \subsubsection{Performances}
+\label{xgboost_performances}
 The major issue we failed to solve consistently was coping with the fact that some individuals have not responded to every waves. It is a problem because, as a result, some columns present missing values that shall not be imputed: every variables are present for every individuals, even though some individuals have not been interviewed for some variables. We decided to perform our machine learning algorithms on the reduced dataset comprising only individuals present in each wave. These indiviuals amount to $n = 3396$.\\
 
 \noindent
@@ -438,9 +440,51 @@ returned a classifier of accuracy $0.751$, which is $1.5$ times better than a du
 Overall, we see that the XGBoost classifier becomes better and better compared to a dummy classifier when the number of classes increase, i.e when the problem becomes harder. Moreover, the binary model present a satisfying accuracy of $0.753$, a precision of $0.770$, a recall of $0.777$ and a F1-score of $0.773$.
 
 \subsection{RandomForest for regression and classification}
+In light of the encouraging results derived from XGBoost, we decided to explore the alias path of Gradient Boosting, which is Bagging and more specifically Random Forest \cite{randomForest2012} paradigm.
 \subsubsection{Random Forest in a nutshell}
-\subsubsection{Performances}
+Bagging is a paradigm of machine learning based on the notion of wisdom of crowds. The idea is to rely on the majority judgment of a multitude of weak learners (the chosen base model is decision tree in the case of Random Forest) to construct a wiser model.\\
 
+\noindent
+Again, let $X\in \mathbb{R}^{n\times p}$ be our dataset and $y\in \mathbb{R}^n$ the variable of interest. We look for $K$ functions $f_1,\dots,f_K$ (still called \textit{weak learners}) to predict the output $y$:
+\begin{equation}
+	\hat{y}_i = \phi(x_i) = \frac{1}{K}\sum_{k=1}^K f_k(x_i),\quad \forall i=1, \dots, n
+\end{equation}
+In the case of Random Forest, $f_1,f_2,\dots,f_K$ are regression (or classification) trees.\\
+To learn the set of functions used in the model, we separately minimize the following objectives:
+\begin{equation}
+	\label{randomForest_objective}
+	\forall k, \quad \mathcal{L}_k(f_k) = \sum_{i=1}^n \ell(y_i, f_k(x_i))
+\end{equation}
+where $\ell$ is a convex differentiable loss function. In the implementation of Random Forest we used, no penalization was applyied to the complexity of the model.\\
+The main model then returns the mean of all predictions (in case of a regression) or the most frequent prediction (in case of a classification).\\
+
+\noindent
+In practice, the fact that each $f_i$ is independent from $f_j$ ($j\ne i$) allows the training to be distributed and extremely fast.
+\subsubsection{Performances}
+\label{randomForest_performances}
+On the same basis of argumentation discussed in section \ref{xgboost_performances}, we decided to perform our machine learning algorithms on the reduced dataset comprising only individuals present in each wave. These indiviuals amount to $n = 3396$.\\
+
+Following the same methodology as explained in \ref{xgboost_performances}, here are the results:
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{Data} & \textbf{mean $R^2$} & \textbf{std $R^2$} & \textbf{mean RMSE} & \textbf{std RMSE}\\
+		\hline
+		all data & 0.3688 & 0.0285 & 41.87 & 0.97 \\ 
+		\hline
+		only previous ghi & 0.3387 & 0.0267 & 42.74 & 1.13\\
+		\hline 
+		only socioeconomic data & 0.2130 &0.0252 & 46.71 & 0.95\\
+		\hline 
+		only socioeconomic and genetic data & 0.2118 & 0.0250 & 46.85 & 1.09\\
+		\hline 
+		only socioeconomic data and previous ghi & 0.3672 &	0.0279 & 42.00 & 1.16\\
+		\hline 
+	\end{tabular}
+	\label{results_randomforestregressor}
+	\caption{Random Forest regressor - results over $2$ simulations}
+\end{table}\\
 \cleardoublepage
 \appendix
 \section{Appendix}
