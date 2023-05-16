@@ -35,13 +35,22 @@
 	VEILLON, Juliette\\
 	\texttt{first1.last1@xxxxx.com}
 }
+\date{\today}
 
 \begin{document}
 \newcommand{\sklearn}{\textbf{scikit-learn}}
+
 \maketitle
+
 \begin{abstract}
-	Based on socioeconomic and genetic data, is it possible to predict one's health across time? The question has been discussed in many previous research without satisfying answer. This paper explains how we approached the problem. The data used for our purposes are the ones from the Health and Retirement Study led by the RAND Corporation. We first explain how we chose the global health index, using Stochastic Neighbors Embedding paradigm, before applying a specific kind of Lasso Regression and further machine learning algorithms to predict the said health index.
+	Based on socioeconomic and genetic data, is it possible to predict one's health across time? The question has been discussed in many previous researches without satisfying answer. This paper explains how we approached the problem. The data used for our purposes are the ones from the Health and Retirement Study led by the RAND Corporation. We first explain how we design a global health index, using Stochastic Neighbors Embedding paradigm, before applying a specific kind of Lasso Regression and further machine learning algorithms like Random Forest and XGBoost to predict the said health index.
 \end{abstract}
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.8]{ENSAE_logo.png}
+\end{figure}
+
+
 \newpage
 \tableofcontents
 \newpage
@@ -469,8 +478,8 @@ In practice, the fact that each $f_i$ is independent from $f_j$ ($j\ne i$) allow
 On the same basis of argumentation discussed in section \ref{xgboost_performances}, we decided to perform our machine learning algorithms on the reduced dataset comprising only individuals present in each wave. These indiviuals amount to $n = 3396$.\\
 
 \noindent
-However, as the \pyth!RandomForestClassifier()! and \pyth!RandomForestRegressor()! implemented in \textbf{scikit-learn} do not support categorical variables, we had to one-hot-encode them, which means transforming each categorical variables into multiple dummy indicators: for instance, the variable \pyth!RwHLTC3! (which corresponds to \textit{self report of health change}) takes values in \textit{\{'better', 'about the same' and 'worse'\}}, so we one-hot-encoded \pyth!RwHLTC3! into three variables \pyth!RwHLTC3_better, RwHLTC3_about_the_same, RwHLTC3_worse!, that takes $0$ or $1$ as values, so that \pyth!RwHLTC3_worse =  1! if and only if \pyth!RwHLTC3 = 'worse'!.\\
-Furthermore, we had to impute the missing values, because the \textbf{scikit-learn} implementations do not support them. In view of the time it would have taken to the \pyth!Iterativeimputor()! to converge, we decided to impute them through \pyth!SimpleImputor(strategy="mean")!.\\
+However, as the \pyth!RandomForestClassifier()! and \pyth!RandomForestRegressor()! implemented in \sklearn do not support categorical variables, we had to one-hot-encode them, which means transforming each categorical variables into multiple dummy indicators: for instance, the variable \pyth!RwHLTC3! (which corresponds to \textit{self report of health change}) takes values in \textit{\{'better', 'about the same' and 'worse'\}}, so we one-hot-encoded \pyth!RwHLTC3! into three variables \pyth!RwHLTC3_better, RwHLTC3_about_the_same, RwHLTC3_worse!, that takes $0$ or $1$ as values, so that \pyth!RwHLTC3_worse =  1! if and only if \pyth!RwHLTC3 = 'worse'!.\\
+Furthermore, we had to impute the missing values, because the \sklearn implementations do not support them. In view of the time it would have taken to the \pyth!Iterativeimputor()! to converge, we decided to impute them through \pyth!SimpleImputor(strategy="mean")!.\\
 
 \noindent
 Following the same methodology as explained in \ref{xgboost_performances}, here are the results:
@@ -503,7 +512,7 @@ Again, the results above were obtained by experimentally conducting cross-valida
 We were able to calculate a standard deviation by reconducting each simulation $2$ times and randomly change the train/test split at each simulation.\\
 
 \noindent
-An important point that need to be pointed out is that the \textbf{scikit-learn} implementation of Random Forest we used is not distributed, which means the simulations took much more times than XGBoost's. This explains why we were not able to optimize more parameters (such as \pyth!max_leaf_nodes, min_samples_leaf, etc.!).\\
+An important point that need to be pointed out is that the \sklearn implementation of Random Forest we used is not distributed, which means the simulations took much more times than XGBoost's. This explains why we were not able to optimize more parameters (such as \pyth!max_leaf_nodes, min_samples_leaf, etc.!).\\
 
 \noindent
 Following the same reasoning as in section \ref{xgboost_performances}, we also trained a \pyth!RandomForestClassifer()!. The table \ref{results_randomForestClassifier} below shows the results:
@@ -537,6 +546,8 @@ Following the same reasoning as in section \ref{xgboost_performances}, we also t
 	\label{results_randomForestClassifier}
 \end{table}\\
 Here, we remind the reader of the results obtained for XGBoost. Overall, we see that the Random Forest Classifier underperforms XGBoost Classifier for every single number of classes. Moreover, in the case of binary classification, the Random Forest Classifier shows an accuracy of $0.732<0.753$, a precision of $0.753<0.770$, a recall of $0.777=0.777$ and a F1-score of $0.765<0.773$, which further proves the superiority of XGBoost Classifier.
+
+\section{Conclusion and perspectives}
 
 \cleardoublepage
 \appendix
