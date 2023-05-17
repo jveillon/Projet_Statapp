@@ -428,6 +428,116 @@ Concerning this model, we have for the testing set - which goal is to verify the
 	\label{results_2SLS}
 \end{table}\\
 We observe that incorporating genetic data only leads to a marginal increase in $R^2$, by less than $0.01$. As a result, this method is not efficient to learn something from the role genes play on someone's health.
+
+\subsection{\textit{Within} regression}
+
+\subsubsection{Principle}
+
+In this section, we consider here a fixed effects model with recursive method to try to predict our Global Health Index (GHI) at the last wave. We chose to use the \textit{Within} estimator and here is the idea for a general panel data $(X_t)_{t\in [|1,T|]}$ with $n$ individuals and $T$ periods and the outcome $(Y_t)_{t\in [|1,T|]}$:  
+$$ \forall i \in [|1,n|] \left\{
+    \begin{array}{ll}
+        \overline{Y}_i = \beta_0 \overline{X}_i + \alpha_i + \overline{\epsilon}_i \\
+        \text{For each wave, } \forall t \in [|1,T|] , (Y_{it} -\overline{Y}_i )= \beta_0 ( X_{it} - \overline{X}_i) + (\epsilon_{it} - \overline{\epsilon}_i )
+    \end{array}
+\right.$$ 
+$ \text{where for any } U : \overline{U}_i = \frac{1}{T} \sum_{t=1}^T U_{it}$ and where $\alpha_i$ is a fixed effect and $\epsilon_{it}$ is a residual. Under the assumption of strict exogeneity (see below), $\beta_0$ can be consistently estimated with pooled OLS. \\
+
+
+The principle of the recursive method employed here, is to select relevant variables with 14 Lasso regressions - one per wave - and then, to proceed to a final regression on the selected variables. We employed two different methods :
+\begin{itemize}
+    \item Concerning the first wave, we use a Lasso to regress $GHI_1$ (Global Health Index at the wave 1) on $X_1$ (Socio-economic data at the wave 1) and then, we drop irrelevant variables, those with an estimated coefficient of 0. The data containing the selected variables is called $X_1'$, it will be used to select variables from the wave 2. For the next waves, we proceed to a Lasso to regress $GHI_i$ on $X_i$ and $X_{i-1}'$ the data at the wave i and the variables selected by the previous regression Lasso. $$\left\{
+    \begin{array}{lll}
+        \widehat{GHI}_{1} = \widehat{\beta}_{Lasso}^1 {X}_{1} \Longrightarrow {X}_{1}' \text{, where } {X}_{1}' \text{ contains } {X}_{1}^k \text{ if } \widehat{\beta}_{Lasso, k}^1 \ne 0 \\
+    \forall i \in [|2,14|] : \widehat{GHI}_{i} = \widehat{\beta}_{Lasso}^i \begin{pmatrix}
+         {X}_{i}\\
+        {X}_{i-1}'
+    \end{pmatrix} \Longrightarrow {X}_{i}' \text{, where } {X}_{i}' \text{ contains } \begin{pmatrix}
+         {X}_{i}\\
+        {X}_{i-1}'
+    \end{pmatrix}^k \text{ if } \widehat{\beta}_{Lasso, k}^i \ne 0\\
+    \end{array}
+\right.$$ ${X}_{t}^k$ refers to the k-th variable of the data ${X}_{t}$.
+
+After this selection of variables by cumulative regressions, we apply the \textit{Within} transformation \footnote{For any $U$,  $\forall i \in [|1,n|]$, we tranform $U$ into $(U_{it} -\overline{U}_i )$} to the selected variables and $GHI_{14}$ and we finally proceed to a pooled OLS regression to get the predictions.
+
+    \item This method is quite similar to the first one, the only difference is that, we apply the \textit{Within} transformation before the selection by cumulative Lasso regressions. We then perform a pooled OLS regression to get the predictions.
+\end{itemize}
+
+
+\subsubsection{Dealing with the missing values}
+
+
+We had the possibility to use the High Missing Rate Lasso for the selection process of these methods but we could not because of its computing time which was far too high due to the large number of columns and the cumulative selection process which increases this number with each regression.
+
+Therefore, we used the mean of columns to impute random missing values as it is an usual method and does not affect directly estimations. Concerning the missing value due to the absence of an individual in a wave (no data at all for this wave), we imputed them with the temporal mean of the variable, as, in a \textit{Within} regression, it won't have a great impact on the estimations. For instance, if the individual i was not interviewed at the wave 3, we impute the value of ${X}_{i3}^k$ with $\frac{1}{T-1} \sum_{t=1, t \ne 3}^{14} U_{it}^k$. 
+
+\subsubsection{Strict exogeneity}
+
+As explained previously, in this model,we can proceed to consistent estimations only under the assumption of strict exogeneity : $\forall (t,t')\in [|1,T|]^2, \mathbb{E}(X_{it}\epsilon_{it'}) = 0$ where $\epsilon_{it}$ is the residual of the panel regression ${Y}_{it} = \beta_0 {X}_{it} + \alpha_i + \epsilon_{it}$ for  $i \in [|1,n|]$ and $ t \in [|1,T|]$ \\
+
+To try to check whether this hypothesis is valid, we conducted correlation tests between the residuals of the Lasso regressions and the variables used. Knowing that $\alpha_i + \epsilon_{it} = {Y}_{it} - \hat{Y}_{it}$ and that $\alpha_i = \frac{1}{T} \sum_{t=1}^T (\alpha_i + \epsilon_{it} )$, we compute the residuals : $\epsilon_{it} = {Y}_{it} - \hat{Y}_{it} - \frac{1}{T} \sum_{t=1}^T ({Y}_{it} - \hat{Y}_{it} )$. We proceed then to multiples Student test on the correlation\footnote{Since $\mathbb{E}(\epsilon_{it'}) = 0$, $Corr(X_{it}\epsilon_{it'}) = 0 \Longrightarrow \mathbb{E}(X_{it}\epsilon_{it'}) = 0$} between the data and the residuals : $$\forall (t,t')\in [|1,T|]^2\left\{
+    \begin{array}{ll}
+        H_0 : \widehat{Corr}(X_{it}\epsilon_{it'}) = 0\\
+        H_1 : \widehat{Corr}(X_{it}\epsilon_{it'}) \ne 0
+    \end{array}
+\right.$$
+
+The results of these tests show us that the residuals are significantly uncorrelated with at least 50 or even 100 variables per wave. Here, Knowing that the Lasso regression will keep the variables most correlated to the outcome, thus the variables most uncorrelated to the residuals and that the selection process will keep no more than 150 variables distributed in each wave, we can consider that the assumption of strict exogeneity is valid for these methods.
+
+\subsubsection{Performances}
+
+
+With these methods of prediction, the only parameter to optimize is the Lasso penalization, $\mu$. At first, we fixed randomly, our training, validation and testing sets. We processed to train a model on the training set with different $\mu$ and then apply it to the validation set to choose the optimal penalization $\mu$ by maximizing the R\up{2} (quality of predictions). Once a model is optimally set up and tested, we can assess the usefulness of genetic variables by adding them to the last regression of the selection process and comparing the quality of predictions on the testing set. Due to the large size of our data (both rows and columns), we could not perform cross-validation but the optimisation of parameters by evaluating the results on the validation set helps to avoid over-fitting.
+
+For both methods, we run the algorithms for several $\mu$ values distributed between $0.05$ and $0.1$, where the model drop almost all variables for $\mu = 0.1$ and over-fit the training set for $\mu = 0.05$. We then apply the algorithms for $\mu$ in smaller and smaller intervals chosen to get closer to the optimal $\mu$ by maximising the validation $R^2$. We stop when we obtain an interval of $\mu$ for which all the results are identical and maximize the $R^2$.\\
+
+Concerning the first method (Cumulative selection before the \textit{Within} transformation), we get the same optimal penalization with or without the genetic variables : $\mu^* = 0.011$. For the case in which we include the genetic variables, the selection process leads to drop almost all of those, only 3 of them remain after.\\
+
+For the first model, we have the following results :
+
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+	   \hline
+	   \textbf{Data} & \textbf{Validation set's $R^2$} & \textbf{Testing set's $R^2$} \\
+	   \hline
+	   With genetic data & 0.0832 & 0.0528  \\ 
+	   \hline
+	   Without genetic data & 0.0830 & 0.0486 \\
+	   \hline 
+    \end{tabular}
+    \caption{Within regression ($1^{st}$ method) with $\mu = 0.011$ - results}
+    \label{results_Within_1}
+\end{table}
+
+
+The second model (\textit{Within} transformation before the cumulative selection) leads to worse predictions than the first. The optimal penalization corresponds to $\mu^* = 0.054$, whether with or without the genetic variables. Beyond that, when we include the genetics variables, the selection process drop all the genetics variables, therefore, the results are identical for both cases.\\
+
+For the second model, we have the following results :
+
+
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+	   \hline
+	   \textbf{Data} & \textbf{Validation set's $R^2$} & \textbf{Testing set's $R^2$} \\
+	   \hline
+	   With genetic data & 0.0663 & 0.0508  \\ 
+	   \hline
+	   Without genetic data & 0.0663 & 0.0508 \\
+	   \hline 
+    \end{tabular}
+    \caption{Within regression ($2^{nd}$ method) with $\mu = 0.054$ - results}
+    \label{results_Within_1}
+\end{table}
+
+
+
+We observe that this machine learning algorithm performs much worse than the others to predict the Global Health Index at the last wave, as the $R^2$ does not exceed $5.5\%$ on the testing set.  
+
+We also observe that the models which take into account genetic variables data do not have a better prediction quality. Indeed, adding those variables only permits a slight $R^2$ increase for the first method, by less than $0.005$ and, does not have an impact at all for the the second method. Here, it seems quite difficult to learn something from the importance of genes, as socioeconomic characteristics seem to be better predictors of someone's health.
+
 \subsection{XGBoost for regression and classification}
 In inspiration of the best methods employed in the Fragile Family Challenges, we considered Gradient Boosting paradigm as a potentially suitable path to follow. This section is dedicated to the implementation of XGBoost, an instance of Gradient Boosting algorithm, and to the performances we managed to get.
 \subsubsection{Gradient Boosting in a nutshell}
