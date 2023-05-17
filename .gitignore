@@ -6,3 +6,4 @@
 .RDataTmp1
 *.csv
 .ipynb_checkpoints
+__pycache__
