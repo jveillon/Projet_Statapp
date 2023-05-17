@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  17 MAY 2023 18:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  17 MAY 2023 23:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -490,7 +490,7 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 4
 6.
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
-<ENSAE_logo.png, id=139, 160.6pt x 203.76125pt>
+<ENSAE_logo.png, id=155, 160.6pt x 203.76125pt>
 File: ENSAE_logo.png Graphic file (type png)
 <use ENSAE_logo.png>
 Package pdftex.def Info: ENSAE_logo.png  used on input line 52.
@@ -547,325 +547,349 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--110
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 123--126
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 136--138
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--141
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 148--150
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 159--177
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 198--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 207--209
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--214
-
- []
-
-
-Overfull \hbox (7.20724pt too wide) in paragraph at lines 219--222
-\OT1/cmr/m/n/10 The li-brary \OT1/cmr/bx/n/10 scikit-learn \OT1/cmr/m/n/10 in P
-ython would al-low us to reach our goal through the [][][][][]
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 230--232
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 265--267
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 294--296
-
- []
-
-[7]
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 302.
- [8]
-Underfull \hbox (badness 10000) in paragraph at lines 386--389
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 394--395
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 400--401
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 410--413
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 434--436
-
- []
-
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 447--449
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 460--461
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 494--496
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 497--529
-
- []
-
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 5
-31.
-(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
-File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 531.
-
-Underfull \hbox (badness 10000) in paragraph at lines 538--539
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 550--553
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 558--559
-
- []
-
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 561.
-
-Underfull \hbox (badness 10000) in paragraph at lines 560--563
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 592--593
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 594--596
-
- []
-
-
-Overfull \hbox (22.13182pt too wide) in paragraph at lines 601--625
- [][] 
- []
-
-[13] [14]
-<distribution_of_columns_wrt_missing_values_ratio.png, id=376, 451.6875pt x 339
+<distribution_of_columns_wrt_missing_values_ratio.png, id=243, 451.6875pt x 339
 .669pt>
 File: distribution_of_columns_wrt_missing_values_ratio.png Graphic file (type p
 ng)
 <use distribution_of_columns_wrt_missing_values_ratio.png>
 Package pdftex.def Info: distribution_of_columns_wrt_missing_values_ratio.png  
-used on input line 641.
-(pdftex.def)             Requested size: 338.76479pt x 254.75111pt.
-<tSNE_GHI_RMSE_according_to_sample_size.png, id=377, 406.1574pt x 328.8285pt>
+used on input line 126.
+(pdftex.def)             Requested size: 316.17908pt x 237.76668pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 123--133
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--145
+
+ []
+
+[3 <./distribution_of_columns_wrt_missing_values_ratio.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 146--148
+
+ []
+
+<density_bmi.png, id=263, 416.2752pt x 314.3745pt>
+File: density_bmi.png Graphic file (type png)
+<use density_bmi.png>
+Package pdftex.def Info: density_bmi.png  used on input line 158.
+(pdftex.def)             Requested size: 179.64682pt x 135.67247pt.
+<std_alcohol.png, id=264, 422.0568pt x 314.3745pt>
+File: std_alcohol.png Graphic file (type png)
+<use std_alcohol.png>
+Package pdftex.def Info: std_alcohol.png  used on input line 164.
+(pdftex.def)             Requested size: 179.64682pt x 133.81125pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
+
+ []
+
+[4 <./density_bmi.png> <./std_alcohol.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 182--200
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 221--223
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--232
+
+ []
+
+<tSNE_GHI_RMSE_according_to_sample_size.png, id=296, 406.1574pt x 328.8285pt>
 File: tSNE_GHI_RMSE_according_to_sample_size.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_sample_size.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_sample_size.png  used on in
-put line 649.
+put line 240.
 (pdftex.def)             Requested size: 179.64682pt x 145.44263pt.
-<tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=378, 410.4936pt x 328.8285pt
+<tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=297, 410.4936pt x 328.8285pt
 >
 File: tSNE_GHI_RMSE_according_to_percentage_NaN.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_percentage_NaN.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_percentage_NaN.png  used on
- input line 655.
+ input line 246.
 (pdftex.def)             Requested size: 179.64682pt x 143.90727pt.
-<relationships_between_tSNE_GHI_and_multiple_factors.png, id=379, 414.8298pt x 
+
+Underfull \hbox (badness 10000) in paragraph at lines 233--253
+
+ []
+
+<relationships_between_tSNE_GHI_and_multiple_factors.png, id=304, 414.8298pt x 
 328.8285pt>
 File: relationships_between_tSNE_GHI_and_multiple_factors.png Graphic file (typ
 e png)
 <use relationships_between_tSNE_GHI_and_multiple_factors.png>
 Package pdftex.def Info: relationships_between_tSNE_GHI_and_multiple_factors.pn
-g  used on input line 662.
-(pdftex.def)             Requested size: 311.12158pt x 246.62077pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<tSNE_GHI_by_age.png, id=380, 414.8298pt x 328.8285pt>
+g  used on input line 260.
+(pdftex.def)             Requested size: 179.64682pt x 142.40201pt.
+<tSNE_GHI_by_age.png, id=305, 414.8298pt x 328.8285pt>
 File: tSNE_GHI_by_age.png Graphic file (type png)
 <use tSNE_GHI_by_age.png>
-Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 668.
-(pdftex.def)             Requested size: 311.12158pt x 246.62077pt.
+Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 266.
+(pdftex.def)             Requested size: 179.64682pt x 142.40201pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<xgboost_accuracy_wrt_number_of_classes.png, id=381, 416.2752pt x 328.8285pt>
+[6 <./tSNE_GHI_RMSE_according_to_sample_size.png> <./tSNE_GHI_RMSE_according_to
+_percentage_NaN.png>]
+Overfull \hbox (9.42946pt too wide) in paragraph at lines 274--277
+\OT1/cmr/m/n/10 The li-brary \OT1/cmr/bx/n/10 scikit-learn  \OT1/cmr/m/n/10 in 
+Python would al-low us to reach our goal through the [][][][][]
+ []
+
+[7 <./relationships_between_tSNE_GHI_and_multiple_factors.png> <./tSNE_GHI_by_a
+ge.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 285--287
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--322
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 357.
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 441--444
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 463--464
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 465--468
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 498--500
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 528--529
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 545--546
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 547--549
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 550--552
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 553--569
+
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 570--572
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 573--589
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 597--599
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 610--612
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 623--624
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 655--656
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--659
+
+ []
+
+<xgboost_accuracy_wrt_number_of_classes.png, id=424, 416.2752pt x 328.8285pt>
 File: xgboost_accuracy_wrt_number_of_classes.png Graphic file (type png)
 <use xgboost_accuracy_wrt_number_of_classes.png>
 Package pdftex.def Info: xgboost_accuracy_wrt_number_of_classes.png  used on in
-put line 674.
-(pdftex.def)             Requested size: 312.20563pt x 246.62077pt.
+put line 694.
+(pdftex.def)             Requested size: 249.76704pt x 197.29861pt.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 6
+99.
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 699.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 706--707
 
-<density_bmi.png, id=382, 416.2752pt x 314.3745pt>
-File: density_bmi.png Graphic file (type png)
-<use density_bmi.png>
-Package pdftex.def Info: density_bmi.png  used on input line 680.
-(pdftex.def)             Requested size: 312.20563pt x 235.78029pt.
+ []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<std_alcohol.png, id=383, 422.0568pt x 314.3745pt>
-File: std_alcohol.png Graphic file (type png)
-<use std_alcohol.png>
-Package pdftex.def Info: std_alcohol.png  used on input line 686.
-(pdftex.def)             Requested size: 316.54181pt x 235.78029pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 690--692
+[16 <./xgboost_accuracy_wrt_number_of_classes.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 718--721
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--695
+Underfull \hbox (badness 10000) in paragraph at lines 726--727
+
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 729.
+
+Underfull \hbox (badness 10000) in paragraph at lines 728--731
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--698
+Underfull \hbox (badness 10000) in paragraph at lines 760--761
 
  []
 
-[15
 
- <./distribution_of_columns_wrt_missing_values_ratio.png> <./tSNE_GHI_RMSE_acco
-rding_to_sample_size.png> <./tSNE_GHI_RMSE_according_to_percentage_NaN.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 699--701
+Underfull \hbox (badness 10000) in paragraph at lines 762--764
 
  []
 
-[16 <./relationships_between_tSNE_GHI_and_multiple_factors.png> <./tSNE_GHI_by_
-age.png>] [17 <./xgboost_accuracy_wrt_number_of_classes.png> <./density_bmi.png
->] [18 <./std_alcohol.png>] (Statapp_report.bbl
+[17]
+Overfull \hbox (22.13182pt too wide) in paragraph at lines 769--793
+ [][] 
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 800--802
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 803--805
+
+ []
+
+[19] (Statapp_report.bbl
 Underfull \hbox (badness 3838) in paragraph at lines 4--8
 []\OT1/cmr/m/n/10 Hrs poly-genic scores (re-lease 4.3).  []$\OT1/cmtt/m/n/10 ht
 tps : / / hrsdata . isr . umich . edu / data-[]products /
  []
 
-) [19
+) [20
 
 ] (Statapp_report.aux)
 Package rerunfilecheck Info: File `Statapp_report.out' has not changed.
-(rerunfilecheck)             Checksum: C849B5C24515B15FC28157FC22D16EBB;7050.
+(rerunfilecheck)             Checksum: 330F4E2EDA0148152476BA570A1E3539;7652.
  ) 
 Here is how much of TeX's memory you used:
- 13019 strings out of 476361
- 199208 string characters out of 5788244
- 2035242 words of memory out of 5000000
- 33114 multiletter control sequences out of 15000+600000
- 523955 words of font info for 79 fonts, out of 8000000 for 9000
+ 13047 strings out of 476361
+ 199596 string characters out of 5788244
+ 1994242 words of memory out of 5000000
+ 33125 multiletter control sequences out of 15000+600000
+ 524666 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,76p,1323b,1493s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,76p,1323b,2145s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\kerya\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmbx12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmbx9.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/kerya/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/kerya/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/kerya/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/k
-erya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
-/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
-.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr17.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmr9.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmsltt10.pfb><C:/Users/kerya/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kerya/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/kerya/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/kerya/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Use
-rs/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pf
-b><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmtt12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmtt8.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/symbols/msbm10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/hoekwater/stmary10.pfb><C:/Users/kerya/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/hoekwater/stmary7.pfb>
-Output written on Statapp_report.pdf (22 pages, 741638 bytes).
+/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/kerya/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/kerya/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/kerya/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/User
+s/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+<C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi8.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/kerya/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/kerya/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kerya/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/kerya/Ap
+pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/k
+erya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsltt10.pfb>
+<C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmsy5.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmsy7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmsy8.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/kerya/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmti8.pfb><C:/Users/kerya/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/kerya/AppD
+ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/k
+erya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:
+/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/hoe
+kwater/stmary10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/hoekwater/stmary7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/hoekwater/stmary8.pfb>
+Output written on Statapp_report.pdf (23 pages, 844149 bytes).
 PDF statistics:
- 551 PDF objects out of 1000 (max. 8388607)
- 126 named destinations out of 1000 (max. 500000)
- 318 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 632 PDF objects out of 1000 (max. 8388607)
+ 141 named destinations out of 1000 (max. 500000)
+ 350 words of extra memory for PDF output out of 10000 (max. 10000000)
 

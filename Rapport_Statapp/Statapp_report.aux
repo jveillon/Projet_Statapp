@@ -27,80 +27,89 @@
 \newlabel{removal_of_unusable_variables}{{2.3}{2}{Removal of unusable variables}{subsection.2.3}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.1}Removal of Spouses' related variables}{2}{subsubsection.2.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.2}Removal of columns with a missing rate too high}{2}{subsubsection.2.3.2}\protected@file@percent }
-\citation{pca1901}
-\citation{tSNE2008}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Distribution of columns with respect to missing values ratio}}{3}{figure.1}\protected@file@percent }
+\newlabel{distribution_of_columns_wrt_missing_values_ratio}{{1}{3}{Distribution of columns with respect to missing values ratio}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {2.3.3}Removal of health variables}{3}{subsubsection.2.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Definition of the objective}{3}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Descriptive statistics on the selected variables}{3}{subsection.3.1}\protected@file@percent }
+\citation{famd2016}
+\citation{pca1901}
+\citation{tSNE2008}
 \citation{chi2test}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Contingency table of heart issues against hypertension in wave $1$}}{4}{table.1}\protected@file@percent }
-\newlabel{contingency_table}{{1}{4}{Contingency table of heart issues against hypertension in wave $1$}{table.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}t-SNE algorithm: presentation}{4}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Formal details}{4}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Performances}{5}{subsection.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}First machine learning procedures to format the database}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Descriptive statistics on the selected variables}{4}{subsection.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Density of the variable BMI for each wave}}{4}{figure.2}\protected@file@percent }
+\newlabel{density_bmi}{{2}{4}{Density of the variable BMI for each wave}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Standard deviation of the variable measuring alcohol consumption across waves}}{4}{figure.3}\protected@file@percent }
+\newlabel{std_alcohol}{{3}{4}{Standard deviation of the variable measuring alcohol consumption across waves}{figure.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Contingency table of heart issues against hypertension in wave $1$}}{5}{table.1}\protected@file@percent }
+\newlabel{contingency_table}{{1}{5}{Contingency table of heart issues against hypertension in wave $1$}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}t-SNE algorithm: presentation}{5}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Formal details}{5}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Performances}{6}{subsection.3.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces RMSE according to the sample size}}{6}{figure.4}\protected@file@percent }
+\newlabel{RMSE_according_to_sample_size}{{4}{6}{RMSE according to the sample size}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces RMSE according to NaN percentage}}{6}{figure.5}\protected@file@percent }
+\newlabel{RMSE_according_to_percentage_nan}{{5}{6}{RMSE according to NaN percentage}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Relationships between the global health index and multiple factors}}{7}{figure.6}\protected@file@percent }
+\newlabel{relationships_between_tSNE_GHI_and_multiple_factors}{{6}{7}{Relationships between the global health index and multiple factors}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Relationship between the global health index and age}}{7}{figure.7}\protected@file@percent }
+\newlabel{tSNE_GHI_by_age}{{7}{7}{Relationship between the global health index and age}{figure.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}First machine learning procedures to format the database}{7}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Imputation of missing data}{7}{subsection.4.1}\protected@file@percent }
 \citation{hmlasso2019}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Imputation of missing data}{6}{subsection.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Convex conditioned Lasso}{6}{subsection.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Lasso with High Missing Rate}{6}{subsection.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Why is CoCoLasso not fitted for high missing rate}{6}{subsubsection.4.3.1}\protected@file@percent }
-\newlabel{LassoStandardFirstForm}{{6}{6}{Why is CoCoLasso not fitted for high missing rate}{equation.4.6}{}}
-\newlabel{LassoStandardSecondForm}{{7}{7}{Why is CoCoLasso not fitted for high missing rate}{equation.4.7}{}}
-\newlabel{CoCoLassoProgram}{{10}{7}{Why is CoCoLasso not fitted for high missing rate}{equation.4.10}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Advantages of HMLasso over CoCoLasso}{7}{subsubsection.4.3.2}\protected@file@percent }
-\newlabel{HMLassoProgram}{{13}{7}{Advantages of HMLasso over CoCoLasso}{equation.4.13}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Implementation in Python}{8}{subsubsection.4.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Second machine learning procedures: prediction}{8}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Prior application of HMLasso}{8}{subsection.5.1}\protected@file@percent }
-\newlabel{data_03}{{5.1}{8}{Prior application of HMLasso}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Convex conditioned Lasso}{8}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Lasso with High Missing Rate}{8}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}Why is CoCoLasso not fitted for high missing rate}{8}{subsubsection.4.3.1}\protected@file@percent }
+\newlabel{LassoStandardFirstForm}{{6}{8}{Why is CoCoLasso not fitted for high missing rate}{equation.4.6}{}}
+\newlabel{LassoStandardSecondForm}{{7}{8}{Why is CoCoLasso not fitted for high missing rate}{equation.4.7}{}}
+\newlabel{CoCoLassoProgram}{{10}{8}{Why is CoCoLasso not fitted for high missing rate}{equation.4.10}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}Advantages of HMLasso over CoCoLasso}{9}{subsubsection.4.3.2}\protected@file@percent }
+\newlabel{HMLassoProgram}{{13}{9}{Advantages of HMLasso over CoCoLasso}{equation.4.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}Implementation in Python}{9}{subsubsection.4.3.3}\protected@file@percent }
 \citation{2SLS1983}
-\newlabel{data_03_lasso}{{5.1}{9}{Prior application of HMLasso}{subsection.5.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Multiple 2SLS regressions}{9}{subsection.5.2}\protected@file@percent }
-\newlabel{multiple2sls}{{5.2}{9}{Multiple 2SLS regressions}{subsection.5.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Principle}{9}{subsubsection.5.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}How we dealt with the missing values}{9}{subsubsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Second machine learning procedures: prediction}{10}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Prior application of HMLasso}{10}{subsection.5.1}\protected@file@percent }
+\newlabel{data_03}{{5.1}{10}{Prior application of HMLasso}{subsection.5.1}{}}
+\newlabel{data_03_lasso}{{5.1}{10}{Prior application of HMLasso}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Multiple 2SLS regressions}{10}{subsection.5.2}\protected@file@percent }
+\newlabel{multiple2sls}{{5.2}{10}{Multiple 2SLS regressions}{subsection.5.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Principle}{11}{subsubsection.5.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}How we dealt with the missing values}{11}{subsubsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Performances}{11}{subsubsection.5.2.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 2SLS with lasso ($\mu = 0.5$ and mean-imputation) - results}}{12}{table.2}\protected@file@percent }
+\newlabel{results_2SLS}{{2}{12}{2SLS with lasso ($\mu = 0.5$ and mean-imputation) - results}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}\textit  {Within} regression}{12}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Principle}{12}{subsubsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Dealing with the missing values}{13}{subsubsection.5.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Strict exogeneity}{13}{subsubsection.5.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.4}Performances}{13}{subsubsection.5.3.4}\protected@file@percent }
 \citation{xgboost2016}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Performances}{10}{subsubsection.5.2.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces 2SLS with lasso ($\mu = 0.5$ and mean-imputation) - results}}{10}{table.2}\protected@file@percent }
-\newlabel{results_2SLS}{{2}{10}{2SLS with lasso ($\mu = 0.5$ and mean-imputation) - results}{table.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}XGBoost for regression and classification}{10}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}Gradient Boosting in a nutshell}{10}{subsubsection.5.3.1}\protected@file@percent }
-\newlabel{xgboost_objective}{{16}{11}{Gradient Boosting in a nutshell}{equation.5.16}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Performances}{11}{subsubsection.5.3.2}\protected@file@percent }
-\newlabel{xgboost_performances}{{5.3.2}{11}{Performances}{subsubsection.5.3.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces XGBoost regressor - results over $100$ simulations}}{11}{table.3}\protected@file@percent }
-\newlabel{results_xgbregressor}{{3}{11}{XGBoost regressor - results over $100$ simulations}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Within regression ($1^{st}$ method) with $\mu = 0.011$ - results}}{14}{table.3}\protected@file@percent }
+\newlabel{results_Within_1}{{3}{14}{Within regression ($1^{st}$ method) with $\mu = 0.011$ - results}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Within regression ($2^{nd}$ method) with $\mu = 0.054$ - results}}{14}{table.4}\protected@file@percent }
+\newlabel{results_Within_2}{{4}{14}{Within regression ($2^{nd}$ method) with $\mu = 0.054$ - results}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}XGBoost for regression and classification}{14}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}Gradient Boosting in a nutshell}{14}{subsubsection.5.4.1}\protected@file@percent }
+\newlabel{xgboost_objective}{{18}{14}{Gradient Boosting in a nutshell}{equation.5.18}{}}
 \citation{challenge2017}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}Performances}{15}{subsubsection.5.4.2}\protected@file@percent }
+\newlabel{xgboost_performances}{{5.4.2}{15}{Performances}{subsubsection.5.4.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces XGBoost regressor - results over $100$ simulations}}{15}{table.5}\protected@file@percent }
+\newlabel{results_xgbregressor}{{5}{15}{XGBoost regressor - results over $100$ simulations}{table.5}{}}
 \citation{randomForest2012}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces XGBoost classifier - results over $10$ simulations}}{12}{table.4}\protected@file@percent }
-\newlabel{results_xgbclassifier}{{4}{12}{XGBoost classifier - results over $10$ simulations}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}RandomForest for regression and classification}{12}{subsection.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.1}Random Forest in a nutshell}{12}{subsubsection.5.4.1}\protected@file@percent }
-\newlabel{randomForest_objective}{{19}{13}{Random Forest in a nutshell}{equation.5.19}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.4.2}Performances}{13}{subsubsection.5.4.2}\protected@file@percent }
-\newlabel{randomForest_performances}{{5.4.2}{13}{Performances}{subsubsection.5.4.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Random Forest regressor - results over $2$ simulations}}{13}{table.5}\protected@file@percent }
-\newlabel{results_randomforestregressor}{{5}{13}{Random Forest regressor - results over $2$ simulations}{table.5}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Random Forest classifier - results over $10$ simulations}}{14}{table.6}\protected@file@percent }
-\newlabel{results_randomForestClassifier}{{6}{14}{Random Forest classifier - results over $10$ simulations}{table.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion and perspectives}{14}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {A}Appendix}{15}{appendix.A}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Distribution of columns with respect to missing values ratio}}{15}{figure.1}\protected@file@percent }
-\newlabel{distribution_of_columns_wrt_missing_values_ratio}{{1}{15}{Distribution of columns with respect to missing values ratio}{figure.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces RMSE according to the sample size}}{15}{figure.2}\protected@file@percent }
-\newlabel{RMSE_according_to_sample_size}{{2}{15}{RMSE according to the sample size}{figure.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces RMSE according to NaN percentage}}{15}{figure.3}\protected@file@percent }
-\newlabel{RMSE_according_to_percentage_nan}{{3}{15}{RMSE according to NaN percentage}{figure.3}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Relationships between the global health index and multiple factors}}{16}{figure.4}\protected@file@percent }
-\newlabel{relationships_between_tSNE_GHI_and_multiple_factors}{{4}{16}{Relationships between the global health index and multiple factors}{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Relationship between the global health index and age}}{16}{figure.5}\protected@file@percent }
-\newlabel{tSNE_GHI_by_age}{{5}{16}{Relationship between the global health index and age}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Accuracy of XGBoost classifier with respect to the number of classes}}{17}{figure.6}\protected@file@percent }
-\newlabel{xgboost_accuracy}{{6}{17}{Accuracy of XGBoost classifier with respect to the number of classes}{figure.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Density of the variable BMI for each wave}}{17}{figure.7}\protected@file@percent }
-\newlabel{density_bmi}{{7}{17}{Density of the variable BMI for each wave}{figure.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Standard deviation of the variable measuring alcohol consumption across waves}}{18}{figure.8}\protected@file@percent }
-\newlabel{std_alcohol}{{8}{18}{Standard deviation of the variable measuring alcohol consumption across waves}{figure.8}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces XGBoost classifier - results over $10$ simulations}}{16}{table.6}\protected@file@percent }
+\newlabel{results_xgbclassifier}{{6}{16}{XGBoost classifier - results over $10$ simulations}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Accuracy of XGBoost classifier with respect to the number of classes}}{16}{figure.8}\protected@file@percent }
+\newlabel{xgboost_accuracy}{{8}{16}{Accuracy of XGBoost classifier with respect to the number of classes}{figure.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}RandomForest for regression and classification}{16}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.1}Random Forest in a nutshell}{16}{subsubsection.5.5.1}\protected@file@percent }
+\newlabel{randomForest_objective}{{21}{17}{Random Forest in a nutshell}{equation.5.21}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.5.2}Performances}{17}{subsubsection.5.5.2}\protected@file@percent }
+\newlabel{randomForest_performances}{{5.5.2}{17}{Performances}{subsubsection.5.5.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Random Forest regressor - results over $2$ simulations}}{17}{table.7}\protected@file@percent }
+\newlabel{results_randomforestregressor}{{7}{17}{Random Forest regressor - results over $2$ simulations}{table.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Random Forest classifier - results over $10$ simulations}}{18}{table.8}\protected@file@percent }
+\newlabel{results_randomForestClassifier}{{8}{18}{Random Forest classifier - results over $10$ simulations}{table.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{19}{section.6}\protected@file@percent }
 \bibstyle{plain}
 \bibdata{refs}
 \bibcite{genetic2021}{1}
@@ -111,7 +120,8 @@
 \bibcite{amelia2011}{6}
 \bibcite{randomForest2012}{7}
 \bibcite{hrs2014}{8}
-\bibcite{challenge2017}{9}
-\bibcite{hmlasso2019}{10}
-\bibcite{tSNE2008}{11}
-\gdef \@abspage@last{22}
+\bibcite{famd2016}{9}
+\bibcite{challenge2017}{10}
+\bibcite{hmlasso2019}{11}
+\bibcite{tSNE2008}{12}
+\gdef \@abspage@last{23}

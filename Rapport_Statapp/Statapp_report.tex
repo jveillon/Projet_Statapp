@@ -40,7 +40,7 @@
 \date{\today}
 \setcounter{page}{-2}
 \begin{document}
-\newcommand{\sklearn}{\textbf{scikit-learn}}
+\newcommand{\sklearn}{\textbf{scikit-learn} }
 
 \maketitle
 \thispagestyle{empty}
@@ -96,7 +96,7 @@ In the upcoming pages, we first present the database and the cleaning steps we w
 Our project is based on three databases, which all have the same source: the Health and Retirement Study (HRS). The HRS is sponsored by the National Institute on Aging (grant number NIA \textit{U01AG009740}) and is conducted by the University of Michigan and focuses on Americans over $50$. More than $20,000$ are included in the survey. The original goals of the survey were to help facilitate research and to guide policymakers in their decisions.\\
 
 \noindent
-The first dataset is about participants’ lives data (its formal name is RAND HRS Longitudinal File 2018 (V2) \cite{hrs2014}). It contains fourteen waves of survey for the moment. At each new wave, people from previous waves must respond again (as the data is longitudinal), and new people representative of the American society are also added. Are considered in the data the respondents themselves, their spouses, and their households. The data here revolves around $10,000$ variables.\\
+The first dataset is about participants’ lives data (its formal name is RAND HRS Longitudinal File 2018 (V2) \cite{hrs2014}). It contains fourteen waves of survey at the moment. At each new wave, people from previous waves must respond again (as the data is longitudinal), and new people representative of the American society are also added. Are considered in the data the respondents themselves, their spouses, and their households. The data here revolves around $10,000$ variables.\\
 
 \noindent
 The two other datasets correspond to the genetic ones \cite{genetic2021}. They are similar and just differ as one contains people with European ancestry while the other people with African ancestry. The contained genetic data are polygenic scores (PGSs). Their goal is to encapsulate genetic facts that are linked to a phenotypic trait to try to find the latter. Here, the genetic facts in question are Single Nucleotide Polymorphisms (SNPs). They correspond to DNA sequences where only one particular gene is different from the others in a part of the population wider than $1$\%. To obtain a PGS, a weighted sum is made with the SNPs linked to the phenotype that one wishes to estimate. The weights are obtained with a meta-analysis done on genome-wide association studies (GWAS) which try to see the link between phenotypes and genes (but not with single genes like with the SNPs).\\
@@ -120,7 +120,14 @@ The subject of the variables always fall into one of the three categories 'Respo
 At the end of this operation, our database is of size $(n=42,233, p=7,939)$. Compared to the initial size of the database, this size has been almost halved in exchange for a small loss of information.
 
 \subsubsection{Removal of columns with a missing rate too high}
-The quickest way to efficiently reduce the size of our database is to directly drop useless columns. Our data mainly corresponding to answers to interviews, some columns present a really high missing rate. We calculated for each wave the number of columns for a given missing rate, and got the graph $\ref{distribution_of_columns_wrt_missing_values_ratio}$ in appendix. We wanted to keep the genetic data, whose available rate is around $35.97$\% of the respondents, so we decided to drop all variables that presented a missing rate higher than $65\%$.\\
+The quickest way to efficiently reduce the size of our database is to directly drop useless columns. Our data mainly corresponding to answers to interviews, some columns present a really high missing rate. We calculated for each wave the number of columns for a given missing rate, and got the graph\footnote{Figure \ref{distribution_of_columns_wrt_missing_values_ratio} is meant to be interpreted like this: among the variables collected from the interviews in wave 2, more than $40\%$ missing values were found in $47\%$ of the variables.\\} \ref{distribution_of_columns_wrt_missing_values_ratio}.
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale = 0.7]{distribution_of_columns_wrt_missing_values_ratio.png}
+	\caption{Distribution of columns with respect to missing values ratio}
+	\label{distribution_of_columns_wrt_missing_values_ratio}
+\end{figure}
+We wanted to keep the genetic data, whose available rate is around $35.97$\% of the respondents, so we decided to drop all variables that presented a missing rate higher than $65\%$.\\
 A precision is needed: the vast majority of the columns in our dataset are in fact timed realizations of one global variable. Take \pyth!R1MSTAT! for example. It appears that \pyth!R1MSTAT, R2MSTAT, ..., R14MSTAT! are the responses of individuals to the same question, say \pyth!RwMSTAT!, asked at different waves. Hence, it makes sense for these 14 variables to not be treated separately: if we delete \pyth!R12MSTAT!, we shall delete \pyth!R1MSTAT, R2MSTAT,! etc. If we keep one column, we keep all of them.\\
 There are $156$ variables like \pyth!RwMSTAT! with an average missing rate of more than $65$\%. It corresponds to $1,577$ columns in our original dataset, and we dropped them all at once. This single operation drastically reduced the size of the database from $(n = 42,233, p = 7,939)$ to $(n = 42,233, p = 6,131)$.\\
 
@@ -137,16 +144,32 @@ As explained in the introduction, we want to see whether it is possible to forec
 We carefully selected a few quantitative health-variables, from age and body mass index to the number of overnight stays at hospital or in nursing home the respondent went through over a year. We also took into account qualitative variables indicating whether the respondent had had hypertension, cancer, diabetes, heart disease, etc. Out of the 1,983 available health variables, we thus selected $27$ of them. The problem was to summarize them into one Global Health Index.\\
 
 \noindent
-The scientific literature points out the benefits of Principal Component Analysis (PCA) \cite{pca1901} in the search of such an index. Therefore we first used it to summarize the $27$ variables into one. However, the index created this way did not present the expected consistency: one's index looked random over time, and the index was awkwardly positively correlated with each health-variable, independently of the actual effect of the variable on one's health.\\
+The scientific literature\cite{famd2016} points out the benefits of Principal Component Analysis (PCA) \cite{pca1901} in the search of such an index. Therefore we first used it to summarize the $27$ variables into one. However, the index created this way did not present the expected consistency: one's index looked random over time, and the index was awkwardly positively correlated with each health-variable, independently of the actual effect of the variable on one's health.\\
 
 \noindent
 Hence, we looked for another dimensional reduction algorithm. The t-distributed Stochastic Neighbor Embedding (t-SNE) algorithm \cite{tSNE2008} had caught our attention, and we decided to apply it on our health data.
 
 \subsection{Descriptive statistics on the selected variables}
-First, we focus on univariate statistics. For a variable to be interesting in the creation of the index, it needs to allow us to differentiate individuals to a certain extent. Formally, the dispersion of the values must be sufficient. We look at the standard deviation of the variables. If it is too close to $0$, it means than most individuals have the same value for the variable of interest, and it is not helpful to point out differences between individuals. Regarding the quantitative variables, the distributions show that the standard deviations are satisfying. For example, for the Body Mass Index (BMI) in wave $1$, the standard deviation is $5.18$, with $75\%$ of values between $12.8$ and $29.6$. Figure $\ref{density_bmi}$ shows the density of the BMI variable for all waves. However, for the variables that measure an evolution since the last interview, the standard deviations in the first wave are ambiguous, because measuring an evolution since the last wave for wave $1$ does not make much sense. When we exclude the first wave, we obtain more satisfying results.\\
+First, we focus on univariate statistics. For a variable to be interesting in the creation of the index, it needs to allow us to differentiate individuals to a certain extent. Formally, the dispersion of the values must be sufficient. We look at the standard deviation of the variables. If it is too close to $0$, it means than most individuals have the same value for the variable of interest, and it is not helpful to point out differences between individuals. Regarding the quantitative variables, the distributions show that the standard deviations are satisfying. For example, for the Body Mass Index (BMI) in wave $1$, the standard deviation is $5.18$, with $75\%$ of values between $12.8$ and $29.6$. Figure \ref{density_bmi}
+\begin{figure}[!h]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{density_bmi.png}
+		\caption{Density of the variable BMI for each wave}
+		\label{density_bmi}
+	\end{minipage}\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{std_alcohol.png}
+		\caption{Standard deviation of the variable measuring alcohol consumption across waves}
+		\label{std_alcohol}
+	\end{minipage}
+\end{figure}
+shows the density of the BMI variable for all waves. However, for the variables that measure an evolution since the last interview, the standard deviations in the first wave are ambiguous, because measuring an evolution since the last wave for wave $1$ does not make much sense. When we exclude the first wave, we obtain more satisfying results.\\
 
 \noindent
-To study the dispersion of binary variables, we compute the standard deviation with the formula $\sqrt{p(1-p)}$ with $p$ the mean of the variable. The graphs showing the standard deviations of the binary variables across waves show a non-negligible dispersion. For the only quantitative variable that is not binary (RwSLFMEM, which is a self-rating of memory), we obtain satisfying standard deviations as well. As an example, figure $\ref{std_alcohol}$ shows the standard deviation across waves of the variable measuring alcohol consumption.\\
+To study the dispersion of binary variables, we compute the standard deviation with the formula $\sqrt{p(1-p)}$ with $p$ the mean of the variable. The graphs showing the standard deviations of the binary variables across waves show a non-negligible dispersion. For the only quantitative variable that is not binary (RwSLFMEM, which is a self-rating of memory), we obtain satisfying standard deviations as well. As an example, figure \ref{std_alcohol} shows the standard deviation across waves of the variable measuring alcohol consumption.\\
 
 \noindent
 Now let us look at a few bivariate statistics. To study the dependency between qualitative variables, we use contingency tables and $\chi^2$ tests. Since there are a lot of tests to run, we focus on wave 1. A contingency table shows the relative distribution of two variables. A $\chi^2$ test compares the observed distribution to the one that would be observed if the two variables were independent. Denoting $M=(m_{ij})$ a contingency table of dimension $I\times J$, the T-statistic is computed as follows \cite{chi2test}: 
@@ -209,11 +232,43 @@ The index (denoted \textit{GHI} for \textit{Global Health Index} in the followin
 
 \noindent
 In order to check for the robustness of our index, we conducted an analysis of sensitivity. Formally, an analysis of sensitivity consists in analyzing the robustness of an index to changes in the data or in the assumptions made.\\
-As we will have to estimate an index based on a testing sample of our data, the first question to be answered is the following: does the GHI of an individual change when we do not take into account the whole database in the process? For instance, if one's GHI was equal to $50$ when the index has been fitted on the whole database, would it still be equal to $50$ if the index was this time fitted on a sample of the data? The figure $\ref{RMSE_according_to_sample_size}$ in appendix demonstrates the robustness of t-SNE algorithm in generating an index not too much data-dependent: the root mean squared error observed for samples of $10,000$ individuals amounts to about $27$, for an index that varies between $-150$ and $150$.\\
-For the second test, we deleted values at random in the dataset. As in the previous analysis, we used Root Mean Squared Error to compare the index computed on this altered dataset and the real one. For instance, with $5\%$ of random missing values, we obtained a RMSE of $17$. Figure $\ref{RMSE_according_to_percentage_nan}$ shows the RMSE according to the percentage of random missing values. The robustness of the index to missing values is satisfying, as we can expect there would not be a too high share of missing values when we try to predict the outcome.\\
+As we will have to estimate an index based on a testing sample of our data, the first question to be answered is the following: does the GHI of an individual change when we do not take into account the whole database in the process? For instance, if one's GHI was equal to $50$ when the index has been fitted on the whole database, would it still be equal to $50$ if the index was this time fitted on a sample of the data? The figure \ref{RMSE_according_to_sample_size}
+\begin{figure}[!h]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{tSNE_GHI_RMSE_according_to_sample_size.png} % first figure itself
+		\caption{RMSE according to the sample size}
+		\label{RMSE_according_to_sample_size}
+	\end{minipage}\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{tSNE_GHI_RMSE_according_to_percentage_NaN.png} % second figure itself
+		\caption{RMSE according to NaN percentage}
+		\label{RMSE_according_to_percentage_nan}
+	\end{minipage}
+\end{figure}
+demonstrates the robustness of t-SNE algorithm in generating an index not too much data-dependent: the root mean squared error observed for samples of $10,000$ individuals amounts to about $27$, for an index that varies between $-150$ and $150$.\\
+For the second test, we deleted values at random in the dataset. As in the previous analysis, we used Root Mean Squared Error to compare the index computed on this altered dataset and the real one. For instance, with $5\%$ of random missing values, we obtained a RMSE of $17$. Figure \ref{RMSE_according_to_percentage_nan} shows the RMSE according to the percentage of random missing values\footnote{Figure \ref{RMSE_according_to_sample_size} plots the root mean-squared-error observed between the actual index and the index determined on a sample of the data, size of which being informed on the $x$ axis. Figure \ref{RMSE_according_to_percentage_nan} gives the same information for each missing values rate.}. The robustness of the index to missing values is satisfying, as we can expect there would not be a too high share of missing values when we try to predict the outcome.\\
 
 \noindent
-In addition, figures \ref{relationships_between_tSNE_GHI_and_multiple_factors} and \ref{tSNE_GHI_by_age} show that the GHI is consistent: highest values of the GHI refer to very fragile health, while lowest ones refer to healthiest individuals. Indeed, an older age will generally correspond to a more fragile health, and so will a high number of overnight hospital stays for instance.
+In addition, figures \ref{relationships_between_tSNE_GHI_and_multiple_factors} and \ref{tSNE_GHI_by_age} 
+\begin{figure}[!h]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+	\centering
+		\includegraphics[width=0.9\textwidth]{relationships_between_tSNE_GHI_and_multiple_factors.png}
+		\caption{Relationships between the global health index and multiple factors}
+		\label{relationships_between_tSNE_GHI_and_multiple_factors}
+	\end{minipage}\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=0.9\textwidth]{tSNE_GHI_by_age.png}
+		\caption{Relationship between the global health index and age}
+		\label{tSNE_GHI_by_age}
+	\end{minipage}
+\end{figure}
+show that the GHI is consistent: highest values of the GHI refer to very fragile health, while lowest ones refer to healthiest individuals\footnote{Figure \ref{relationships_between_tSNE_GHI_and_multiple_factors} describes how the GHI is changed when a certain factor is present. The category $0$ stands for \textit{no such factor}, category $1$ for \textit{there is this factor}, and other categories express a higher level of the current factor. For instance, \pyth!DIAB = 0! means that the individual does not present diabetes. \pyth!CANCR, BACK, HEART, LUNG! stand for the presence of cancer, of pain or health problems in the back, the heart, or the lungs. Overall, what we see was expected: when someone has arthrose problems (\pyth!ARTHR!), his general health is expected to be lower, hence his GHI to be higher. The unique variable that behaves differently is \pyth!DRINK!, that describes how much alcohol one drinks. But the deviation is marginal.}. Indeed, an older age will generally correspond to a more fragile health, and so will a high number of overnight hospital stays for instance.
 
 \section{First machine learning procedures to format the database}
 At this point, the dataset we are working on still presents a few thousands variables. Considering that it approaches the number of individuals (that is, $p \approx n$), machine learning algorithms will have struggle converging, or would converge to unsatisfying solutions. Hence, we shall reduce the number of such variables by other means than deletion (every possible removals having been previously realized).\\
@@ -432,23 +487,24 @@ We observe that incorporating genetic data only leads to a marginal increase in 
 \subsection{\textit{Within} regression}
 
 \subsubsection{Principle}
+In this section, we consider a fixed effects model with recursive method to try to predict our Global Health Index (GHI) at the last wave. We chose to use the \textit{Within} estimator and here is the idea for a general panel data $(X_t)_{t\in \llbracket1,T\rrbracket}$ with $n$ individuals and $T$ periods and the outcome $(Y_t)_{t\in \llbracket1,T\rrbracket}$:
+\begin{equation}
+	\forall i \in \llbracket1,n\rrbracket,\quad \left\{
+	\begin{array}{ll}
+		\overline{Y}_i = \beta_0 \overline{X}_i + \alpha_i + \overline{\epsilon}_i \\
+		\text{For each wave, } \forall t \in \llbracket1,T\rrbracket , (Y_{it} -\overline{Y}_i )= \beta_0 ( X_{it} - \overline{X}_i) + (\epsilon_{it} - \overline{\epsilon}_i )
+	\end{array}
+	\right.
+\end{equation}
+where for any $U$ : $\overline{U}_i = \frac{1}{T} \sum_{t=1}^T U_{it}$ and where $\alpha_i$ is a fixed effect and $\epsilon_{it}$ is a residual. Under the assumption of strict exogeneity (see below), $\beta_0$ can be consistently estimated with pooled OLS.\\
 
-In this section, we consider here a fixed effects model with recursive method to try to predict our Global Health Index (GHI) at the last wave. We chose to use the \textit{Within} estimator and here is the idea for a general panel data $(X_t)_{t\in [|1,T|]}$ with $n$ individuals and $T$ periods and the outcome $(Y_t)_{t\in [|1,T|]}$:  
-$$ \forall i \in [|1,n|] \left\{
-    \begin{array}{ll}
-        \overline{Y}_i = \beta_0 \overline{X}_i + \alpha_i + \overline{\epsilon}_i \\
-        \text{For each wave, } \forall t \in [|1,T|] , (Y_{it} -\overline{Y}_i )= \beta_0 ( X_{it} - \overline{X}_i) + (\epsilon_{it} - \overline{\epsilon}_i )
-    \end{array}
-\right.$$ 
-$ \text{where for any } U : \overline{U}_i = \frac{1}{T} \sum_{t=1}^T U_{it}$ and where $\alpha_i$ is a fixed effect and $\epsilon_{it}$ is a residual. Under the assumption of strict exogeneity (see below), $\beta_0$ can be consistently estimated with pooled OLS. \\
-
-
+\noindent
 The principle of the recursive method employed here, is to select relevant variables with 14 Lasso regressions - one per wave - and then, to proceed to a final regression on the selected variables. We employed two different methods :
 \begin{itemize}
     \item Concerning the first wave, we use a Lasso to regress $GHI_1$ (Global Health Index at the wave 1) on $X_1$ (Socio-economic data at the wave 1) and then, we drop irrelevant variables, those with an estimated coefficient of 0. The data containing the selected variables is called $X_1'$, it will be used to select variables from the wave 2. For the next waves, we proceed to a Lasso to regress $GHI_i$ on $X_i$ and $X_{i-1}'$ the data at the wave i and the variables selected by the previous regression Lasso. $$\left\{
     \begin{array}{lll}
         \widehat{GHI}_{1} = \widehat{\beta}_{Lasso}^1 {X}_{1} \Longrightarrow {X}_{1}' \text{, where } {X}_{1}' \text{ contains } {X}_{1}^k \text{ if } \widehat{\beta}_{Lasso, k}^1 \ne 0 \\
-    \forall i \in [|2,14|] : \widehat{GHI}_{i} = \widehat{\beta}_{Lasso}^i \begin{pmatrix}
+    \forall i \in \llbracket2,14\rrbracket : \widehat{GHI}_{i} = \widehat{\beta}_{Lasso}^i \begin{pmatrix}
          {X}_{i}\\
         {X}_{i-1}'
     \end{pmatrix} \Longrightarrow {X}_{i}' \text{, where } {X}_{i}' \text{ contains } \begin{pmatrix}
@@ -458,44 +514,44 @@ The principle of the recursive method employed here, is to select relevant varia
     \end{array}
 \right.$$ ${X}_{t}^k$ refers to the k-th variable of the data ${X}_{t}$.
 
-After this selection of variables by cumulative regressions, we apply the \textit{Within} transformation \footnote{For any $U$,  $\forall i \in [|1,n|]$, we tranform $U$ into $(U_{it} -\overline{U}_i )$} to the selected variables and $GHI_{14}$ and we finally proceed to a pooled OLS regression to get the predictions.
+After this selection of variables by cumulative regressions, we apply the \textit{Within} transformation\footnote{For any $U$,  $\forall i \in \llbracket1,n\rrbracket$, we tranform $U$ into $(U_{it} -\overline{U}_i )$} to the selected variables and $GHI_{14}$ and we finally proceed to a pooled OLS regression to get the predictions.
 
     \item This method is quite similar to the first one, the only difference is that, we apply the \textit{Within} transformation before the selection by cumulative Lasso regressions. We then perform a pooled OLS regression to get the predictions.
 \end{itemize}
 
 
 \subsubsection{Dealing with the missing values}
-
-
-We had the possibility to use the High Missing Rate Lasso for the selection process of these methods but we could not because of its computing time which was far too high due to the large number of columns and the cumulative selection process which increases this number with each regression.
-
+We had the possibility to use the High Missing Rate Lasso for the selection process of these methods but we could not because of its computing time which was far too high due to the large number of columns and the cumulative selection process which increases this number with each regression.\\
 Therefore, we used the mean of columns to impute random missing values as it is an usual method and does not affect directly estimations. Concerning the missing value due to the absence of an individual in a wave (no data at all for this wave), we imputed them with the temporal mean of the variable, as, in a \textit{Within} regression, it won't have a great impact on the estimations. For instance, if the individual i was not interviewed at the wave 3, we impute the value of ${X}_{i3}^k$ with $\frac{1}{T-1} \sum_{t=1, t \ne 3}^{14} U_{it}^k$. 
 
 \subsubsection{Strict exogeneity}
+As explained previously, in this model, we can proceed to consistent estimations only under the assumption of strict exogeneity : $\forall (t,t')\in \llbracket1,T\rrbracket^2, \mathbb{E}(X_{it}\epsilon_{it'}) = 0$ where $\epsilon_{it}$ is the residual of the panel regression ${Y}_{it} = \beta_0 {X}_{it} + \alpha_i + \epsilon_{it}$ for  $i \in \llbracket1,n\rrbracket$ and $ t \in \llbracket1,T\rrbracket$. \\
 
-As explained previously, in this model,we can proceed to consistent estimations only under the assumption of strict exogeneity : $\forall (t,t')\in [|1,T|]^2, \mathbb{E}(X_{it}\epsilon_{it'}) = 0$ where $\epsilon_{it}$ is the residual of the panel regression ${Y}_{it} = \beta_0 {X}_{it} + \alpha_i + \epsilon_{it}$ for  $i \in [|1,n|]$ and $ t \in [|1,T|]$ \\
-
-To try to check whether this hypothesis is valid, we conducted correlation tests between the residuals of the Lasso regressions and the variables used. Knowing that $\alpha_i + \epsilon_{it} = {Y}_{it} - \hat{Y}_{it}$ and that $\alpha_i = \frac{1}{T} \sum_{t=1}^T (\alpha_i + \epsilon_{it} )$, we compute the residuals : $\epsilon_{it} = {Y}_{it} - \hat{Y}_{it} - \frac{1}{T} \sum_{t=1}^T ({Y}_{it} - \hat{Y}_{it} )$. We proceed then to multiples Student test on the correlation\footnote{Since $\mathbb{E}(\epsilon_{it'}) = 0$, $Corr(X_{it}\epsilon_{it'}) = 0 \Longrightarrow \mathbb{E}(X_{it}\epsilon_{it'}) = 0$} between the data and the residuals : $$\forall (t,t')\in [|1,T|]^2\left\{
-    \begin{array}{ll}
-        H_0 : \widehat{Corr}(X_{it}\epsilon_{it'}) = 0\\
-        H_1 : \widehat{Corr}(X_{it}\epsilon_{it'}) \ne 0
-    \end{array}
-\right.$$
-
+\noindent
+To try to check whether this hypothesis is valid, we conducted correlation tests between the residuals of the Lasso regressions and the variables used. Knowing that $\alpha_i + \epsilon_{it} = {Y}_{it} - \hat{Y}_{it}$ and that $\alpha_i = \frac{1}{T} \sum_{t=1}^T (\alpha_i + \epsilon_{it} )$, we compute the residuals : $\epsilon_{it} = {Y}_{it} - \hat{Y}_{it} - \frac{1}{T} \sum_{t=1}^T ({Y}_{it} - \hat{Y}_{it} )$. We proceed then to multiples Student test on the correlation\footnote{Since $\mathbb{E}(\epsilon_{it'}) = 0$, $Corr(X_{it}\epsilon_{it'}) = 0 \Longrightarrow \mathbb{E}(X_{it}\epsilon_{it'}) = 0$} between the data and the residuals : 
+\begin{equation}
+	\forall (t,t')\in \llbracket1,T\rrbracket^2,\quad \left\{
+	\begin{array}{ll}
+		H_0 : \widehat{\mathrm{Corr}}(X_{it}\epsilon_{it'}) = 0\\
+		H_1 : \widehat{\mathrm{Corr}}(X_{it}\epsilon_{it'}) \ne 0
+	\end{array}
+	\right.
+\end{equation}
 The results of these tests show us that the residuals are significantly uncorrelated with at least 50 or even 100 variables per wave. Here, Knowing that the Lasso regression will keep the variables most correlated to the outcome, thus the variables most uncorrelated to the residuals and that the selection process will keep no more than 150 variables distributed in each wave, we can consider that the assumption of strict exogeneity is valid for these methods.
 
 \subsubsection{Performances}
 
 
-With these methods of prediction, the only parameter to optimize is the Lasso penalization, $\mu$. At first, we fixed randomly, our training, validation and testing sets. We processed to train a model on the training set with different $\mu$ and then apply it to the validation set to choose the optimal penalization $\mu$ by maximizing the R\up{2} (quality of predictions). Once a model is optimally set up and tested, we can assess the usefulness of genetic variables by adding them to the last regression of the selection process and comparing the quality of predictions on the testing set. Due to the large size of our data (both rows and columns), we could not perform cross-validation but the optimisation of parameters by evaluating the results on the validation set helps to avoid over-fitting.
+With these methods of prediction, the only parameter to optimize is the Lasso penalization, $\mu$. At first, we fixed randomly, our training, validation and testing sets. We processed to train a model on the training set with different $\mu$ and then apply it to the validation set to choose the optimal penalization $\mu$ by maximizing the $R^2$ (quality of predictions). Once a model is optimally set up and tested, we can assess the usefulness of genetic variables by adding them to the last regression of the selection process and comparing the quality of predictions on the testing set. Due to the large size of our data (both rows and columns), we could not perform cross-validation but the optimisation of parameters by evaluating the results on the validation set helps to avoid over-fitting.\\
 
+\noindent
 For both methods, we run the algorithms for several $\mu$ values distributed between $0.05$ and $0.1$, where the model drop almost all variables for $\mu = 0.1$ and over-fit the training set for $\mu = 0.05$. We then apply the algorithms for $\mu$ in smaller and smaller intervals chosen to get closer to the optimal $\mu$ by maximising the validation $R^2$. We stop when we obtain an interval of $\mu$ for which all the results are identical and maximize the $R^2$.\\
 
+\noindent
 Concerning the first method (Cumulative selection before the \textit{Within} transformation), we get the same optimal penalization with or without the genetic variables : $\mu^* = 0.011$. For the case in which we include the genetic variables, the selection process leads to drop almost all of those, only 3 of them remain after.\\
 
+\noindent
 For the first model, we have the following results :
-
-
 \begin{table}[!h]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -509,14 +565,13 @@ For the first model, we have the following results :
     \end{tabular}
     \caption{Within regression ($1^{st}$ method) with $\mu = 0.011$ - results}
     \label{results_Within_1}
-\end{table}
+\end{table}\\
 
-
+\noindent
 The second model (\textit{Within} transformation before the cumulative selection) leads to worse predictions than the first. The optimal penalization corresponds to $\mu^* = 0.054$, whether with or without the genetic variables. Beyond that, when we include the genetics variables, the selection process drop all the genetics variables, therefore, the results are identical for both cases.\\
 
+\noindent
 For the second model, we have the following results :
-
-
 \begin{table}[!h]
     \centering
     \begin{tabular}{|c|c|c|}
@@ -529,13 +584,11 @@ For the second model, we have the following results :
 	   \hline 
     \end{tabular}
     \caption{Within regression ($2^{nd}$ method) with $\mu = 0.054$ - results}
-    \label{results_Within_1}
-\end{table}
+    \label{results_Within_2}
+\end{table}\\
 
-
-
-We observe that this machine learning algorithm performs much worse than the others to predict the Global Health Index at the last wave, as the $R^2$ does not exceed $5.5\%$ on the testing set.  
-
+\noindent
+We observe that this machine learning algorithm performs much worse than the others to predict the Global Health Index at the last wave, as the $R^2$ does not exceed $5.5\%$ on the testing set.\\
 We also observe that the models which take into account genetic variables data do not have a better prediction quality. Indeed, adding those variables only permits a slight $R^2$ increase for the first method, by less than $0.005$ and, does not have an impact at all for the the second method. Here, it seems quite difficult to learn something from the importance of genes, as socioeconomic characteristics seem to be better predictors of someone's health.
 
 \subsection{XGBoost for regression and classification}
@@ -606,7 +659,7 @@ In the Fragile Families Challenge \cite{challenge2017}, researchers managed to p
 
 \noindent
 By representing one's health with a continuous index, we have made the choice to summarize data in a way that might make irrelevant distinctions between individuals. Namely, what is the difference between an individual of \pyth!GHI14 = 100! and another individual of \pyth!GHI14 = 99!? To override these problematics, it is interesting to look at a simplified version of the health index. For instance, if instead of assigning a numerical value to the health of an individual, we assign it a class (e.g. 'bad health', 'neutral health', 'great health'), would XGBoost give better results? We created such classes by uniformly splitting individuals according to their GHI.\\
-The table \ref{results_xgbclassifier} below (corresponding to data used in figure \ref{xgboost_accuracy})  answers this question.
+The table \ref{results_xgbclassifier} below (corresponding to data used in figure \ref{xgboost_accuracy}) answers this question. We used all data (socioeconomic, genetic and previous GHI).
 \begin{table}[!h]
 	\centering
 	\begin{tabular}{|c|c|c|c|}
@@ -636,7 +689,12 @@ The table \ref{results_xgbclassifier} below (corresponding to data used in figur
 	\caption{XGBoost classifier - results over $10$ simulations}
 	\label{results_xgbclassifier}
 \end{table}\\
-
+\begin{figure}[!h]
+	\centering
+	\includegraphics[scale=0.6]{xgboost_accuracy_wrt_number_of_classes.png}
+	\caption{Accuracy of XGBoost classifier with respect to the number of classes}
+	\label{xgboost_accuracy}
+\end{figure}
 \noindent
 Training a binary classifier on a health indicator \{\textit{bad health}, \textit{good health}\}
 returned a classifier of accuracy $0.751$, which is $1.5$ times better than a dummy classifier (of accuracy $0.5$). Training a non-binary classifier on the health indicator \{\textit{ailing health}, \textit{bad health}, \textit{neutral health}, \textit{good health}, \textit{excellent health}\} returned a classifier of accuracy $0.518$, which is $2.6$ times better than the dummy classifier.\\
@@ -737,83 +795,19 @@ Following the same reasoning as in section \ref{xgboost_performances}, we also t
 \end{table}\\
 Here, we remind the reader of the results obtained for XGBoost. Overall, we see that the Random Forest Classifier underperforms XGBoost Classifier for every single number of classes. Moreover, in the case of binary classification, the Random Forest Classifier shows an accuracy of $0.732<0.753$, a precision of $0.753<0.770$, a recall of $0.777=0.777$ and a F1-score of $0.765<0.773$, which further proves the superiority of XGBoost Classifier.
 
-
-
-
-
-\section{Conclusion and perspectives}
-
-\cleardoublepage
-\appendix
-\section{Appendix}
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale = 0.75]{distribution_of_columns_wrt_missing_values_ratio.png}
-	\caption{Distribution of columns with respect to missing values ratio}
-	\label{distribution_of_columns_wrt_missing_values_ratio}
-\end{figure}
-\begin{figure}[!h]
-	\centering
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\includegraphics[width=0.9\textwidth]{tSNE_GHI_RMSE_according_to_sample_size.png} % first figure itself
-		\caption{RMSE according to the sample size}
-		\label{RMSE_according_to_sample_size}
-	\end{minipage}\hfill
-	\begin{minipage}{0.45\textwidth}
-		\centering
-		\includegraphics[width=0.9\textwidth]{tSNE_GHI_RMSE_according_to_percentage_NaN.png} % second figure itself
-		\caption{RMSE according to NaN percentage}
-		\label{RMSE_according_to_percentage_nan}
-	\end{minipage}
-\end{figure}
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.75]{relationships_between_tSNE_GHI_and_multiple_factors.png}
-\caption{Relationships between the global health index and multiple factors}
-\label{relationships_between_tSNE_GHI_and_multiple_factors}
-\end{figure}
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.75]{tSNE_GHI_by_age.png}
-\caption{Relationship between the global health index and age}
-\label{tSNE_GHI_by_age}
-\end{figure}
-\begin{figure}[!h]
-\centering
-\includegraphics[scale=0.75]{xgboost_accuracy_wrt_number_of_classes.png}
-\caption{Accuracy of XGBoost classifier with respect to the number of classes}
-\label{xgboost_accuracy}
-\end{figure}
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale = 0.75]{density_bmi.png}
-	\caption{Density of the variable BMI for each wave}
-	\label{density_bmi}
-\end{figure}
-\begin{figure}[!h]
-	\centering
-	\includegraphics[scale = 0.75]{std_alcohol.png}
-	\caption{Standard deviation of the variable measuring alcohol consumption across waves}
-	\label{std_alcohol}
-\end{figure}
-\noindent
-Figure \ref{distribution_of_columns_wrt_missing_values_ratio} is meant to be interpreted like this: among the variables collected from the interviews in wave 2, $40$\% of them present more than $45$\% missing values.\\
+\newpage
+\section{Conclusion}
+Based on one's socioeconomic and genetic whereabouts, is it possible to predict one's health over time? This is the question we dedicated this Applied Statistics project to. To tackle this problem, we relied on data from the Health and Retirement Study. We wanted to summarize one's health into one global index, in order to have a more workable dataset. The t-SNE algorithm helped us create the said index, and basing our judgment on a similar study (the Fragile Family Challenge) we implemented a Python version of the High Missing Rate Lasso.\\
+At this point, we ran a panel of advanced machine learning techniques, in order to obtain the best possible prediction of our global health index. From linear methods (successive Lasso, \textit{Within}  regression) to decision trees based methods (XGBoost, Random Forest), we were not able to conclude on the usefulness of genetic information to predict someone's health. However, we reached satisfying results on the index prediction for both regression  and classification: the Random Forest regressor demonstrated a $R^2=0.397$ and XGBoost binary classifier showcased an accuracy of $0.753$.\\
 
 \noindent
-Figure \ref{RMSE_according_to_sample_size} plots the root mean-squared-error observed between the actual index and the index determined on a sample of the data, size of which being informed on the $x$ axis. Figure \ref{RMSE_according_to_percentage_nan} gives the same information for each missing values rate.\\
+What restrained us from taking Random Forest and XGBoost further mainly dwells in the fact that these models comprise a lot of parameters to optimize, so that we could not afford optimizing all of them, hence leading to a potential miss of accuracy. This issue could be tackled as distributed implementations of the two models do exist.\\
 
 \noindent
-Figure \ref{relationships_between_tSNE_GHI_and_multiple_factors} describes how the GHI is changed when a certain factor is present. The category $0$ stands for \textit{no such factor}, category $1$ for \textit{there is this factor}, and other categories express a higher level of the current factor. For instance, \pyth!DIAB = 0! means that the individual does not present diabetes. \pyth!CANCR, BACK, HEART, LUNG! stand for the presence of cancer, of pain or health problems in the back, the heart, or the lungs. Overall, what we see was expected: when someone has arthrose problems (\pyth!ARTHR!), his general health is expected to be lower, hence his GHI to be higher. The unique variable that behaves differently is \pyth!DRINK!, that describes how much alcohol one drinks. But the deviation is marginal.\\
+In addition, an interesting avenue to explore is that of deep learning: deep neural networks have, despite their low explicability, proven their worth and could bring a new light on the relationships between one's genetic characteristics and one's health.
 
-\noindent
-Figure \ref{tSNE_GHI_by_age} highlights the expected fact that someone's health is better when he is young.\\
-
-\noindent
-Figure \ref{xgboost_accuracy} gives, for a specific number of classes $c$, the accuracy of the XGBoost classifier, that is the number of correct guesses divided by the number of guesses.
 
 \cleardoublepage
 \bibliographystyle{plain}
 \bibliography{refs}
-
 \end{document}
