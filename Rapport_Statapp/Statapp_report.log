@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  17 MAY 2023 18:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  17 MAY 2023 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -493,23 +493,23 @@ LaTeX Font Info:    Trying to load font information for U+stmry on input line 4
 <ENSAE_logo.png, id=139, 160.6pt x 203.76125pt>
 File: ENSAE_logo.png Graphic file (type png)
 <use ENSAE_logo.png>
-Package pdftex.def Info: ENSAE_logo.png  used on input line 53.
+Package pdftex.def Info: ENSAE_logo.png  used on input line 52.
 (pdftex.def)             Requested size: 128.48016pt x 163.0092pt.
 
-[1
+[-2
 
 
 {C:/Users/kerya/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./ENSAE_logo
 .png>]
-Underfull \hbox (badness 10000) in paragraph at lines 67--70
+Underfull \hbox (badness 10000) in paragraph at lines 66--69
 
  []
 
-[2] (Statapp_report.toc)
+[-1] (Statapp_report.toc)
 \tf@toc=\write4
 \openout4 = `Statapp_report.toc'.
 
- [3]
+ [0]
 Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
  []
@@ -539,7 +539,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--103
 
  []
 
-[4]
+[1]
 Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
@@ -551,7 +551,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--126
 
  []
 
-[5]
+[2]
 Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
@@ -571,7 +571,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
-[6]
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 148--150
 
  []
@@ -581,7 +581,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--177
 
  []
 
-[7]
+[4]
 Underfull \hbox (badness 10000) in paragraph at lines 198--200
 
  []
@@ -607,12 +607,12 @@ Overfull \hbox (7.20724pt too wide) in paragraph at lines 219--222
 ython would al-low us to reach our goal through the [][][][][]
  []
 
-[8]
+[5]
 Underfull \hbox (badness 10000) in paragraph at lines 230--232
 
  []
 
-[9]
+[6]
 Underfull \hbox (badness 10000) in paragraph at lines 265--267
 
  []
@@ -622,10 +622,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 294--296
 
  []
 
-[10]
+[7]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 302.
- [11]
+ [8]
 Underfull \hbox (badness 10000) in paragraph at lines 386--389
 
  []
@@ -635,7 +635,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 394--395
 
  []
 
-[12]
+[9]
 Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
  []
@@ -655,7 +655,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 434--436
 
  []
 
-[13]
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 447--449
 
  []
@@ -670,7 +670,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 492--493
 
  []
 
-[14]
+[11]
 Underfull \hbox (badness 10000) in paragraph at lines 494--496
 
  []
@@ -692,7 +692,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 538--539
 
  []
 
-[15]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 550--553
 
  []
@@ -724,8 +724,8 @@ Overfull \hbox (22.13182pt too wide) in paragraph at lines 601--625
  [][] 
  []
 
-[16] [17]
-<distribution_of_columns_wrt_missing_values_ratio.png, id=372, 451.6875pt x 339
+[13] [14]
+<distribution_of_columns_wrt_missing_values_ratio.png, id=374, 451.6875pt x 339
 .669pt>
 File: distribution_of_columns_wrt_missing_values_ratio.png Graphic file (type p
 ng)
@@ -733,20 +733,20 @@ ng)
 Package pdftex.def Info: distribution_of_columns_wrt_missing_values_ratio.png  
 used on input line 641.
 (pdftex.def)             Requested size: 338.76479pt x 254.75111pt.
-<tSNE_GHI_RMSE_according_to_sample_size.png, id=373, 406.1574pt x 328.8285pt>
+<tSNE_GHI_RMSE_according_to_sample_size.png, id=375, 406.1574pt x 328.8285pt>
 File: tSNE_GHI_RMSE_according_to_sample_size.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_sample_size.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_sample_size.png  used on in
 put line 649.
 (pdftex.def)             Requested size: 179.64682pt x 145.44263pt.
-<tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=374, 410.4936pt x 328.8285pt
+<tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=376, 410.4936pt x 328.8285pt
 >
 File: tSNE_GHI_RMSE_according_to_percentage_NaN.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_percentage_NaN.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_percentage_NaN.png  used on
  input line 655.
 (pdftex.def)             Requested size: 179.64682pt x 143.90727pt.
-<relationships_between_tSNE_GHI_and_multiple_factors.png, id=375, 414.8298pt x 
+<relationships_between_tSNE_GHI_and_multiple_factors.png, id=377, 414.8298pt x 
 328.8285pt>
 File: relationships_between_tSNE_GHI_and_multiple_factors.png Graphic file (typ
 e png)
@@ -758,7 +758,7 @@ g  used on input line 662.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tSNE_GHI_by_age.png, id=376, 414.8298pt x 328.8285pt>
+<tSNE_GHI_by_age.png, id=378, 414.8298pt x 328.8285pt>
 File: tSNE_GHI_by_age.png Graphic file (type png)
 <use tSNE_GHI_by_age.png>
 Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 668.
@@ -766,7 +766,7 @@ Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 668.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<xgboost_accuracy_wrt_number_of_classes.png, id=377, 416.2752pt x 328.8285pt>
+<xgboost_accuracy_wrt_number_of_classes.png, id=379, 416.2752pt x 328.8285pt>
 File: xgboost_accuracy_wrt_number_of_classes.png Graphic file (type png)
 <use xgboost_accuracy_wrt_number_of_classes.png>
 Package pdftex.def Info: xgboost_accuracy_wrt_number_of_classes.png  used on in
@@ -775,7 +775,7 @@ put line 674.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<density_bmi.png, id=378, 416.2752pt x 314.3745pt>
+<density_bmi.png, id=380, 416.2752pt x 314.3745pt>
 File: density_bmi.png Graphic file (type png)
 <use density_bmi.png>
 Package pdftex.def Info: density_bmi.png  used on input line 680.
@@ -783,7 +783,7 @@ Package pdftex.def Info: density_bmi.png  used on input line 680.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<std_alcohol.png, id=379, 422.0568pt x 314.3745pt>
+<std_alcohol.png, id=381, 422.0568pt x 314.3745pt>
 File: std_alcohol.png Graphic file (type png)
 <use std_alcohol.png>
 Package pdftex.def Info: std_alcohol.png  used on input line 686.
@@ -806,7 +806,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 696--698
 
  []
 
-[18
+[15
 
  <./distribution_of_columns_wrt_missing_values_ratio.png> <./tSNE_GHI_RMSE_acco
 rding_to_sample_size.png> <./tSNE_GHI_RMSE_according_to_percentage_NaN.png>]
@@ -814,23 +814,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 699--701
 
  []
 
-[19 <./relationships_between_tSNE_GHI_and_multiple_factors.png> <./tSNE_GHI_by_
-age.png>] [20 <./xgboost_accuracy_wrt_number_of_classes.png> <./density_bmi.png
->] [21 <./std_alcohol.png>] (Statapp_report.bbl
+[16 <./relationships_between_tSNE_GHI_and_multiple_factors.png> <./tSNE_GHI_by_
+age.png>] [17 <./xgboost_accuracy_wrt_number_of_classes.png> <./density_bmi.png
+>] [18 <./std_alcohol.png>] (Statapp_report.bbl
 Underfull \hbox (badness 3838) in paragraph at lines 4--8
 []\OT1/cmr/m/n/10 Hrs poly-genic scores (re-lease 4.3).  []$\OT1/cmtt/m/n/10 ht
 tps : / / hrsdata . isr . umich . edu / data-[]products /
  []
 
-) [22
+) [19
 
 ] (Statapp_report.aux)
 Package rerunfilecheck Info: File `Statapp_report.out' has not changed.
 (rerunfilecheck)             Checksum: C849B5C24515B15FC28157FC22D16EBB;7050.
  ) 
 Here is how much of TeX's memory you used:
- 13015 strings out of 476361
- 199166 string characters out of 5788244
+ 13017 strings out of 476361
+ 199185 string characters out of 5788244
  2035242 words of memory out of 5000000
  33113 multiletter control sequences out of 15000+600000
  523955 words of font info for 79 fonts, out of 8000000 for 9000
@@ -863,9 +863,9 @@ fonts/cm/cmtt8.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/hoekwater/stmary10.pfb><C:/Users/kerya/AppData/Local/Program
 s/MiKTeX/fonts/type1/public/hoekwater/stmary7.pfb>
-Output written on Statapp_report.pdf (22 pages, 739994 bytes).
+Output written on Statapp_report.pdf (22 pages, 740830 bytes).
 PDF statistics:
- 547 PDF objects out of 1000 (max. 8388607)
- 123 named destinations out of 1000 (max. 500000)
+ 549 PDF objects out of 1000 (max. 8388607)
+ 125 named destinations out of 1000 (max. 500000)
  318 words of extra memory for PDF output out of 10000 (max. 10000000)
 

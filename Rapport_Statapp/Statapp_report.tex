@@ -38,13 +38,12 @@
 	\texttt{juliette.veillon@ensae.fr}
 }
 \date{\today}
-
+\setcounter{page}{-2}
 \begin{document}
 \newcommand{\sklearn}{\textbf{scikit-learn}}
 
 \maketitle
 \thispagestyle{empty}
-
 \begin{abstract}
 	Based on socioeconomic and genetic data, is it possible to predict one's health over time? The question has been discussed in many previous researches without a satisfying answer. This paper explains how we approached the problem. The data used for our purposes are the ones from the Health and Retirement Study led by the RAND Corporation. We first explain how we design a global health index, using Stochastic Neighbors Embedding paradigm, before applying a specific kind of Lasso Regression and further machine learning algorithms like Random Forest and XGBoost to predict the said health index.
 \end{abstract}
@@ -54,16 +53,16 @@
 \end{figure}
 
 \newpage
-%\begin{center}
-%    \section*{Acknowledgement}
-%\end{center}
-%We would like to thank Mr. Felix Tropf for letting us be a part of this project, but also for his help and guidance throughout the whole year.
-%
-%\vspace{4cm}
-%
-%\begin{center}
-%    \section*{Legal requirements}
-%\end{center}
+\thispagestyle{empty}
+\begin{center}
+    \item\section*{Acknowledgement}
+\end{center}
+We would like to thank Mr. Felix Tropf for letting us be a part of this project, but also for his help and guidance throughout the whole year.
+
+\begin{center}
+    \item\section*{Legal requirements}
+\end{center}
+
 Health and Retirement Study, (RAND HRS Longitudinal File 2018 (V2)) public use dataset. Produced
 and distributed by the University of Michigan with funding from the National Institute on Aging (grant number
 NIA U01AG009740). Ann Arbor, MI, (July 2022). \\
@@ -74,6 +73,7 @@ funding from the National Institute on Aging and the Social Security Administrat
 
 \newpage
 \tableofcontents
+\thispagestyle{empty}
 \newpage
 \section{Introduction}
 The work presented in this document has been realized in the framework of the \textbf{Applied Statistics Project} (STATAPP project) by the joint participation of Keryann Massin, Kilian Andru, Xavier Lacour and Juliette Veillon. It is dedicated to the question of the \textbf{predictability of life course}, a sociological question approached from a data science perspective.\\
