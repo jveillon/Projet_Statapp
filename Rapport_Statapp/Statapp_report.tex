@@ -374,7 +374,7 @@ By applying the HMLasso on $(X, y)$ where $X$ is the dataset above and $y$ is th
 
 \subsection{Multiple 2SLS regressions}
 \label{multiple2sls}
-Given the simplicity of the Lasso method previously displayed, we wanted to explore the prediction power we could get from applying a machine learning pipeline based on it. This section is dedicated to this exploration.
+Given the simplicity of the Lasso method previously displayed, we wanted to explore the prediction power we could get from applying a machine learning pipeline based on it. This section is dedicated to this exploration and the use of 2-Stage Least Squares regression (2SLS) \cite{2SLS1983}.
 \subsubsection{Principle}
 We consider here a recursive method to try to predict our Global Health Index at the last wave (wave 14). The main idea is to compute 14 regressions - one by wave. We chose the following method. Concerning the first wave, a Lasso is performed to deduce the wave 1's GHI from its socioeconomic data. Then, for the next waves, we use each time a 2SLS regression with lasso. Let's consider the wave $i \in \llbracket 2; 14 \rrbracket$.
 

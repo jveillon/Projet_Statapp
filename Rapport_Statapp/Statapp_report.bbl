@@ -12,6 +12,12 @@ Tianqi Chen and Carlos Guestrin.
 \newblock In {\em Proceedings of the 22nd {ACM} {SIGKDD} International
   Conference on Knowledge Discovery and Data Mining}. {ACM}, aug 2016.
 
+\bibitem{2SLS1983}
+Robert~E. Cumby, John Huizinga, and Maurice Obstfeld.
+\newblock Two-step two-stage least squares estimation in models with rational
+  expectations.
+\newblock {\em Journal of Econometrics}, 21(3):333--355, 1983.
+
 \bibitem{chi2test}
 Xavier Dupré.
 \newblock Calculer un $\chi ^2$ sur un tableau de contingence.
