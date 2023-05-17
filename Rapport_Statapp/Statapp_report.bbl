@@ -1,0 +1,61 @@
+\begin{thebibliography}{10}
+
+\bibitem{genetic2021}
+Hrs polygenic scores (release 4.3).
+\newblock
+  \url{https://hrsdata.isr.umich.edu/data-products/polygenic-score-data-pgs},
+  2021.
+
+\bibitem{xgboost2016}
+Tianqi Chen and Carlos Guestrin.
+\newblock {XGBoost}.
+\newblock In {\em Proceedings of the 22nd {ACM} {SIGKDD} International
+  Conference on Knowledge Discovery and Data Mining}. {ACM}, aug 2016.
+
+\bibitem{2SLS1983}
+Robert~E. Cumby, John Huizinga, and Maurice Obstfeld.
+\newblock Two-step two-stage least squares estimation in models with rational
+  expectations.
+\newblock {\em Journal of Econometrics}, 21(3):333--355, 1983.
+
+\bibitem{chi2test}
+Xavier Dupré.
+\newblock Calculer un $\chi ^2$ sur un tableau de contingence.
+\newblock
+  \url{http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/tableau_contingence.html}.
+
+\bibitem{pca1901}
+Karl~Pearson F.R.S.
+\newblock Liii. on lines and planes of closest fit to systems of points in
+  space.
+\newblock {\em Philosophical Magazine Series 1}, 2:559--572, 1901.
+
+\bibitem{amelia2011}
+James Honaker, Gary King, and Matthew Blackwell.
+\newblock {Amelia II}: A program for missing data.
+\newblock {\em Journal of Statistical Software}, 45(7):1--47, 2011.
+
+\bibitem{randomForest2012}
+Yanli Liu, Yourong Wang, and Jian Zhang.
+\newblock New machine learning algorithm: Random forest.
+\newblock In {\em International Conference on Information Computing and
+  Applications}, 2012.
+
+\bibitem{hrs2014}
+Rand hrs longitudinal file 2018 (v2).
+\newblock \url{https://hrsdata.isr.umich.edu/data-products/rand}, 2018.
+
+\bibitem{challenge2017}
+Matthew Salganik, Ian Lundberg, Alex Kindel, and Sara McLanahan.
+\newblock Fragile families challenge, 2017.
+
+\bibitem{hmlasso2019}
+Masaaki Takada, Hironori Fujisawa, and Takeichiro Nishikawa.
+\newblock Hmlasso: Lasso with high missing rate, 2019.
+
+\bibitem{tSNE2008}
+Laurens van~der Maaten and Geoffrey Hinton.
+\newblock Visualizing data using {t-SNE}.
+\newblock {\em Journal of Machine Learning Research}, 9:2579--2605, 2008.
+
+\end{thebibliography}
