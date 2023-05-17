@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  17 MAY 2023 09:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  17 MAY 2023 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -202,6 +202,152 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\stmaryrd.sty
+Package: stmaryrd 1994/03/03 St Mary's Road symbol package
+\symstmry=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
+(Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-04-22 v7.00x Hypertext links for LaTeX
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count282
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count283
+)
+\@linkdim=\dimen164
+\Hy@linkcounter=\count284
+\Hy@pagecounter=\count285
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-04-22 v7.00x Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count286
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-04-22 v7.00x Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4182.
+Package hyperref Info: Link nesting OFF on input line 4187.
+Package hyperref Info: Hyper index ON on input line 4190.
+Package hyperref Info: Plain pages OFF on input line 4197.
+Package hyperref Info: Backreferencing OFF on input line 4202.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4449.
+\c@Hy@tempcnt=\count287
+LaTeX Info: Redefining \url on input line 4787.
+\XeTeXLinkMargin=\dimen165
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count288
+\Field@Width=\dimen166
+\Fld@charsize=\dimen167
+Package hyperref Info: Hyper figures OFF on input line 6066.
+Package hyperref Info: Link nesting OFF on input line 6071.
+Package hyperref Info: Hyper index ON on input line 6074.
+Package hyperref Info: backreferencing OFF on input line 6081.
+Package hyperref Info: Link coloring OFF on input line 6086.
+Package hyperref Info: Link coloring with OCG OFF on input line 6091.
+Package hyperref Info: PDF/A mode OFF on input line 6096.
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count289
+\c@Item=\count290
+\c@Hfootnote=\count291
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-04-22 v7.00x Hyperref driver for pdfTeX
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
+kage
+with kernel methods
+)
+\Fld@listcount=\count292
+\c@bookmark@seq@number=\count293
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+85.
+)
+\Hy@SectionHShift=\skip53
+)
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: 
 * paper: <default>
@@ -238,39 +384,43 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count282
+\l__color_backend_stack_int=\count294
 \l__pdf_internal_box=\box55
 ) (Statapp_report.aux)
 \openout1 = `Statapp_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count283
-\scratchdimen=\dimen164
+\scratchcounter=\count295
+\scratchdimen=\dimen168
 \scratchbox=\box56
-\nofMPsegments=\count284
-\nofMParguments=\count285
+\nofMPsegments=\count296
+\nofMParguments=\count297
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count286
-\MPscratchDim=\dimen165
-\MPnumerator=\count287
-\makeMPintoPDFobject=\count288
+\MPscratchCnt=\count298
+\MPscratchDim=\dimen169
+\MPnumerator=\count299
+\makeMPintoPDFobject=\count300
 \everyMPtoPDFconversion=\toks26
 )
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
@@ -283,7 +433,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-\c@lstlisting=\count289
+\c@lstlisting=\count301
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -319,362 +469,403 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+Package hyperref Info: Link coloring OFF on input line 42.
+(Statapp_report.out) (Statapp_report.out)
+\@outlinefile=\write3
+\openout3 = `Statapp_report.out'.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
+
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
 
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<ENSAE_logo.png, id=1, 160.6pt x 203.76125pt>
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 4
+6.
+
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
+<ENSAE_logo.png, id=139, 160.6pt x 203.76125pt>
 File: ENSAE_logo.png Graphic file (type png)
 <use ENSAE_logo.png>
-Package pdftex.def Info: ENSAE_logo.png  used on input line 50.
+Package pdftex.def Info: ENSAE_logo.png  used on input line 53.
 (pdftex.def)             Requested size: 128.48016pt x 163.0092pt.
 
 [1
 
 
 {C:/Users/kerya/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./ENSAE_logo
-.png>] (Statapp_report.toc)
-\tf@toc=\write3
-\openout3 = `Statapp_report.toc'.
+.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 67--70
 
- [2]
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+ []
+
+[2] (Statapp_report.toc)
+\tf@toc=\write4
+\openout4 = `Statapp_report.toc'.
+
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--62
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 63--65
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--70
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 78--80
-
- []
-
-[3]
 Underfull \hbox (badness 10000) in paragraph at lines 81--83
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 84--86
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--100
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 101--103
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 109--110
 
  []
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 99--102
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 112--114
-
- []
-
-
-Overfull \hbox (63.65645pt too wide) in paragraph at lines 115--117
-\OT1/cmr/m/n/10 The sci-en-tific lit-er-a-ture points out the ben-e-fits of Pri
-n-ci-pal Com-po-nent Anal-y-sis (PCA) $[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 115--117
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 123--126
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 124--126
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 135--153
+Underfull \hbox (badness 10000) in paragraph at lines 136--138
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 146--147
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 174--176
+Underfull \hbox (badness 10000) in paragraph at lines 148--150
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--182
+Underfull \hbox (badness 10000) in paragraph at lines 159--177
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 198--200
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 183--185
+Underfull \hbox (badness 10000) in paragraph at lines 205--206
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--190
+Underfull \hbox (badness 10000) in paragraph at lines 207--209
 
  []
 
 
-Overfull \hbox (7.20724pt too wide) in paragraph at lines 195--198
+Underfull \hbox (badness 10000) in paragraph at lines 210--214
+
+ []
+
+
+Overfull \hbox (7.20724pt too wide) in paragraph at lines 219--222
 \OT1/cmr/m/n/10 The li-brary \OT1/cmr/bx/n/10 scikit-learn \OT1/cmr/m/n/10 in P
 ython would al-low us to reach our goal through the [][][][][]
  []
 
-[7]
-Underfull \hbox (badness 10000) in paragraph at lines 206--208
-
- []
-
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 241--243
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 270--272
+Underfull \hbox (badness 10000) in paragraph at lines 230--232
 
  []
 
 [9]
+Underfull \hbox (badness 10000) in paragraph at lines 265--267
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--296
+
+ []
+
+[10]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 278.
- [10]
-Underfull \hbox (badness 10000) in paragraph at lines 354--356
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 302.
+ [11]
+Underfull \hbox (badness 10000) in paragraph at lines 386--389
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--369
+Underfull \hbox (badness 10000) in paragraph at lines 394--395
 
  []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 380--381
-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 412--413
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 414--416
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 417--449
-
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4
-51.
-(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
-File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 451.
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 458--459
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 470--473
+Underfull \hbox (badness 10000) in paragraph at lines 408--409
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 478--479
+Underfull \hbox (badness 10000) in paragraph at lines 410--413
 
  []
 
-LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 481.
 
-Underfull \hbox (badness 10000) in paragraph at lines 480--483
+Underfull \hbox (badness 10000) in paragraph at lines 434--436
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 512--513
+Underfull \hbox (badness 10000) in paragraph at lines 447--449
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--516
+Underfull \hbox (badness 10000) in paragraph at lines 460--461
 
  []
 
 
-Overfull \hbox (22.13182pt too wide) in paragraph at lines 521--545
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 492--493
+
  []
 
 [14]
-<distribution_of_columns_wrt_missing_values_ratio.png, id=71, 451.6875pt x 339.
-669pt>
+Underfull \hbox (badness 10000) in paragraph at lines 494--496
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 497--529
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 5
+31.
+(C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
+File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 531.
+
+Underfull \hbox (badness 10000) in paragraph at lines 538--539
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 550--553
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 558--559
+
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 561.
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--563
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 594--596
+
+ []
+
+
+Overfull \hbox (22.13182pt too wide) in paragraph at lines 601--625
+ [][] 
+ []
+
+[16] [17]
+<distribution_of_columns_wrt_missing_values_ratio.png, id=372, 451.6875pt x 339
+.669pt>
 File: distribution_of_columns_wrt_missing_values_ratio.png Graphic file (type p
 ng)
 <use distribution_of_columns_wrt_missing_values_ratio.png>
 Package pdftex.def Info: distribution_of_columns_wrt_missing_values_ratio.png  
-used on input line 557.
+used on input line 641.
 (pdftex.def)             Requested size: 338.76479pt x 254.75111pt.
-<tSNE_GHI_RMSE_according_to_sample_size.png, id=72, 406.1574pt x 328.8285pt>
+<tSNE_GHI_RMSE_according_to_sample_size.png, id=373, 406.1574pt x 328.8285pt>
 File: tSNE_GHI_RMSE_according_to_sample_size.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_sample_size.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_sample_size.png  used on in
-put line 565.
+put line 649.
 (pdftex.def)             Requested size: 179.64682pt x 145.44263pt.
-<tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=73, 410.4936pt x 328.8285pt>
-
+<tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=374, 410.4936pt x 328.8285pt
+>
 File: tSNE_GHI_RMSE_according_to_percentage_NaN.png Graphic file (type png)
 <use tSNE_GHI_RMSE_according_to_percentage_NaN.png>
 Package pdftex.def Info: tSNE_GHI_RMSE_according_to_percentage_NaN.png  used on
- input line 571.
+ input line 655.
 (pdftex.def)             Requested size: 179.64682pt x 143.90727pt.
-<relationships_between_tSNE_GHI_and_multiple_factors.png, id=74, 414.8298pt x 3
-28.8285pt>
+<relationships_between_tSNE_GHI_and_multiple_factors.png, id=375, 414.8298pt x 
+328.8285pt>
 File: relationships_between_tSNE_GHI_and_multiple_factors.png Graphic file (typ
 e png)
 <use relationships_between_tSNE_GHI_and_multiple_factors.png>
 Package pdftex.def Info: relationships_between_tSNE_GHI_and_multiple_factors.pn
-g  used on input line 578.
+g  used on input line 662.
 (pdftex.def)             Requested size: 311.12158pt x 246.62077pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<tSNE_GHI_by_age.png, id=75, 414.8298pt x 328.8285pt>
+<tSNE_GHI_by_age.png, id=376, 414.8298pt x 328.8285pt>
 File: tSNE_GHI_by_age.png Graphic file (type png)
 <use tSNE_GHI_by_age.png>
-Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 584.
+Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 668.
 (pdftex.def)             Requested size: 311.12158pt x 246.62077pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<xgboost_accuracy_wrt_number_of_classes.png, id=76, 416.2752pt x 328.8285pt>
+<xgboost_accuracy_wrt_number_of_classes.png, id=377, 416.2752pt x 328.8285pt>
 File: xgboost_accuracy_wrt_number_of_classes.png Graphic file (type png)
 <use xgboost_accuracy_wrt_number_of_classes.png>
 Package pdftex.def Info: xgboost_accuracy_wrt_number_of_classes.png  used on in
-put line 590.
+put line 674.
 (pdftex.def)             Requested size: 312.20563pt x 246.62077pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<density_bmi.png, id=77, 416.2752pt x 314.3745pt>
+<density_bmi.png, id=378, 416.2752pt x 314.3745pt>
 File: density_bmi.png Graphic file (type png)
 <use density_bmi.png>
-Package pdftex.def Info: density_bmi.png  used on input line 596.
+Package pdftex.def Info: density_bmi.png  used on input line 680.
 (pdftex.def)             Requested size: 312.20563pt x 235.78029pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<std_alcohol.png, id=78, 422.0568pt x 314.3745pt>
+<std_alcohol.png, id=379, 422.0568pt x 314.3745pt>
 File: std_alcohol.png Graphic file (type png)
 <use std_alcohol.png>
-Package pdftex.def Info: std_alcohol.png  used on input line 602.
+Package pdftex.def Info: std_alcohol.png  used on input line 686.
 (pdftex.def)             Requested size: 316.54181pt x 235.78029pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 606--608
+Underfull \hbox (badness 10000) in paragraph at lines 690--692
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 609--611
+Underfull \hbox (badness 10000) in paragraph at lines 693--695
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 612--614
+Underfull \hbox (badness 10000) in paragraph at lines 696--698
 
  []
 
-[15
+[18
 
  <./distribution_of_columns_wrt_missing_values_ratio.png> <./tSNE_GHI_RMSE_acco
 rding_to_sample_size.png> <./tSNE_GHI_RMSE_according_to_percentage_NaN.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 615--617
+Underfull \hbox (badness 10000) in paragraph at lines 699--701
 
  []
 
-[16 <./relationships_between_tSNE_GHI_and_multiple_factors.png> <./tSNE_GHI_by_
-age.png>] [17 <./xgboost_accuracy_wrt_number_of_classes.png> <./density_bmi.png
->] [18 <./std_alcohol.png>] (Statapp_report.bbl) [19
+[19 <./relationships_between_tSNE_GHI_and_multiple_factors.png> <./tSNE_GHI_by_
+age.png>] [20 <./xgboost_accuracy_wrt_number_of_classes.png> <./density_bmi.png
+>] [21 <./std_alcohol.png>] (Statapp_report.bbl
+Underfull \hbox (badness 3838) in paragraph at lines 4--8
+[]\OT1/cmr/m/n/10 Hrs poly-genic scores (re-lease 4.3).  []$\OT1/cmtt/m/n/10 ht
+tps : / / hrsdata . isr . umich . edu / data-[]products /
+ []
 
-] (Statapp_report.aux) ) 
+) [22
+
+] (Statapp_report.aux)
+Package rerunfilecheck Info: File `Statapp_report.out' has not changed.
+(rerunfilecheck)             Checksum: C849B5C24515B15FC28157FC22D16EBB;7050.
+ ) 
 Here is how much of TeX's memory you used:
- 5694 strings out of 476361
- 84763 string characters out of 5788244
- 2034242 words of memory out of 5000000
- 26026 multiletter control sequences out of 15000+600000
- 522731 words of font info for 73 fonts, out of 8000000 for 9000
+ 13015 strings out of 476361
+ 199166 string characters out of 5788244
+ 2035242 words of memory out of 5000000
+ 33113 multiletter control sequences out of 15000+600000
+ 523955 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,63p,1289b,1495s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\kerya\AppData\Local\MiKTeX\fonts/pk/ljfour/j
-knappen/ec/dpi600\tcrm1000.pk><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/kerya/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/kerya/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/kerya/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/kery
-a/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/U
-sers/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.p
-fb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmmi7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr17.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/kerya/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/kerya/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsltt10.pfb><C:/Users/kerya/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
-kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C
-:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy
-7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmti10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmtt10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmtt12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/kerya/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Statapp_report.pdf (19 pages, 679624 bytes).
+ 75i,11n,76p,1323b,1493s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\kerya\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1000.pk><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmbx9.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/kerya/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/kerya/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/kerya/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/k
+erya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
+/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
+.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
+cm/cmr17.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr9.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsltt10.pfb><C:/Users/kerya/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/kerya/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/kerya/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/kerya/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Use
+rs/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pf
+b><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmtt12.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmtt8.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/hoekwater/stmary10.pfb><C:/Users/kerya/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/hoekwater/stmary7.pfb>
+Output written on Statapp_report.pdf (22 pages, 739994 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 547 PDF objects out of 1000 (max. 8388607)
+ 123 named destinations out of 1000 (max. 500000)
+ 318 words of extra memory for PDF output out of 10000 (max. 10000000)
 

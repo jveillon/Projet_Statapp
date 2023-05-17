@@ -9,7 +9,6 @@
 \usepackage{geometry} % Pour changer les marges
 \usepackage{url} % Pour les références
 \usepackage{stmaryrd} % Pour les doubles crochets
-
 \usepackage{hyperref}
 
 % UTILISER LA LIGNE CI-DESSOUS POUR CHANGER LES MARGES
@@ -55,16 +54,16 @@
 \end{figure}
 
 \newpage
-\begin{center}
-    \section*{Acknowledgement}
-\end{center}
-We would like to thank Mr. Felix Tropf for letting us be a part of this project, but also for his help and guidance throughout the whole year.
-
-\vspace{4cm}
-
-\begin{center}
-    \section*{Legal requirements}
-\end{center}
+%\begin{center}
+%    \section*{Acknowledgement}
+%\end{center}
+%We would like to thank Mr. Felix Tropf for letting us be a part of this project, but also for his help and guidance throughout the whole year.
+%
+%\vspace{4cm}
+%
+%\begin{center}
+%    \section*{Legal requirements}
+%\end{center}
 Health and Retirement Study, (RAND HRS Longitudinal File 2018 (V2)) public use dataset. Produced
 and distributed by the University of Michigan with funding from the National Institute on Aging (grant number
 NIA U01AG009740). Ann Arbor, MI, (July 2022). \\
@@ -77,18 +76,17 @@ funding from the National Institute on Aging and the Social Security Administrat
 \tableofcontents
 \newpage
 \section{Introduction}
-The work presented in this document has been realized in the framework of the \textbf{Applied Statistics Project} (projet Statapp) by the joint participation of Keryann Massin, Kilian Andru, Xavier Lacour and Juliette Veillon. It is dedicated to the question of the \textbf{predictability of life course}, a sociological question approached from a data science perspective.\\
+The work presented in this document has been realized in the framework of the \textbf{Applied Statistics Project} (STATAPP project) by the joint participation of Keryann Massin, Kilian Andru, Xavier Lacour and Juliette Veillon. It is dedicated to the question of the \textbf{predictability of life course}, a sociological question approached from a data science perspective.\\
 
 \noindent
 At the era of overly present information, machine learning reveals links and hidden relationships between variables that used to be hard to tackle. Data Science techniques spread among experts of all fields, and social sciences see major breakthroughs thanks to artificial intelligence. The question of the predictability of life course comes in this context as a challenging one: there is an obvious relationship between age, body-fat ratio and health for instance, but how could one exploit these links and other available information for prediction purpose? For instance, is it possible to forecast one's overall health for the upcoming year based on the socioeconomic and genetic data at our disposal? That is the problem we wish to address with this STATAPP project.\\
 
 \noindent
-Thanks to our supervisor M. Tropf, we have had access to the Heath and Retirement Study (HRS) led by the RAND Corporation \cite{hrs2014}, that consists in interviews of seniors in the United States followed over several years (28 years at most). $\towrite$\\
+Thanks to our supervisor M. Tropf, we have had access to the Health and Retirement Study (HRS) led by the RAND Corporation \cite{hrs2014}, that consists in interviews of seniors in the United States followed over several years (28 years at most).\\
 
 \noindent
-Our main reference for this project is the Fragile Families Challenge \cite{challenge2017}. The format of the database is similar to the HRS one: it comprises $4,242$ families, who were interrogated in six waves to collect a total of $12,942$ variables over $15$ years. The objective was to predict six life outcomes from wave 6 using the previous waves. Several groups of researchers participated in the task and reported both their methods and results. The method which obtained the best results, with an $R^2$ of $0.232$, is described as follows: “Our approach consists of the following steps. First, we do early house-cleaning by dropping variables with more than 60 percent missing and dropping variables with standard deviation smaller than .01. Second, we mean-impute the data and perform LASSO regressions of the outcome variables on all remaining covariates. We then drop any covariate whose coefficient is zero. Third, for the remaining covariates, we identify their originals (i.e., before mean imputation), and apply multiple-imputation using Amelia (which employs EM algorithms). We apply LASSO again for variable-selection using the Amelia-imputed dataset. When applying Amelia, we set M = 5 and pick the third dataset.” 
+Our main reference for this project is the Fragile Families Challenge \cite{challenge2017}. The format of the database is similar to the HRS one: it comprises $4,242$ families, who were interrogated in six waves to collect a total of $12,942$ variables over $15$ years. The objective was to predict six life outcomes from wave 6 using the previous waves. Several groups of researchers participated in the task and reported both their methods and results. The method which obtained the best results, with an $R^2$ of $0.232$, is described as follows: “Our approach consists of the following steps. First, we do early house-cleaning by dropping variables with more than 60 percent missing and dropping variables with standard deviation smaller than .01. Second, we mean-impute the data and perform LASSO regressions of the outcome variables on all remaining covariates. We then drop any covariate whose coefficient is zero. Third, for the remaining covariates, we identify their originals (i.e., before mean-imputation), and apply multiple-imputation using Amelia \cite{amelia2011} (which employs expectation-maximisation algorithms). We apply LASSO again for variable-selection using the Amelia-imputed dataset. When applying Amelia, we set M = 5 and pick the third dataset.” 
 The second-best method, with an $R^2$ of $0.229$, used an XGBoost algorithm \cite{xgboost2016}. We used these methods as an inspiration to find our own.
-\textbf{AJOUTER REFERENCES POUR LASSO, AMELIA, EM, etc.} \\
 
 \noindent
 In the upcoming pages, we first present the database and the cleaning steps we went through. In order to compute the predictability of life course, we then define a formal objective and apply machine learning procedures aiming to predict this objective. As this report is part of an educational project, we have chosen to present both the attempts that worked and the ones that failed.
@@ -101,8 +99,7 @@ Our project is based on three databases, which all have the same source: the Hea
 The first dataset is about participants’ lives data (its formal name is RAND HRS Longitudinal File 2018 (V2) \cite{hrs2014}). It contains fourteen waves of survey for the moment. At each new wave, people from previous waves must respond again (as the data is longitudinal), and new people representative of the American society are also added. Are considered in the data the respondents themselves, their spouses, and their households. The data here revolves around $10,000$ variables.\\
 
 \noindent
-The two other datasets correspond to the genetic ones (HRS Polygenic Scores – Release 4.3 
-2006-2012 Genetic Data, \textit{University of Michigan}, 2021). They are similar and just differ as one contains people with European ancestry while the other people with African ancestry. The contained genetic data are polygenic scores (PGSs). Their goal is to encapsulate genetic facts that are linked to a phenotypic trait to try to find the latter. Here, the genetic facts in question are Single Nucleotide Polymorphisms (SNPs). They correspond to DNA sequences where only one particular gene is different from the others in a part of the population wider than $1$\%. To obtain a PGS, a weighted sum is made with the SNPs linked to the phenotype that one wishes to estimate. The weights are obtained with a meta-analysis done on genome-wide association studies (GWAS) which try to see the link between phenotypes and genes (but not with single genes like with the SNPs).\\
+The two other datasets correspond to the genetic ones \cite{genetic2021}. They are similar and just differ as one contains people with European ancestry while the other people with African ancestry. The contained genetic data are polygenic scores (PGSs). Their goal is to encapsulate genetic facts that are linked to a phenotypic trait to try to find the latter. Here, the genetic facts in question are Single Nucleotide Polymorphisms (SNPs). They correspond to DNA sequences where only one particular gene is different from the others in a part of the population wider than $1$\%. To obtain a PGS, a weighted sum is made with the SNPs linked to the phenotype that one wishes to estimate. The weights are obtained with a meta-analysis done on genome-wide association studies (GWAS) which try to see the link between phenotypes and genes (but not with single genes like with the SNPs).\\
 
 \noindent
 A crucial information to be pointed out is that our databases contain a lot of missing values. These missing values can be classified in two categories: either the individual has been interviewed during a given wave but he did not answer a question, either the individual has not been interviewed. These two cases lead to missing values of different kind: the first ones might be imputed (that is, replacing missing values with likely values with respect to a certain methodology) whereas the second cannot. Indeed, if an individual has not been interrogated at a specific wave, imputing his answers is equivalent to creating them, which is nonsense.
@@ -111,6 +108,7 @@ A crucial information to be pointed out is that our databases contain a lot of m
 
 You may find the GitHub code from our project by clicking \href{https://github.com/jveillon/Projet_Statapp.git}{here}. \\
 
+\noindent
 To conduct our project, we first need to merge the databases. As the people who responded to the genetics survey are also included in the socio-economic one, we only need to add the first to the second by the individual identifier \pyth!HHIDPN!. However, this variable does not exist in the genetics databases, so we had to compute it by concatenating the Household Identifier \pyth!HHID! with the Person Number \pyth!PN!. Then we concatenated the two genetics bases and merged the resulting base with the socio-economic one. As the two genetic bases only differed by the individuals represented (ones with European ancestry and ones with African ancestry) but not by any of the $86$ variables of interest, we decided to create an \nth{87} variable \pyth!Section_A_or_E! that takes \pyth!A! and \pyth!E! as modalities and indicates the ancestry of individuals, in order not to lose any information.
 
 \subsection{Removal of unusable variables}
@@ -139,10 +137,10 @@ As explained in the introduction, we want to see whether it is possible to forec
 We carefully selected a few quantitative health-variables, from age and body mass index to the number of overnight stays at hospital or in nursing home the respondent went through over a year. We also took into account qualitative variables indicating whether the respondent had had hypertension, cancer, diabetes, heart disease, etc. Out of the 1,983 available health variables, we thus selected $27$ of them. The problem was to summarize them into one Global Health Index.\\
 
 \noindent
-The scientific literature points out the benefits of Principal Component Analysis (PCA) $\addref$ in the search of such an index. Therefore we first used it to summarize the $27$ variables into one. However, the index created this way did not present the expected consistency: one's index looked random over time, and the index was awkwardly positively correlated with each health-variable, independently of the actual effect of the variable on one's health.\\
+The scientific literature points out the benefits of Principal Component Analysis (PCA) \cite{pca1901} in the search of such an index. Therefore we first used it to summarize the $27$ variables into one. However, the index created this way did not present the expected consistency: one's index looked random over time, and the index was awkwardly positively correlated with each health-variable, independently of the actual effect of the variable on one's health.\\
 
 \noindent
-Hence, we looked for another dimensional reduction algorithm. The t-distributed Stochastic Neighbor Embedding (t-SNE) algorithm\footnote{Laurens van der Maaten and Geoffrey Hinton. Visualizing Data using t-SNE. \textit{ournal of Machine Learning Research 9} (2008)} had caught our attention, and we decided to apply it on our health data.
+Hence, we looked for another dimensional reduction algorithm. The t-distributed Stochastic Neighbor Embedding (t-SNE) algorithm \cite{tSNE2008} had caught our attention, and we decided to apply it on our health data.
 
 \subsection{Descriptive statistics on the selected variables}
 First, we focus on univariate statistics. For a variable to be interesting in the creation of the index, it needs to allow us to differentiate individuals to a certain extent. Formally, the dispersion of the values must be sufficient. We look at the standard deviation of the variables. If it is too close to $0$, it means than most individuals have the same value for the variable of interest, and it is not helpful to point out differences between individuals. Regarding the quantitative variables, the distributions show that the standard deviations are satisfying. For example, for the Body Mass Index (BMI) in wave $1$, the standard deviation is $5.18$, with $75\%$ of values between $12.8$ and $29.6$. Figure $\ref{density_bmi}$ shows the density of the BMI variable for all waves. However, for the variables that measure an evolution since the last interview, the standard deviations in the first wave are ambiguous, because measuring an evolution since the last wave for wave $1$ does not make much sense. When we exclude the first wave, we obtain more satisfying results.\\
@@ -374,6 +372,62 @@ To see which variables were useful in the prediction of the global health index 
 \end{table}\\
 By applying the HMLasso on $(X, y)$ where $X$ is the dataset above and $y$ is the GHI column, we are able to quickly drop hundreds of columns. After these procedures, our dataset comprises $p=1,500$ columns for $n=42,233$ individuals.
 
+\subsection{Multiple 2SLS regressions}
+\label{multiple2sls}
+Given the simplicity of the Lasso method previously displayed, we wanted to explore the prediction power we could get from applying a machine learning pipeline based on it. This section is dedicated to this exploration.
+\subsubsection{Principle}
+We consider here a recursive method to try to predict our Global Health Index at the last wave (wave 14). The main idea is to compute 14 regressions - one by wave. We chose the following method. Concerning the first wave, a Lasso is performed to deduce the wave 1's GHI from its socioeconomic data. Then, for the next waves, we use each time a 2SLS regression with lasso. Let's consider the wave $i \in \llbracket 2; 14 \rrbracket$.
+
+\noindent
+Using the estimator we obtained at the wave $i-1$, we predict GHI at $i-1$. We then add it to the socioeconomic data from the wave $i$ ($X_i$), along with the other predicted GHI from waves $j \in \llbracket 1; i-1 \rrbracket$. At the last wave, we also add the genetic data ($G$).\\
+It can be summed up as, for $i \in \llbracket 1; 14 \rrbracket$:
+\begin{equation}
+	\widehat{GHI}_i = \widehat{\beta}_{i}X_i + \textbf{1}_{\llbracket 2; 14 \rrbracket}(i) \sum_{j=1}^{i-1}{\delta_j}\widehat{GHI}_j + \textbf{1}_{\{ 14 \} }(i) \hat{\gamma} G
+\end{equation}
+To compare with the case without the genetic variables, we just do the same process while omitting the last term of the right part of the equation.\\
+We use the 2SLS method because we want to include the GHIs from the previous waves, as it helps have a logical continuity in an observation's health. However, using the previous real GHIs may let them absorb all the explanatory capacity of the explaining variables, and we do not only want the previous GHIs to explain the next one.\\
+
+\noindent
+In this section \ref{multiple2sls}, we only keep people still responding to the wave 14. This corresponds to $n=15,487$ people.
+
+\subsubsection{How we dealt with the missing values}
+We used two lassos in this section. The first one was previously introduced: the High Missing Rate Lasso. In this case, we only impute the missing values after we fitted the lasso to the data. We also used the traditional lasso, which required to impute data beforehand.\\
+
+\noindent
+We mean-imputed the data as it is a usual method that does not directly affect the estimation. We only tried to impute by the median once: the results did not statistically changed, but the calculations took twice as much time so we did not think this method would be worth exploring.
+
+\subsubsection{Performances}
+We mostly used the traditional lasso for time issues: the High Missing Rate Lasso takes approximately 3 hours to compute while the traditional one only takes 40 minutes. We also did not do an automatic grid-search with different random training and validation sets as it would have taken too much time. So at the beginning, we randomly fixed our training, validation and testing sets.\\
+
+\noindent
+The two metrics we tried to optimize during the training was the $R^2$ and the Root Mean Squared Error (RMSE) on the validation set. The variables we acted on to determine the best model were:
+\begin{itemize}
+	\item how we were imputing: either before or after using the Lasso, and either mean or median imputing.
+	\item the penalty $\mu$: we tested a few values from $\mu = 0.0001$ to $\mu = 20$
+\end{itemize}
+Overall, we tried around 20 different parameters combinations.\\
+
+\noindent
+With the training and validation set, we obtained that the model maximizing the $R^2$ consisted in a mean-imputation of the missing data followed by the use of a traditional lasso of parameter $\mu = 0.5$. Fortuitously, the same model was also the one minimising the RMSE on the validation set. As a result, both indicators highlight that the mean-imputed traditional lasso with $\mu = 0.5$ is the most suitable model.\\
+\textit{Remark.} We can underline that, surprisingly, the HMLasso was less efficient than a normal lasso for all tested values.\\
+
+\noindent
+Concerning this model, we have for the testing set - which goal is to verify there is not aberration in the sets'repartition, we get : 
+\begin{table}[!h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Data} & \textbf{Testing set's $R^2$} & \textbf{Testing set's RMSE} \\
+		\hline
+		With genetic data & 0.284062 & 48.032847  \\ 
+		\hline
+		Without genetic data & 0.276727 & 48.278280 \\
+		\hline 
+	\end{tabular}
+	\caption{2SLS with lasso ($\mu = 0.5$ and mean-imputation) - results}
+	\label{results_2SLS}
+\end{table}\\
+We observe that incorporating genetic data only leads to a marginal increase in $R^2$, by less than $0.01$. As a result, this method is not efficient to learn something from the role genes play on someone's health.
 \subsection{XGBoost for regression and classification}
 In inspiration of the best methods employed in the Fragile Family Challenges, we considered Gradient Boosting paradigm as a potentially suitable path to follow. This section is dedicated to the implementation of XGBoost, an instance of Gradient Boosting algorithm, and to the performances we managed to get.
 \subsubsection{Gradient Boosting in a nutshell}
@@ -573,71 +627,7 @@ Following the same reasoning as in section \ref{xgboost_performances}, we also t
 \end{table}\\
 Here, we remind the reader of the results obtained for XGBoost. Overall, we see that the Random Forest Classifier underperforms XGBoost Classifier for every single number of classes. Moreover, in the case of binary classification, the Random Forest Classifier shows an accuracy of $0.732<0.753$, a precision of $0.753<0.770$, a recall of $0.777=0.777$ and a F1-score of $0.765<0.773$, which further proves the superiority of XGBoost Classifier.
 
-\subsection{Multiple 2SLS regressions}
-\subsubsection{Principle}
-We consider here a recursive method to try to predict our Global Health Index at the last wave (wave 14). The main idea is to compute 14 regressions - one by wave. We chose the following method. Concerning the first wave, a Lasso is performed to deduce the wave 1's GHI from its socioeconomic data. Then, for the next waves, we use each time a 2SLS regression with lasso. Let's consider the wave $i \in \llbracket 2; 14 \rrbracket$.
 
-Using the estimator we obtained at the wave $i-1$, we predict GHI at $i-1$. We then add it to the socioeconomic data from the wave $i$ ($X_i$), along with the other predicted GHI from waves $j \in \llbracket 1; i-1 \rrbracket$. At the last wave, we also add the genetical data ($G$).
-
-It can be sumed up as, for $i \in \llbracket 1; 14 \rrbracket$ :
-
-\[ \widehat{GHI}_i = \widehat{\beta}_{i}X_i + \textbf{1}_{\llbracket 2; 14 \rrbracket}(i) \sum_{j=1}^{i-1}{\delta_j}\widehat{GHI}_j + \textbf{1}_{\{ 14 \} }(i) \hat{\gamma} G \]
-
-To compare with the case without the genetic variables, we just do the same process while omiting the last term of the right part of the equation.
-
-We use the 2SLS method because we want to include the GHIs from the previous waves, as it helps have a logical continuity in an observation's health. However, using the previous real GHIs may let them absorb all the explanatory capacity of the explaining variables, and we do not only want the previous GHIs to explain the next one.
-
-In this part, we only keep people still responding to the wave 14. This corresponds to $n=15487$ people.
-
-\subsubsection{How we dealt with the missing values}
-
-We used two lassos in this section.
-
-The first one is the one previously introduced, the High Missing Rate Lasso. In this case, we only impute the missing values after we fitted the lasso to the data.
-We also used the traditional lasso, by imputing the data at the beginning of the process.
-
-We used the mean to impute the data as it is a usual method that does not affect directly the estimation. We only tried to impute by the median once for one of the best models and the result was close to the one with the mean, but took twice as much time to compute, so we did not use it again.
-
-\subsubsection{Performances}
-
-We mostly used the traditional lasso for time issues: the High Missing Rate Lasso takes approximately 3 hours to compute while the traditional one only takes 40 minutes. We also did not do an automatic grid-search with different random training and validation sets as it would have taken too much time. So, we fixed randomly at the beginning, our training, validation and testing sets. 
-
-We tried to maximise the $R^2$ or the minimisation of the validation set's RMSE of a model. The variables we acted on to determine the best model was how we were imputating (directly at the beginning or after determining the lasso, mean or median) and the penalty $\mu$ (we tested from small values such as $\mu = 0$ or $\mu = 0.0001$ to $\mu = 20$ where only a few coefficients were left). We tried between around 20 different parameters combinations. 
-
-With the training and validation test, we obtained that the model maximizing the $R^2$ (considering the fact there are the same model with and without the genetic data) is the traditional lasso with $\mu = 0.5$ and a imputation by the mean. The same model was also the one minimising the RMSE on the validation set. So, both indicators highlight that the mean-imputated traditional lasso with $\mu = 0.5$ is the most suitable model.
-We can underline that, surprisingly, the HMLasso was less efficient than a normal lasso for all the tested values.
-
-Concerning this model, we have for the validation set:
-
-\begin{center}
-    \begin{tabular}{|c|c|c|}
-	   \hline
-	   \textbf{Data} & \textbf{Validation set's $R^2$} & \textbf{Validation set's RMSE} \\
-	   \hline
-	   With genetic data & 0.258968 & 46.897554  \\ 
-	   \hline
-	   Without genetic data & 0.254326 & 47.044230 \\
-	   \hline 
-    \end{tabular}
-\end{center}
-
-And for the testing set - which goal is to verify there is not aberration in the sets'repartition, we get : 
-
-\begin{center}
-    \begin{tabular}{|c|c|c|}
-	   \hline
-	   \textbf{Data} & \textbf{Testing set's $R^2$} & \textbf{Testing set's RMSE} \\
-	   \hline
-	   With genetic data & 0.284062 & 48.032847  \\ 
-	   \hline
-	   Without genetic data & 0.276727 & 48.278280 \\
-	   \hline 
-    \end{tabular}
-\end{center}
-
-We observe that the results from both tables are coherent with one another. 
-
-We also observe that adding the genetic data only permits a slight $R^2$ increase, by less than $0.01$, so it is difficult, with this method, to learn something from the role genes play on someone's health.
 
 
 

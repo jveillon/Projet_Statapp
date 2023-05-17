@@ -1,4 +1,10 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{genetic2021}
+Hrs polygenic scores (release 4.3).
+\newblock
+  \url{https://hrsdata.isr.umich.edu/data-products/polygenic-score-data-pgs},
+  2021.
 
 \bibitem{xgboost2016}
 Tianqi Chen and Carlos Guestrin.
@@ -11,6 +17,17 @@ Xavier Dupré.
 \newblock Calculer un $\chi ^2$ sur un tableau de contingence.
 \newblock
   \url{http://www.xavierdupre.fr/app/ensae_teaching_cs/helpsphinx/notebooks/tableau_contingence.html}.
+
+\bibitem{pca1901}
+Karl~Pearson F.R.S.
+\newblock Liii. on lines and planes of closest fit to systems of points in
+  space.
+\newblock {\em Philosophical Magazine Series 1}, 2:559--572, 1901.
+
+\bibitem{amelia2011}
+James Honaker, Gary King, and Matthew Blackwell.
+\newblock {Amelia II}: A program for missing data.
+\newblock {\em Journal of Statistical Software}, 45(7):1--47, 2011.
 
 \bibitem{randomForest2012}
 Yanli Liu, Yourong Wang, and Jian Zhang.
@@ -29,5 +46,10 @@ Matthew Salganik, Ian Lundberg, Alex Kindel, and Sara McLanahan.
 \bibitem{hmlasso2019}
 Masaaki Takada, Hironori Fujisawa, and Takeichiro Nishikawa.
 \newblock Hmlasso: Lasso with high missing rate, 2019.
+
+\bibitem{tSNE2008}
+Laurens van~der Maaten and Geoffrey Hinton.
+\newblock Visualizing data using {t-SNE}.
+\newblock {\em Journal of Machine Learning Research}, 9:2579--2605, 2008.
 
 \end{thebibliography}
