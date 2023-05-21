@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  17 MAY 2023 23:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.5) (preloaded format=pdflatex 2023.5.11)  21 MAY 2023 22:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -389,24 +389,24 @@ File: l3backend-pdftex.def 2023-04-19 L3 backend support: PDF output (pdfTeX)
 ) (Statapp_report.aux)
 \openout1 = `Statapp_report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -469,39 +469,40 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 42.
+Package hyperref Info: Link coloring OFF on input line 43.
 (Statapp_report.out) (Statapp_report.out)
 \@outlinefile=\write3
 \openout3 = `Statapp_report.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 47.
 
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 46.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 47.
 
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 4
-6.
+7.
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
-<ENSAE_logo.png, id=155, 160.6pt x 203.76125pt>
-File: ENSAE_logo.png Graphic file (type png)
-<use ENSAE_logo.png>
-Package pdftex.def Info: ENSAE_logo.png  used on input line 52.
+<figures_of_report//ENSAE_logo.png, id=155, 160.6pt x 203.76125pt>
+File: figures_of_report//ENSAE_logo.png Graphic file (type png)
+<use figures_of_report//ENSAE_logo.png>
+Package pdftex.def Info: figures_of_report//ENSAE_logo.png  used on input line 
+53.
 (pdftex.def)             Requested size: 128.48016pt x 163.0092pt.
 
 [-2
 
 
-{C:/Users/kerya/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./ENSAE_logo
-.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 66--69
+{C:/Users/kerya/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./figures_of
+_report//ENSAE_logo.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 67--70
 
  []
 
@@ -510,53 +511,53 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--69
 \openout4 = `Statapp_report.toc'.
 
  [0]
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 81--83
+Underfull \hbox (badness 10000) in paragraph at lines 82--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
+Underfull \hbox (badness 10000) in paragraph at lines 85--87
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 98--100
+Underfull \hbox (badness 10000) in paragraph at lines 99--101
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--103
+Underfull \hbox (badness 10000) in paragraph at lines 102--104
 
  []
 
 [1]
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2023/02/27 1.9 listings language file
 )
-<distribution_of_columns_wrt_missing_values_ratio.png, id=243, 451.6875pt x 339
-.669pt>
-File: distribution_of_columns_wrt_missing_values_ratio.png Graphic file (type p
-ng)
-<use distribution_of_columns_wrt_missing_values_ratio.png>
-Package pdftex.def Info: distribution_of_columns_wrt_missing_values_ratio.png  
-used on input line 126.
+<figures_of_report//distribution_of_columns_wrt_missing_values_ratio.png, id=24
+3, 451.6875pt x 339.669pt>
+File: figures_of_report//distribution_of_columns_wrt_missing_values_ratio.png G
+raphic file (type png)
+<use figures_of_report//distribution_of_columns_wrt_missing_values_ratio.png>
+Package pdftex.def Info: figures_of_report//distribution_of_columns_wrt_missing
+_values_ratio.png  used on input line 127.
 (pdftex.def)             Requested size: 316.17908pt x 237.76668pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--133
+Underfull \hbox (badness 10000) in paragraph at lines 124--134
 
  []
 
@@ -564,171 +565,180 @@ Underfull \hbox (badness 10000) in paragraph at lines 123--133
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+Underfull \hbox (badness 10000) in paragraph at lines 142--143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--145
+Underfull \hbox (badness 10000) in paragraph at lines 144--146
 
  []
 
-[3 <./distribution_of_columns_wrt_missing_values_ratio.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 146--148
+[3 <./figures_of_report//distribution_of_columns_wrt_missing_values_ratio.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--149
 
  []
 
-<density_bmi.png, id=263, 416.2752pt x 314.3745pt>
-File: density_bmi.png Graphic file (type png)
-<use density_bmi.png>
-Package pdftex.def Info: density_bmi.png  used on input line 158.
+<figures_of_report//density_bmi.png, id=263, 416.2752pt x 314.3745pt>
+File: figures_of_report//density_bmi.png Graphic file (type png)
+<use figures_of_report//density_bmi.png>
+Package pdftex.def Info: figures_of_report//density_bmi.png  used on input line
+ 159.
 (pdftex.def)             Requested size: 179.64682pt x 135.67247pt.
-<std_alcohol.png, id=264, 422.0568pt x 314.3745pt>
-File: std_alcohol.png Graphic file (type png)
-<use std_alcohol.png>
-Package pdftex.def Info: std_alcohol.png  used on input line 164.
+<figures_of_report//std_alcohol.png, id=264, 422.0568pt x 314.3745pt>
+File: figures_of_report//std_alcohol.png Graphic file (type png)
+<use figures_of_report//std_alcohol.png>
+Package pdftex.def Info: figures_of_report//std_alcohol.png  used on input line
+ 165.
 (pdftex.def)             Requested size: 179.64682pt x 133.81125pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--170
+Underfull \hbox (badness 10000) in paragraph at lines 154--171
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--173
+Underfull \hbox (badness 10000) in paragraph at lines 172--174
 
  []
 
-[4 <./density_bmi.png> <./std_alcohol.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 182--200
+[4 <./figures_of_report//density_bmi.png> <./figures_of_report//std_alcohol.png
+>]
+Underfull \hbox (badness 10000) in paragraph at lines 183--201
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 221--223
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--232
+Underfull \hbox (badness 10000) in paragraph at lines 231--233
 
  []
 
-<tSNE_GHI_RMSE_according_to_sample_size.png, id=296, 406.1574pt x 328.8285pt>
-File: tSNE_GHI_RMSE_according_to_sample_size.png Graphic file (type png)
-<use tSNE_GHI_RMSE_according_to_sample_size.png>
-Package pdftex.def Info: tSNE_GHI_RMSE_according_to_sample_size.png  used on in
-put line 240.
+<figures_of_report//tSNE_GHI_RMSE_according_to_sample_size.png, id=296, 406.157
+4pt x 328.8285pt>
+File: figures_of_report//tSNE_GHI_RMSE_according_to_sample_size.png Graphic fil
+e (type png)
+<use figures_of_report//tSNE_GHI_RMSE_according_to_sample_size.png>
+Package pdftex.def Info: figures_of_report//tSNE_GHI_RMSE_according_to_sample_s
+ize.png  used on input line 241.
 (pdftex.def)             Requested size: 179.64682pt x 145.44263pt.
-<tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=297, 410.4936pt x 328.8285pt
->
-File: tSNE_GHI_RMSE_according_to_percentage_NaN.png Graphic file (type png)
-<use tSNE_GHI_RMSE_according_to_percentage_NaN.png>
-Package pdftex.def Info: tSNE_GHI_RMSE_according_to_percentage_NaN.png  used on
- input line 246.
+<figures_of_report//tSNE_GHI_RMSE_according_to_percentage_NaN.png, id=297, 410.
+4936pt x 328.8285pt>
+File: figures_of_report//tSNE_GHI_RMSE_according_to_percentage_NaN.png Graphic 
+file (type png)
+<use figures_of_report//tSNE_GHI_RMSE_according_to_percentage_NaN.png>
+Package pdftex.def Info: figures_of_report//tSNE_GHI_RMSE_according_to_percenta
+ge_NaN.png  used on input line 247.
 (pdftex.def)             Requested size: 179.64682pt x 143.90727pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--253
+Underfull \hbox (badness 10000) in paragraph at lines 234--254
 
  []
 
-<relationships_between_tSNE_GHI_and_multiple_factors.png, id=304, 414.8298pt x 
-328.8285pt>
-File: relationships_between_tSNE_GHI_and_multiple_factors.png Graphic file (typ
-e png)
-<use relationships_between_tSNE_GHI_and_multiple_factors.png>
-Package pdftex.def Info: relationships_between_tSNE_GHI_and_multiple_factors.pn
-g  used on input line 260.
+<figures_of_report//relationships_between_tSNE_GHI_and_multiple_factors.png, id
+=304, 414.8298pt x 328.8285pt>
+File: figures_of_report//relationships_between_tSNE_GHI_and_multiple_factors.pn
+g Graphic file (type png)
+<use figures_of_report//relationships_between_tSNE_GHI_and_multiple_factors.png
+>
+Package pdftex.def Info: figures_of_report//relationships_between_tSNE_GHI_and_
+multiple_factors.png  used on input line 261.
 (pdftex.def)             Requested size: 179.64682pt x 142.40201pt.
-<tSNE_GHI_by_age.png, id=305, 414.8298pt x 328.8285pt>
-File: tSNE_GHI_by_age.png Graphic file (type png)
-<use tSNE_GHI_by_age.png>
-Package pdftex.def Info: tSNE_GHI_by_age.png  used on input line 266.
+<figures_of_report//tSNE_GHI_by_age.png, id=305, 414.8298pt x 328.8285pt>
+File: figures_of_report//tSNE_GHI_by_age.png Graphic file (type png)
+<use figures_of_report//tSNE_GHI_by_age.png>
+Package pdftex.def Info: figures_of_report//tSNE_GHI_by_age.png  used on input 
+line 267.
 (pdftex.def)             Requested size: 179.64682pt x 142.40201pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6 <./tSNE_GHI_RMSE_according_to_sample_size.png> <./tSNE_GHI_RMSE_according_to
-_percentage_NaN.png>]
-Overfull \hbox (9.42946pt too wide) in paragraph at lines 274--277
+[6 <./figures_of_report//tSNE_GHI_RMSE_according_to_sample_size.png> <./figures
+_of_report//tSNE_GHI_RMSE_according_to_percentage_NaN.png>]
+Overfull \hbox (9.42946pt too wide) in paragraph at lines 275--278
 \OT1/cmr/m/n/10 The li-brary \OT1/cmr/bx/n/10 scikit-learn  \OT1/cmr/m/n/10 in 
 Python would al-low us to reach our goal through the [][][][][]
  []
 
-[7 <./relationships_between_tSNE_GHI_and_multiple_factors.png> <./tSNE_GHI_by_a
-ge.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 285--287
+[7 <./figures_of_report//relationships_between_tSNE_GHI_and_multiple_factors.pn
+g> <./figures_of_report//tSNE_GHI_by_age.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 286--288
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--322
+Underfull \hbox (badness 10000) in paragraph at lines 321--323
 
  []
 
 [8]
-Underfull \hbox (badness 10000) in paragraph at lines 349--351
+Underfull \hbox (badness 10000) in paragraph at lines 350--352
 
  []
 
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 357.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 358.
 [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 441--444
+Underfull \hbox (badness 10000) in paragraph at lines 442--445
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 449--450
+Underfull \hbox (badness 10000) in paragraph at lines 450--451
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 455--456
+Underfull \hbox (badness 10000) in paragraph at lines 456--457
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 463--464
+Underfull \hbox (badness 10000) in paragraph at lines 464--465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 465--468
+Underfull \hbox (badness 10000) in paragraph at lines 466--469
 
  []
 
 [11]
-Underfull \hbox (badness 10000) in paragraph at lines 498--500
+Underfull \hbox (badness 10000) in paragraph at lines 499--501
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 528--529
+Underfull \hbox (badness 10000) in paragraph at lines 529--530
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 545--546
+Underfull \hbox (badness 10000) in paragraph at lines 546--547
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 547--549
+Underfull \hbox (badness 10000) in paragraph at lines 548--550
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 550--552
+Underfull \hbox (badness 10000) in paragraph at lines 551--553
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 553--569
+Underfull \hbox (badness 10000) in paragraph at lines 554--570
 
  []
 
@@ -736,98 +746,100 @@ Underfull \hbox (badness 10000) in paragraph at lines 553--569
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 570--572
+Underfull \hbox (badness 10000) in paragraph at lines 571--573
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 573--589
+Underfull \hbox (badness 10000) in paragraph at lines 574--590
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 597--599
+Underfull \hbox (badness 10000) in paragraph at lines 598--600
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 610--612
+Underfull \hbox (badness 10000) in paragraph at lines 611--613
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 623--624
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 655--656
+Underfull \hbox (badness 10000) in paragraph at lines 656--657
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 657--659
+Underfull \hbox (badness 10000) in paragraph at lines 658--660
 
  []
 
-<xgboost_accuracy_wrt_number_of_classes.png, id=424, 416.2752pt x 328.8285pt>
-File: xgboost_accuracy_wrt_number_of_classes.png Graphic file (type png)
-<use xgboost_accuracy_wrt_number_of_classes.png>
-Package pdftex.def Info: xgboost_accuracy_wrt_number_of_classes.png  used on in
-put line 694.
+<figures_of_report//xgboost_accuracy_wrt_number_of_classes.png, id=424, 416.275
+2pt x 328.8285pt>
+File: figures_of_report//xgboost_accuracy_wrt_number_of_classes.png Graphic fil
+e (type png)
+<use figures_of_report//xgboost_accuracy_wrt_number_of_classes.png>
+Package pdftex.def Info: figures_of_report//xgboost_accuracy_wrt_number_of_clas
+ses.png  used on input line 695.
 (pdftex.def)             Requested size: 249.76704pt x 197.29861pt.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 6
-99.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 7
+00.
 (C:\Users\kerya\AppData\Local\Programs\MiKTeX\tex/latex/base\omscmr.fd
 File: omscmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 699.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 700.
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 706--707
+Underfull \hbox (badness 10000) in paragraph at lines 707--708
 
  []
 
-[16 <./xgboost_accuracy_wrt_number_of_classes.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 718--721
+[16 <./figures_of_report//xgboost_accuracy_wrt_number_of_classes.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 719--722
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 726--727
+Underfull \hbox (badness 10000) in paragraph at lines 727--728
 
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 729.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 730.
 
-Underfull \hbox (badness 10000) in paragraph at lines 728--731
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 760--761
+Underfull \hbox (badness 10000) in paragraph at lines 729--732
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 762--764
+Underfull \hbox (badness 10000) in paragraph at lines 761--762
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 763--765
 
  []
 
 [17]
-Overfull \hbox (22.13182pt too wide) in paragraph at lines 769--793
+Overfull \hbox (22.13182pt too wide) in paragraph at lines 770--794
  [][] 
  []
 
 [18]
-Underfull \hbox (badness 10000) in paragraph at lines 800--802
+Underfull \hbox (badness 10000) in paragraph at lines 801--803
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 803--805
+Underfull \hbox (badness 10000) in paragraph at lines 804--806
 
  []
 
@@ -844,10 +856,10 @@ Package rerunfilecheck Info: File `Statapp_report.out' has not changed.
 (rerunfilecheck)             Checksum: 330F4E2EDA0148152476BA570A1E3539;7652.
  ) 
 Here is how much of TeX's memory you used:
- 13047 strings out of 476361
- 199596 string characters out of 5788244
+ 13066 strings out of 476361
+ 201347 string characters out of 5788244
  1994242 words of memory out of 5000000
- 33125 multiletter control sequences out of 15000+600000
+ 33143 multiletter control sequences out of 15000+600000
  524666 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,76p,1323b,2145s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -887,7 +899,7 @@ msbm10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/public/hoe
 kwater/stmary10.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts/type1/p
 ublic/hoekwater/stmary7.pfb><C:/Users/kerya/AppData/Local/Programs/MiKTeX/fonts
 /type1/public/hoekwater/stmary8.pfb>
-Output written on Statapp_report.pdf (23 pages, 844149 bytes).
+Output written on Statapp_report.pdf (23 pages, 844015 bytes).
 PDF statistics:
  632 PDF objects out of 1000 (max. 8388607)
  141 named destinations out of 1000 (max. 500000)

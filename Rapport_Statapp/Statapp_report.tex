@@ -9,10 +9,11 @@
 \usepackage{geometry} % Pour changer les marges
 \usepackage{url} % Pour les références
 \usepackage{stmaryrd} % Pour les doubles crochets
-\usepackage{hyperref}
+\usepackage{hyperref} % Pour cliquer sur les titres et sur les références
 
-% UTILISER LA LIGNE CI-DESSOUS POUR CHANGER LES MARGES
-\newgeometry{vmargin={20mm}, hmargin={30mm,30mm}}   % set the margins
+
+\newgeometry{vmargin={20mm}, hmargin={30mm,30mm}} % Set the margins
+\graphicspath{{figures_of_report/}} % Setting the graphicspath
 
 %new commands
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -537,7 +538,7 @@ To try to check whether this hypothesis is valid, we conducted correlation tests
 	\end{array}
 	\right.
 \end{equation}
-The results of these tests show us that the residuals are significantly uncorrelated with at least 50 or even 100 variables per wave. Here, Knowing that the Lasso regression will keep the variables most correlated to the outcome, thus the variables most uncorrelated to the residuals and that the selection process will keep no more than 150 variables distributed in each wave, we can consider that the assumption of strict exogeneity is valid for these methods.
+The results of these tests show us that the residuals are significantly uncorrelated with at least 50 or even 100 variables per wave. Here, knowing that the Lasso regression will keep the variables most correlated to the outcome, thus the variables most uncorrelated to the residuals and that the selection process will keep no more than 150 variables distributed in each wave, we can consider that the assumption of strict exogeneity is valid for these methods.
 
 \subsubsection{Performances}
 
